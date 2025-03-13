@@ -1,0 +1,15 @@
+.upperColumn {
+    display: flex;
+    gap: 12px; 
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+
+
+@media (max-width: 720px) {
+    .upperColumn {
+      display: none;
+      
+    }
+  }
