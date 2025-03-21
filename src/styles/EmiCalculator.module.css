@@ -1,0 +1,121 @@
+.emiCalculator {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 15px;
+  }
+
+  .emiStartingRate h5 {
+    font-size: 10px;
+  }
+  .emiStartingRate h6 span {
+    font-size: 40px;
+  }
+  .emiStartingRate h6 {
+    color: rgb(103, 147, 147);
+  }
+
+  .pieChartCiecle {
+    display: flex;
+    justify-content: center;
+  }
+  .pieChartCiecle div {
+    width: 200px;
+    display: flex;
+  }
+
+  .smallCardMainDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px !important;
+  }
+  .smallCardMainDiv p {
+    margin-bottom: 0px !important;
+    font-size: 12px;
+  }
+
+  .smallCard .div-one {
+    width: 12px;
+    height: 12px;
+    background-color: #74c5e8;
+    border-radius: 3px;
+  }
+  .smallCard .div-two {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(214, 37, 37);
+    border-radius: 3px;
+  }
+  .smallCard {
+    display: flex;
+    align-items: center;
+  }
+  .smallCardMainDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px !important;
+  }
+  .smallCardMainDiv p {
+    margin-bottom: 0px !important;
+    font-size: 12px;
+  }
+
+  .smallCardMainDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px !important;
+  }
+  .smallCardMainDiv p {
+    margin-bottom: 0px !important;
+    font-size: 12px;
+  }
+  .secondDiv {
+    border-bottom: 1px dotted black;
+  }
+  .priceRangeMainCol {
+    padding: 0px !important;
+    display: grid;
+  }
+  .mainPriceDiv {
+    padding: 20px !important;
+  }
+
+  .emiLoanamountCalculator {
+    display: flex;
+    justify-content: space-between;
+  }
+  .emiLoanamountCalculator p {
+    margin-bottom: 2px !important;
+  }
+  .emiLoanamountCalculatorBelow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
+  .emiLoanamountCalculatorBelow p {
+    margin-bottom: 2px !important;
+  }
+
+  .emiLoanamountCalculatorBelow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
+  .emiLoanamountCalculatorBelow p {
+    margin-bottom: 2px !important;
+  }
+
+  .div-content-below {
+    background-color: #e5e5e5;
+    padding: 25px 20px 25px 20px !important;
+    font-size: 12px;
+    border-bottom-right-radius: 15px;
+  }
+  .processPara {
+    border-bottom: 1px dotted black;
+    padding-bottom: 10px;
+    margin-bottom: 5px !important;
+  }

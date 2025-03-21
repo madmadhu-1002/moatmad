@@ -1,0 +1,19 @@
+.dealsTabel :global(.table) {
+    --bs-table-striped-bg: #f8d4b094 !important;
+    --bs-table-bg: none !important;
+  }
+
+  .bidPriceFont {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+  }
+  .bidPriceFont {
+    height: 37px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+@media (max-width: 768px) {
+    .dealerPageContainer{
+        padding: 0px 10px !important;
+    }
+}

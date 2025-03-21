@@ -1,9 +1,9 @@
 
-import HomePage from "@/components/HomePage";
-import {fetchHome} from "@/utils/fetchApi.js"
+import Buy from "@/components/Buy";
+import {fetchBuy} from "@/utils/fetchApi.js"
 
 export async function generateMetadata() {
-  const { seo } = await fetchHome();
+  const { seo } = await fetchBuy();
 
   return {
     title: seo?.meta_title || "Default Title",
@@ -30,16 +30,16 @@ export async function generateMetadata() {
 }
 
 const Page = async () => {
-  const homepage = await fetchHome();
+    const buydata = await fetchBuy();
+    
+    
+    return (
+      <>
+      <Buy buydata={buydata}/>
+      </>
+    )
+  }
   
   
-  return (
-    <>
-    <HomePage homepage={homepage} />
-    </>
-  )
-}
-
-
-
-export default Page
+  
+  export default Page

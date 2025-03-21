@@ -1,9 +1,9 @@
 
-import HomePage from "@/components/HomePage";
-import {fetchHome} from "@/utils/fetchApi.js"
+import Compare from "@/components/Compare";
+import { fetchCompareSeo} from "@/utils/fetchApi.js"
 
 export async function generateMetadata() {
-  const { seo } = await fetchHome();
+  const { seo } = await fetchCompareSeo();
 
   return {
     title: seo?.meta_title || "Default Title",
@@ -29,17 +29,18 @@ export async function generateMetadata() {
   };
 }
 
+
 const Page = async () => {
-  const homepage = await fetchHome();
+    
+    
+    
+    return (
+      <>
+      <Compare />
+      </>
+    )
+  }
   
   
-  return (
-    <>
-    <HomePage homepage={homepage} />
-    </>
-  )
-}
-
-
-
-export default Page
+  
+  export default Page

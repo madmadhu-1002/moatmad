@@ -5,6 +5,14 @@
     justify-content: flex-end;
   }
 
+  .upperColumn :global(h6:hover) {
+    color: #ca0000 !important;
+}
+
+.custom-nav-link :global(a:hover){
+  color: #ca0000 !important;
+}
+ 
 
 
 @media (max-width: 720px) {

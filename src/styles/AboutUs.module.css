@@ -1,0 +1,104 @@
+.tabesContainer {
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    padding: 0px 28px 0px 30px !important;
+  }
+
+  .productsBrandMenu {
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(224, 28, 28); */
+  }
+  .productsBrandMenu :global(.active) {
+    background-color: white !important;
+    border-radius: 0px !important;
+    color: black !important;
+  }
+  
+
+  .productsBrandMenu :global(.nav-link) {
+    color: black !important;
+    border: 1px solid black;
+    margin: 0px 10px;
+  }
+
+  .productsBrandMenu :global(.active) {
+    color: white !important;
+    background-color: #f30e0e !important;
+    border: none !important;
+  }
+
+  .aboutNavPills {
+    width: 100%;
+    justify-content: center;
+  }
+  .aboutNavPills :global(.nav-item) {
+    display: flex;
+    justify-content: center;
+  }
+
+  .aboutLinks{
+    font-size: 10px ;
+}
+
+.createVedioBox {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 15px;
+  }
+
+  .meetTeamContainer :global(.card .rounded-image) {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-top: -30%;
+    object-fit: cover;
+  }
+  .meetTeamContainer :global(.card) {
+    border: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-top: 50%;
+  }
+  .meetTeamContainer :global(.card h6) {
+    width: 200px;
+    height: 44px;
+    text-transform: capitalize;
+  }
+  
+  .meetTeamContainer :global(.card p) {
+    text-transform: capitalize;
+  }
+
+  .meetTeamContainer {
+    padding: 0px 20px;
+  }
+
+  .aboutForm {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 20px !important;
+    border-radius: 15px !important;
+  }
+
+
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    .productsBrandMenu :global(.flex-row) {
+        display: flex;
+        justify-content: space-around;
+    
+    }
+    .productsBrandMenu :global(.flex-row .nav-item){
+        width: 120px;
+        padding: 10px 0px;
+    }
+    .productsBrandMenu .nav-item .nav-link{
+        margin: 0px;
+    }
+  }
+
+  @media (max-width:767px){
+    .tabesContainer{
+        padding: 0px 20px !important;
+    }
+  }

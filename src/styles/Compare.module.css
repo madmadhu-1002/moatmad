@@ -1,0 +1,54 @@
+.compareTable :global(.table) {
+    --bs-table-striped-bg: #f8d4b094 !important;
+    --bs-table-bg: none !important;
+  }
+
+  
+
+  .productsHeading {
+    display: grid;
+    justify-content: center;
+  }
+  .productsHeading :global(h6) {
+    text-align: center;
+  }
+  .productsHeading :global(h3) {
+    font-weight: 700;
+    margin-bottom: 0px !important;
+  }
+  .compareRow {
+    display: flex;
+    justify-content: space-around;
+    margin: 3% 0% !important;
+  }
+  .compareClearCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .compareClearCol :global(.btn) {
+    background-color: #ca0000;
+    border: 0 !important;
+    width: 200px;
+  }
+
+  .compareTable :global(.table) {
+    --bs-table-striped-bg: #f8d4b094 !important;
+    --bs-table-bg: none !important;
+  }
+  .compareTable :global(.table > :not(caption) > * > *) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 300px;
+  }
+
+  @media (max-width: 576px) {
+    .productsHeading :global(h3){
+        font-size: 18px ;
+       }
+
+       .modelBootom{
+        margin-bottom: 1rem !important;
+    }
+  }

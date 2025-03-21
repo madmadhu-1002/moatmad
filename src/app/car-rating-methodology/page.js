@@ -1,9 +1,9 @@
 
-import HomePage from "@/components/HomePage";
-import {fetchHome} from "@/utils/fetchApi.js"
+import CarRating from "@/components/CarRating";
+import {fetchCarRating} from "@/utils/fetchApi.js"
 
 export async function generateMetadata() {
-  const { seo } = await fetchHome();
+  const { seo } = await fetchCarRating();
 
   return {
     title: seo?.meta_title || "Default Title",
@@ -29,17 +29,18 @@ export async function generateMetadata() {
   };
 }
 
+
 const Page = async () => {
-  const homepage = await fetchHome();
+    const {content} = await fetchCarRating();
+    
+    
+    return (
+      <>
+      <CarRating data={content}/>
+      </>
+    )
+  }
   
   
-  return (
-    <>
-    <HomePage homepage={homepage} />
-    </>
-  )
-}
-
-
-
-export default Page
+  
+  export default Page

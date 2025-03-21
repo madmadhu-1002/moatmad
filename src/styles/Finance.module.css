@@ -1,0 +1,33 @@
+.financePage :global(.div-content-below) {
+    padding-bottom: 20px !important;
+}
+
+.financeContent :global(p) {
+    font-size: 12px;
+}
+
+.financeContent :global(h5) {
+    font-size: 18px;
+}
+
+.financeContent :global(li) {
+    font-size: 12px;
+}
+
+.productsHeading {
+    display: grid;
+    justify-content: center;
+}
+
+.productsHeading :global(h6) {
+    text-align: center;
+}
+
+.productsHeading :global(h3) {
+    font-weight: 700;
+    margin-bottom: 0px !important;
+}
+
+.productsHeading :global(h3){
+    font-size: 18px ;
+   }

@@ -1,9 +1,8 @@
-
-import HomePage from "@/components/HomePage";
-import {fetchHome} from "@/utils/fetchApi.js"
+import AboutUs from "@/components/AboutUs";
+import {fetchAbout} from "@/utils/fetchApi.js"
 
 export async function generateMetadata() {
-  const { seo } = await fetchHome();
+  const { seo } = await fetchAbout();
 
   return {
     title: seo?.meta_title || "Default Title",
@@ -29,17 +28,18 @@ export async function generateMetadata() {
   };
 }
 
-const Page = async () => {
-  const homepage = await fetchHome();
+
+const About = async () => {
+  const {about_us_categories} = await fetchAbout();
   
   
   return (
     <>
-    <HomePage homepage={homepage} />
+    <AboutUs aboutlinks={about_us_categories}/>
     </>
   )
 }
 
 
 
-export default Page
+export default About

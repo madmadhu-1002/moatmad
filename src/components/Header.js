@@ -14,24 +14,7 @@ import Image from 'next/image';
 
 
 export default function Header({menus}) {
-  // const [menus, setMenus] = useState([]);
       const [expanded, setExpanded] = useState(false);
-  // useEffect(() => {
-  //   const fetchMenus = async () => {
-      
-  //     try {
-  //       const response = await fetch("https://admin.moatamad.com/api/getMenus");
-  //       if (!response.ok) throw new Error("Failed to fetch menu");
-  //       const data = await response.json();
-  //       setMenus(data.data.menus);
-  //     } catch (error) {
-  //       console.error("Error fetching menu:", error);
-  //     }
-  //   };
-
-  //   fetchMenus();
-  // }, []);
-
   const handleToggle = () => {
     setExpanded(!expanded);
   };
@@ -42,7 +25,7 @@ export default function Header({menus}) {
 
     return (
       <>
-      <Navbar expand="lg" sticky='top'  expanded={expanded}>
+      <Navbar expand="lg" sticky='top' className="bg-gray-100 w-100 pt-0 pb-0"  expanded={expanded}>
         <Container fluid >
           <Navbar.Brand  as={Link} href={'/'}>
             <Image src='/assets/logo/Moatamad_Logo_W-O_TagLine++.png' alt="Logo" width={120} height={27}/>
@@ -76,23 +59,23 @@ export default function Header({menus}) {
                   </h6>
                 </Col>
               </Row>
-
+              <hr className="w-100 border border-secondary my-0" />
               <Nav className="ms-auto d-flex justify-content-end w-100 align-items-center">
                 {menus && menus?.map((item, index) => (
                   item.children && item.children.length > 0 ? (
-                    <NavDropdown title={item.menu_name_en} id={`basic-nav-dropdown-${index}`} key={index} >
+                    <NavDropdown title={item.menu_name_en}  id={`basic-nav-dropdown-${index}`} key={index} >
                       {item.children.map((subItem, subIndex) => (
-                        <NavDropdown.Item as={Link} onClick={handleSelect} href={subItem.slug} key={subIndex} >
+                        <NavDropdown.Item as={Link} onClick={handleSelect} className="custom-nav-link" href={subItem.slug} key={subIndex} >
                           {subItem.menu_name_en}
                         </NavDropdown.Item>
                       ))}
                     </NavDropdown>
                   ) : item.paddinglast ? (
-                    <Nav.Link  style={{ padding: "5px 5px 5px 20px" }} as={Link} href={item.url} key={index} onClick={handleSelect}>
+                    <Nav.Link className="custom-nav-link"  style={{ padding: "5px 5px 5px 20px" }} as={Link} href={item.url} key={index} onClick={handleSelect}>
                       {item.menu}
                     </Nav.Link>
                   ) : (
-                    <Nav.Link  style={{ padding: "5px 20px" }} as={Link} href={item.slug} key={index} onClick={handleSelect}>
+                    <Nav.Link className="custom-nav-link"  style={{ padding: "5px 20px" }} as={Link} href={item.slug} key={index} onClick={handleSelect}>
                       {item.menu_name_en}
                     </Nav.Link>
                   )

@@ -1,0 +1,104 @@
+
+
+.footerFirstContainer {
+    /* background-image: url('https://img.freepik.com/free-vector/car-led-lights-realistic-composition-with-view-night-road-silhouettes-automobile-traffic-lights-illustration_1284-28531.jpg?t=st=1716195368~exp=1716198968~hmac=070f2c528d0e1573a2cb9abc1cc898ee564b8ff23dc1262fe64d04976f2d3c5a&w=826'); */
+    display: flex !important;
+    justify-content: center;
+    align-items: center !important;
+    padding: 20px 20px;
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  */
+    /* background-color: #e5e5e5; */
+    background-color: #a6a7af;
+    /* background-color: red ; */
+    color: white;
+  }
+
+.footerIconSubscribe .col-lg-3 div p {
+    margin-bottom: 0px !important;
+    font-size: 14px;
+}
+
+.footerReviewsContent {
+    font-size: 14px;
+    /* text-align: center; */
+  }
+
+  .subHeading{
+    margin-top: 5%;
+}
+
+.subcribeBtn {
+    background-color: black !important;
+    border: none !important;
+    padding-top: 4px !important;
+  }
+
+  .footerMenuRow {
+    padding: 30px 42px;
+    display: flex;
+    justify-content: start !important;
+  }
+  .footerMenuRow hr {
+    width: 80px;
+    opacity: 5 !important;
+    margin: 5px 0px !important;
+    height: 5px !important;
+    color: red;
+    font-weight: 700;
+    border-top: 1.5px solid !important;
+  }
+  .footerMenuRow p {
+    margin-bottom: 5px !important;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .footerMenuRow  {
+    display: flex;
+    /* justify-content: center; */
+  }
+
+  .footerMenuRow {
+    background-color: #94959d;
+  }
+
+  .footerIcons a {
+    color: black;
+    padding-right: 14px;
+  }
+
+  .footerPageIconRow {
+    background-color: #100f0f;
+    padding: 0px 40px;
+    padding-bottom: 8px;
+  }
+  
+  .footerPageIconRow h6 {
+    margin: 0px !important;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 12px;
+  }
+  .footerPageIconRow .col-lg-8 {
+    height: 100%;
+  }
+  .footerPageIconRow .col-lg-4 {
+    display: flex;
+    justify-content: end;
+    height: 100%;
+  }
+  .footerPageIconRow .col-lg-4 div {
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+  }
+
+
+  
