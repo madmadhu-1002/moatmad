@@ -103,5 +103,51 @@ async function fetchHome(){
     return data.data;
 }
 
+async function fetchBlogDetails(lastRouteName) {
+  try {
+      const res = await fetch(`https://admin.moatamad.com/api/getBlogsPageDetailserBySlug/${lastRouteName}`, { cache: "no-store" });
+      if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+      }
 
-  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome };
+      const text = await res.text(); // Read response as text first
+      console.log(text, "Raw Response Text"); // Log the raw text response
+
+      if (!text) {
+          throw new Error("Empty response from server");
+      }
+
+      const data = JSON.parse(text); 
+
+      return data; 
+  } catch (error) {
+      console.error("Error fetching blog details:", error);
+      return null; // Return null if there's an error
+  }
+}
+
+async function fetchBrandDetails(lastRouteName) {
+  try {
+      const res = await fetch(`https://admin.moatamad.com/api/getVehicleDetailsByVehicleSlug/${lastRouteName}`, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+
+    const text = await res.text(); // Read response as text first
+    console.log(text, "Raw Response Text"); // Log the raw text response
+
+    if (!text) {
+        throw new Error("Empty response from server");
+    }
+
+    const data = JSON.parse(text); 
+
+      return data.data; 
+  } catch (error) {
+      console.error("Error fetching brand details:", error);
+      return null; // Return null if there's an error
+  }
+}
+
+
+  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome, fetchBlogDetails, fetchBrandDetails };

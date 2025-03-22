@@ -335,7 +335,7 @@ const Buy = ({buydata}) => {
 
                     return (
                       <Col lg={3} className='mb-5' key={item.id || index}>
-                        <Card as={Link} href={item.slug} style={{ textDecoration: 'none', padding: '0px' }} >
+                        <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: '0px' }} >
                           <Card.Header style={{ padding: "0px" }} className={styles.productsCardHeader}>
                             <img src={item.car_image} height={'100%'} width={'100%'} />
                             <h6 className={styles.availableH6}>available</h6>
@@ -437,7 +437,7 @@ const Buy = ({buydata}) => {
 
                       return (
                         <Col lg={3} className='mb-5' key={item.id || index}>
-                          <Card as={Link} href={item.slug} style={{ textDecoration: 'none', padding: '0px' }} >
+                          <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: '0px' }} >
                             <Card.Header style={{ padding: "0px" }} className={styles.productsCardHeader}>
                               <img src={item.car_image} height={'100%'} width={'100%'} />
                               <h6 className={styles.availableH6}>available</h6>

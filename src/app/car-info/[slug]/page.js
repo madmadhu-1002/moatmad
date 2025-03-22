@@ -1,14 +1,28 @@
-"use client"
-import { useRouter } from "next/navigation";
 
-const page = ({params}) => {
+import BrandDetails from "@/components/BrandDetails";
+import { fetchBrandDetails } from "@/utils/fetchApi";
+
+export async function generateMetadata({ params: { slug } }) {
+    const { seo } = await fetchBrandDetails(slug);
+  
+    return {
+      title: seo?.meta_title || "Default Title",
+      description: seo?.meta_description || "Default description",
+      keywords: seo?.meta_keywords || "",
+      robots: seo?.robots || "index, follow",
+      alternates: {
+        canonical: seo?.canonical_url || "",
+      }
+    };
+  }
+
+const page = async ({params}) => {
     const { slug } = params;  // Dynamic slug from URL
-    
+    const vehicledata = await fetchBrandDetails(slug);
 
     return (
         <div>
-            
-            <p>Fetching details for: {slug}</p>
+            <BrandDetails vehicledata={vehicledata}/>
         </div>
     )
 }

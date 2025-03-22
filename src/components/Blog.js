@@ -14,8 +14,9 @@ const Blog = ({carblogs}) => {
                     <Col lg={12}>
                         <Row>
                             {carblogs && carblogs.map((item) => {
+                                console.log(item)
                                 return (
-                                    <Col lg={4} key={item.id} as={Link} href={item.slug} style={{textDecoration:"none"}}>
+                                    <Col lg={4} key={item.id} as={Link} href={`/blog/${item.slug}`} style={{textDecoration:"none"}}>
 
                                         <Card className={styles.whyChooseUs}>
                                             <Image src={item.medium_image} alt='item image' width={100} height={100} className='mb-2'/>
