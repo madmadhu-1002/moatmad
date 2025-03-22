@@ -8,9 +8,11 @@ import axios from 'axios';
 import { ThreeDots } from 'react-loader-spinner';
 import { FaEye } from 'react-icons/fa';
 import Link from "next/link";
-import styles from '@/styles/Buy.module.css'
+import styles from '@/styles/Buy.module.css';
+import { useGlobalContext } from "@/context/GlobalContext";
 
-const Buy = ({buydata}) => {
+const SearchVehicle = () => {
+    const { searchVeh, setSearchVeh } = useGlobalContext();
     const router = useRouter();
     const [selectedBodyType, setSelectedBodyType] = useState('');
   const [selectedMake, setSelectedMake] = useState('');
@@ -22,11 +24,10 @@ const Buy = ({buydata}) => {
   const [modeldata, setModelData] = useState([]);
   const [vechileyear, setVechileYear] = useState([]);
   const [minValue, setMinValue] = useState(15000);
-  const [maxValue, setMaxValue] = useState(200000);
-  const [searchpage, setSearchPage] = useState(null); // Initialize as null to clearly check if data is present
+  const [maxValue, setMaxValue] = useState(200000); 
   const [loading, setLoading] = useState(false)
   const [bodytype, setBodyType] = useState();
-console.log(searchpage);
+  const searchpage = searchVeh?.data || [];
   useEffect(() => {
     window.scrollTo(0, 0);
     axios.get('https://admin.moatamad.com/api/getVehicleBodyTypes')
@@ -139,6 +140,7 @@ console.log(searchpage);
   }
   const emiAmount = 1000; // Replace with your actual value
   const formattedAmount = emiAmount >= 1000 ? emiAmount.toLocaleString("en-US") : emiAmount.toFixed(0);
+
   return (
     <>
     {loading ?
@@ -427,108 +429,7 @@ console.log(searchpage);
               </Col>
             ) :
 
-              (
-                <Col lg={12} className='' style={{ padding: "0px 22px" }}>
-
-                  <Row >
-
-                    {buydata && buydata.vehicles && buydata.vehicles.map((item, index) => {
-
-                      return (
-                        <Col lg={3} className='mb-5' key={item.id || index}>
-                          <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: '0px' }} >
-                            <Card.Header style={{ padding: "0px" }} className={styles.productsCardHeader}>
-                              <img src={item.car_image} height={'100%'} width={'100%'} />
-                              <h6 className={styles.availableH6}>available</h6>
-                              <div className={styles.faEyeIconDiv}>
-                                <FaEye className='fa-eye-icon' />
-                              </div>
-                            </Card.Header>
-                            <div className={styles.brandNameDiv}>
-                              <h6>{item.car_title_en}</h6>
-                            </div>
-
-                            <div style={{ display: "grid", alignItems: "center", padding: "0px 20px" }}>
-                              <h6 className={`${styles.fullAmountPrice} text-center`} style={{ height: "40px", display: "flex", alignItems: "center", marginBottom: "0px", justifyContent: "center" }}>
-                                <span style={{ fontSize: "12px" }}>AED</span>&nbsp;
-                                <span style={{ fontSize: "16px", fontWeight: '500', color: "red" }}>{formatCurrency(item.price)}</span>
-                              </h6>
-                              <h6 className={`${styles.emiPrice} text-center`}>EMI : <span style={{ fontSize: "12px" }}>AED</span>
-                                <span
-                                  className={styles.emiPrice}
-                                  style={{ fontSize: "24px", fontWeight: "500", color: "red" }}>&nbsp;
-
-                                  {Number(item.emi_amount) >= 1000 ? Number(item.emi_amount).toLocaleString("en-US") : Number(item.emi_amount).toFixed(0)}
-                                </span>
-
-                                <span style={{ fontSize: "12px" }}>&nbsp;/m</span>
-                              </h6>
-                            </div>
-                            <div className={`${styles.infoWithIcon} mt-3`}>
-                              <Row style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                                <Col lg={2} className={styles.indoKmsCol} style={{ padding: '0px', width: '20%' }}>
-                                  <Row>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} className='text-center'>
-                                      <img src={'/assets/product-feture-icons/kms.png'} style={{ width: '30px' }} />
-                                    </Col>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
-                                      <p>{item.kilometers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
-
-                                    </Col>
-                                  </Row>
-                                </Col>
-                                <Col lg={2} style={{ padding: '0px' }} >
-                                  <Row>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
-                                      <img src='/assets/product-feture-icons/autogere.png' style={{ width: '30px' }} />
-                                    </Col>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
-                                      <p>{item.transmission_en}</p>
-                                    </Col>
-                                  </Row>
-
-                                </Col>
-                                <Col lg={2} style={{ padding: '0px' }}>
-                                  <Row>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                      <img src='\assets\product-feture-icons\calender.png' style={{ width: '30px' }} />
-                                    </Col>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
-                                      <p>{item.year}</p>
-                                    </Col>
-                                  </Row>
-                                </Col>
-                                <Col lg={2} style={{ padding: '0px' }}>
-                                  <Row>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                      <img src='/assets/product-feture-icons/engine.png' style={{ width: '30px' }} />
-                                    </Col>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
-                                      <p>{item.engine && item.engine.includes(',') ? item.engine.split(',')[1] : item.engine}</p>
-                                    </Col>
-                                  </Row>
-                                </Col>
-                                <Col lg={2} style={{ padding: '0px' }}>
-                                  <Row>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                      <img src='/assets/product-feture-icons/globe.png' style={{ width: '30px' }} />
-                                    </Col>
-                                    <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
-                                      <p>{item.regional_specs_en}</p>
-                                    </Col>
-                                  </Row>
-                                </Col>
-                              </Row>
-                            </div>
-                          </Card>
-                        </Col>
-
-                      )
-                    })
-                    }
-                  </Row>
-                </Col>
-              )}
+              (null)}
           </Container>
         </>
       }
@@ -536,4 +437,4 @@ console.log(searchpage);
   )
 }
 
-export default Buy
+export default SearchVehicle

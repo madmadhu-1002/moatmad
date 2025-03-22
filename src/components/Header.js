@@ -65,17 +65,17 @@ export default function Header({menus}) {
                   item.children && item.children.length > 0 ? (
                     <NavDropdown title={item.menu_name_en}  id={`basic-nav-dropdown-${index}`} key={index} >
                       {item.children.map((subItem, subIndex) => (
-                        <NavDropdown.Item as={Link} onClick={handleSelect} className="custom-nav-link" href={subItem.slug} key={subIndex} >
+                        <NavDropdown.Item as={Link} onClick={handleSelect} className="custom-nav-link" href={`/${subItem.slug}`} key={subIndex} >
                           {subItem.menu_name_en}
                         </NavDropdown.Item>
                       ))}
                     </NavDropdown>
                   ) : item.paddinglast ? (
-                    <Nav.Link className="custom-nav-link"  style={{ padding: "5px 5px 5px 20px" }} as={Link} href={item.url} key={index} onClick={handleSelect}>
+                    <Nav.Link className="custom-nav-link"  style={{ padding: "5px 5px 5px 20px" }} as={Link} href={`/${item.url}`} key={index} onClick={handleSelect}>
                       {item.menu}
                     </Nav.Link>
                   ) : (
-                    <Nav.Link className="custom-nav-link"  style={{ padding: "5px 20px" }} as={Link} href={item.slug} key={index} onClick={handleSelect}>
+                    <Nav.Link className="custom-nav-link"  style={{ padding: "5px 20px" }} as={Link} href={`/${item.slug}`} key={index} onClick={handleSelect}>
                       {item.menu_name_en}
                     </Nav.Link>
                   )

@@ -7,8 +7,10 @@ import { Range } from 'react-range';
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 import Products from './Products';
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const HomePage = ({homepage}) => {
+  const { searchVeh, setSearchVeh } = useGlobalContext();
     const router = useRouter();
     const [selectedBodyType, setSelectedBodyType] = useState('');
   const [selectedMake, setSelectedMake] = useState('');
@@ -127,7 +129,6 @@ const HomePage = ({homepage}) => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("hy")
     setLoading(true);
     try {
       const response = await axios.post('https://admin.moatamad.com/api/getVehicleBySearchParams', {
@@ -140,10 +141,10 @@ const HomePage = ({homepage}) => {
       })
 
       // Store response data in state
-      setResponseData(response.data);
+      setSearchVeh(response.data);
       setLoading(false)
       console.log("hy")
-      router.push("/searchvechile");
+      router.push("/search-vehicle");
 
 
       // Navigate to the search vehicle component
