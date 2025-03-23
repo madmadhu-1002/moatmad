@@ -1,0 +1,450 @@
+.interior {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0%;
+}
+
+.interior div {
+    background-color: black;
+    /* Use rgba to set background opacity */
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 38px;
+    opacity: 0.7;
+    position: absolute;
+    padding: 20px;
+}
+
+.interior p {
+    color: white;
+    text-align: center;
+    margin-bottom: 0px !important;
+    cursor: pointer;
+    text-transform: capitalize;
+    border-bottom: 1px solid white;
+    margin-top: -1%;
+    opacity: 0.85;
+}
+
+.interior p:hover {
+    color: red !important;
+    font-weight: 700 !important;
+}
+
+.interior .modal-dialog {
+    max-width: 100% !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+}
+
+.interior .modal-header {
+    border-bottom: none !important;
+}
+
+.interior .modal-footer {
+    border-top: none !important;
+}
+
+.interior-active {
+    color: white !important;
+    /* background-color: white; */
+    font-weight: 700;
+    /* padding: 0px 10px ; */
+}
+
+.small-box-fixed-postion {
+    position: fixed;
+    right: 1.5%;
+    padding: 0px 25px !important;
+    margin-top: 1% !important;
+}
+
+.subcontent-div {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+    border-radius: 15px;
+}
+
+.subcontent-div {
+    padding: 10px;
+}
+
+.bottom-shadow {
+    padding: 0px 0px 10px 0px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+.aed-dev {
+    justify-content: space-between;
+    display: flex;
+    padding: 0px 5px;
+}
+
+.aed-dev h6 {
+    font-size: 20px;
+}
+
+.aed-dev-1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.aed-dev-1 h6 {
+    font-size: 14px;
+}
+
+.book-a-text-drive {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.book-a-text-drive .btn {
+    width: 170px;
+    border: none !important;
+    height: 45px !important;
+}
+
+.car-overview-container {
+    padding: 0px 0px !important;
+}
+
+.car-overview-col .car-over-view-div {
+    padding: 0px !;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.car-overview-col {
+    padding-right: 0px !important;
+}
+
+.car-over-view-div .col-lg-4 div {
+    display: grid;
+    width: fit-content;
+}
+
+.car-over-view-div .col-lg-4 {
+    padding: 0px !important;
+}
+
+.car-over-view-div .row {
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px; */
+    width: 100% !important;
+}
+
+.car-over-view-div .col-lg-4 h6 {
+    color: #302736;
+    font-weight: 600;
+}
+
+.small-box-fixed {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    padding: 0px !important;
+    width: 18.6% !important;
+}
+
+.small-box-fixed .first-and-main-div {
+    padding: 30px 0px 30px 0px !important;
+    /* display: grid !important; */
+    align-items: center;
+    justify-content: center;
+}
+
+.small-box-fixed .first-and-main-div span {
+    font-size: 30px;
+    margin-right: 10%;
+}
+
+.small-box-fixed div h6 {
+    font-size: 14px;
+    margin-bottom: 0px !important;
+}
+
+.small-box-fixed div .featers-main-haeding {
+    text-transform: uppercase;
+    font-size: 10px;
+    margin-bottom: 0px !important;
+    color: #ca0000;
+}
+
+.caroverview-icon-div {
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid red;
+}
+
+.caroverview-icon-div img {
+    /* width: 70px; */
+    height: auto;
+    object-fit: cover;
+}
+
+.caroverview-feture-div {
+    text-align: center;
+}
+
+.caroverview-feture-div {
+    margin-left: 0%;
+}
+.extra-features {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 15px;
+    padding-bottom: 10px;
+  }.extra-features .col-lg-4 {
+    padding: 10px 15px 10px 15px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 1px 0px;
+  }
+  .extra-features-second-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .extra-features-second-div img {
+    position: relative;
+    left: -13%;
+  }
+  .extra-features-second-div p {
+    margin-bottom: 0px !important;
+  }
+  .emi-calculator h5 {
+    margin-bottom: 0px !important;
+    margin-top: 5%;
+    padding-right: 5px;
+  }
+  .emi-calculator {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 15px;
+  }
+  .main-1st-col {
+    box-shadow: rgba(27, 31, 35, 0.04) 1px 0px 0px,
+      /* Outer shadow on the right */ rgba(255, 255, 255, 0.25) 1px 0px 0px inset !important; /* Inner shadow on the right */
+  }
+  .emi-starting-rate {
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+      rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+    padding: 20px !important;
+  }
+  .emi-starting-rate h5 {
+    font-size: 10px;
+  }
+  .emi-starting-rate h6 span {
+    font-size: 40px;
+  }
+  .emi-starting-rate h6 {
+    color: rgb(103, 147, 147);
+  }
+  .emi-starting-rate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pie-chart-ciecle {
+    display: flex;
+    justify-content: center;
+  }
+  .pie-chart-ciecle div {
+    width: 200px;
+    display: flex;
+  }
+  .small-card-main-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px !important;
+  }
+  .small-card-main-div p {
+    margin-bottom: 0px !important;
+    font-size: 12px;
+  }
+  .small-card .div-one {
+    width: 12px;
+    height: 12px;
+    background-color: #74c5e8;
+    border-radius: 3px;
+  }
+  .small-card .div-two {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(214, 37, 37);
+    border-radius: 3px;
+  }
+  .small-card {
+    display: flex;
+    align-items: center;
+  }
+  .price-range-main-col {
+    padding: 0px !important;
+    display: grid;
+  }
+  .main-price-div {
+    padding: 20px !important;
+  }
+  .emi-loanamount-calculator {
+    display: flex;
+    justify-content: space-between;
+  }
+  .emi-loanamount-calculator p {
+    margin-bottom: 2px !important;
+  }
+  .emi-loanamount-calculator-below {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
+  .emi-loanamount-calculator-below p {
+    margin-bottom: 2px !important;
+  }
+  .div-content-below {
+    background-color: #e5e5e5;
+    padding: 0px;
+  }
+  .div-content-below {
+    padding: 25px 20px 25px 20px !important;
+    font-size: 12px;
+    border-bottom-right-radius: 15px;
+  }
+  .process-para {
+    border-bottom: 1px dotted black;
+    padding-bottom: 10px;
+    margin-bottom: 5px !important;
+  }
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .small-box-fixed-postion {
+        position: relative;
+    }
+
+    .small-box-fixed-postion {
+        padding: 0px !important;
+        right: 0;
+    }
+
+    .subcontent-div h6 {
+        font-size: 14px;
+    }
+
+    .book-a-text-drive .btn {
+        width: 120px;
+        border: none !important;
+        height: 45px !important;
+        font-size: 12px !important;
+    }
+
+    .car-overview-container {
+        padding: 0px 0px !important;
+    }
+
+    .small-box-fixed {
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+        padding: 0px !important;
+        width: 50% !important;
+    }
+
+    .small-box-fixed .first-and-main-div {
+        padding: 10px 0px 10px 0px !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .caroverview-icon-div img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .caroverview-feture-div h6 {
+        font-size: 12px !important;
+    }
+    .featers-main-haeding{
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .interior div {
+        background-color: black;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 38px;
+        opacity: 0.7;
+        position: absolute;
+        padding: 20px;
+    }
+
+    .interior div p {
+        font-size: 8px;
+    }
+
+    .mobile-border .caroverview-icon-div {
+        border-right: 1px solid red !important;
+    }
+}
+
+@media (min-width:992px) and (max-width:1200px) {
+    .interior div {
+        background-color: black;
+        width: 72%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 38px;
+        opacity: 0.7;
+        position: absolute;
+        padding: 20px;
+        left: 22.5%;
+    }
+
+}
+
+@media (min-width:1400px) and (max-width:2550px) {
+    .interior div {
+        background-color: black;
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 38px;
+        opacity: 0.7;
+        position: absolute;
+        padding: 20px;
+        left: 32%;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .exterior-images-gallery .image-gallery-thumbnails-left {
+        padding-left: 12px !important;
+    }
+
+    .exterior-images-gallery .image-gallery-thumbnails-left .image-gallery-swipe {
+        border-radius: 10px !important;
+    }
+
+    .exterior-images-gallery .image-gallery-thumbnails-left .image-gallery-slides {
+        border-radius: 10px !important;
+
+    }
+
+    .interior div {
+        background-color: black;
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 38px;
+        opacity: 0.7;
+        position: absolute;
+        padding: 20px;
+        left: 18.5%;
+    }
+}

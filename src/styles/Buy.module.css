@@ -117,14 +117,19 @@
     opacity: 0.9;
     padding: 0px !important;
   }
+  
   @media (max-width: 576px) {
     .priceBar{
         display: flex;
         justify-content: space-between;
         width: 100% !important;
     }
+    .searchBox1{
+      height: 320px !important;
+    }
   }
   @media (max-width: 768px) {
+   
     
     .priceBar :global(span){
         font-size: 6px !important;

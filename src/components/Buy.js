@@ -26,7 +26,7 @@ const Buy = ({buydata}) => {
   const [searchpage, setSearchPage] = useState(null); // Initialize as null to clearly check if data is present
   const [loading, setLoading] = useState(false)
   const [bodytype, setBodyType] = useState();
-console.log(searchpage);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     axios.get('https://admin.moatamad.com/api/getVehicleBodyTypes')
@@ -148,12 +148,12 @@ console.log(searchpage);
           <Container fluid>
             <Row>
               <Col lg={12} className={`${styles.formColLg-3} mb-5 p-0`}>
-                <div className={styles.formColLg}>
+                <div className={`${styles.formColLg} ${styles.searchBox1}`}>
                   <h1>Quality Cars, Unbeatable Deals</h1>
-
-                  <Form style={{ width: "100%" }} onSubmit={handleSubmit}>
+                  
+                  <Form style={{ width: "100%" }} onSubmit={handleSubmit} >
                     <Container fluid>
-                      <Row style={{ height: '60px', display: "flex", justifyContent: 'center', padding: "0px 24px", alignItems: "center" }}>
+                      <Row style={{ height: '60px', display: "flex", justifyContent: 'center', padding: "0px 24px", alignItems: "center" }} className="g-2">
                         <Col lg={2} md={2} sm={2}>
                           <div className={styles.inputValues} style={{ position: 'relative' }}>
                             <Form.Control
@@ -271,7 +271,7 @@ console.log(searchpage);
                           </div>
                         </Col>
                         <Col lg={2} md={2} sm={2}>
-                          <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center', marginTop: '3%' }}>
+                          <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center', marginTop: '3%', marginBottom: '3%' }}>
                             <div className={`mb-2 ${styles.priceBar}`}>
                               <span style={{ fontSize: '12px', color: 'white' }}>AED {formatCurrency(minValue)}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <span style={{ fontSize: '12px', color: 'white' }}>AED {formatCurrency(maxValue)}</span>

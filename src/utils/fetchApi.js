@@ -111,7 +111,7 @@ async function fetchBlogDetails(lastRouteName) {
       }
 
       const text = await res.text(); // Read response as text first
-      console.log(text, "Raw Response Text"); // Log the raw text response
+      
 
       if (!text) {
           throw new Error("Empty response from server");
@@ -134,7 +134,7 @@ async function fetchBrandDetails(lastRouteName) {
     }
 
     const text = await res.text(); // Read response as text first
-    console.log(text, "Raw Response Text"); // Log the raw text response
+    
 
     if (!text) {
         throw new Error("Empty response from server");

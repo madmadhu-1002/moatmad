@@ -10,6 +10,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { RotatingLines } from 'react-loader-spinner';
+import { toast, ToastContainer } from 'react-toastify';
 
 Chart.register(...registerables);
 Chart.register(ArcElement);
@@ -32,6 +33,28 @@ const BrandDetails = ({ vehicledata }) => {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [request, setRequest] = useState({
+    fullname: '',
+    email: '',
+    phone: '',
+
+})
+  const [formdata, setFormData] = useState({
+    fullname: '',
+    email: '',
+    phone: '',
+    date: '',
+    comment: ''
+
+});
+
+const [booknow, setBookNow] = useState({
+    fullname: '',
+    email: '',
+    phone: '',
+    comment: ''
+
+})
 
   const allVehicleImages = [
     ...vehicledata.vehicleGalleryByCategory[0].vehicle_images,
@@ -118,6 +141,160 @@ const BrandDetails = ({ vehicledata }) => {
   const handleShowBookNowModal = () => setShowBookNowModal(true);
   const handleShowTestDriveModal = () => setShowTestDriveModal(true);
   const handleShowRequestModal = () => setShowRequestModal(true);
+
+  const handleCloseBookNowModal = () => setShowBookNowModal(false);
+  const handleCloseTestDriveModal = () => setShowTestDriveModal(false);
+  const handleCloseRequestModal = () => setShowRequestModal(false);
+
+  const handleInputChangebooknow = (e) => {
+    const { name, value } = e.target;
+    setBookNow(prevData => ({
+        ...prevData,
+        [name]: value,
+    }));
+};
+
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+  }));
+};
+
+const handleInputChangerequest = (e) => {
+  const { name, value } = e.target;
+  setRequest(prevData => ({
+      ...prevData,
+      [name]: value,
+  }));
+};
+
+const handleSubmitRequestcallback = async (e) => {
+  e.preventDefault();
+
+  try {
+      const response = await axios.post('https://admin.moatamad.com/api/storeRequestCallBack', {
+          fullname: request.fullname,
+          email: request.email,
+          phone: request.phone,
+          vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Added optional chaining for safety
+      });
+
+      if (response) {
+          toast.success(response.data.message, {
+              onClose: () => setShowRequestModal(false),  // Close modal when toast is dismissed
+              autoClose: 5000,  // Optional: Automatically close the toast after 5 seconds
+          });
+          // Reset the form state
+          setRequest({
+              fullname: '',
+              email: '',
+              phone: '',
+              date: '',
+          });
+
+          // Close the modal
+      }
+  } catch (error) {
+      if (error.response && error.response.data && error.response.data.data) {
+          const errorData = error.response.data.data;
+
+          // Display individual field errors if available
+          if (errorData.fullname) toast.error(errorData.fullname[0]);
+          if (errorData.email) toast.error(errorData.email[0]);
+          if (errorData.phone) toast.error(errorData.phone[0]);
+      } else {
+          // General error handling (fallback in case no specific field errors)
+          toast.error('Something went wrong. Please try again.');
+      }
+  }
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+      const response = await axios.post('https://admin.moatamad.com/api/storeBookTestDrive', {
+          fullname: formdata.fullname,
+          email: formdata.email,
+          phone: formdata.phone,
+          test_drive_date: formdata.date,
+          comment: formdata.comment,
+          vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Optional chaining for safety
+      });
+
+      if (response) {
+          toast.success(response.data.message, {
+              onClose: () => setShowTestDriveModal(false),  // Close modal when toast is dismissed
+              autoClose: 3000,  // Optional: Automatically close the toast after 5 seconds
+          });
+          // Clear the form
+          setFormData({
+              fullname: '',
+              email: '',
+              phone: '',
+              date: '',
+              comment: '',
+          });
+
+          // Close the modal after success
+          setShowTestDriveModal(false);
+      }
+  } catch (error) {
+      if (error.response && error.response.data && error.response.data.data) {
+          const errorData = error.response.data.data;
+
+          // Display individual field errors if available
+          if (errorData.fullname) toast.error(errorData.fullname[0]);
+          if (errorData.email) toast.error(errorData.email[0]);
+          if (errorData.phone) toast.error(errorData.phone[0]);
+      } else {
+          // Fallback for general errors
+          toast.error('Something went wrong. Please try again.');
+      }
+  }
+};
+
+  const handleSubmitBooknow = async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await axios.post('https://admin.moatamad.com/api/storeBookNow', {
+            fullname: booknow.fullname,
+            email: booknow.email,
+            phone: booknow.phone,
+            comment: booknow.comment,
+            vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Optional chaining for safety
+        });
+
+        if (response) {
+            toast.success(response.data.message, {
+                onClose: () => setShowBookNowModal(false),  // Close modal when toast is dismissed
+                autoClose: 3000,  // Optional: Automatically close the toast after 5 seconds
+            });
+            // Reset the form
+            setBookNow({
+                fullname: '',
+                email: '',
+                phone: '',
+                date: '',
+                comment: '',
+            });
+        }
+    } catch (error) {
+        if (error.response && error.response.data && error.response.data.data) {
+            const errorData = error.response.data.data;
+            // Display individual field errors if available
+            if (errorData.fullname) toast.error(errorData.fullname[0]);
+            if (errorData.email) toast.error(errorData.email[0]);
+            if (errorData.phone) toast.error(errorData.phone[0]);
+        } else {
+            // Fallback for general errors
+            toast.error('Something went wrong. Please try again.');
+        }
+    }
+};
 
   const features = [
     { name: "Car Overview", id: '1' },
@@ -529,6 +706,163 @@ const BrandDetails = ({ vehicledata }) => {
               </Row>
             </Container>
           </Container>
+          <Modal show={showBookNowModal} onHide={handleCloseBookNowModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title className='text-center' style={{ width: "100%", textAlign: "center" }}>Book Now</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form onSubmit={handleSubmitBooknow}>
+                                <Form.Group controlId="formName">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Name"
+                                        name="fullname"
+                                        value={booknow.fullname
+                                        }
+                                        onChange={handleInputChangebooknow}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formEmail" className="mt-3 mb-3">
+                                    <Form.Control
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        value={booknow.email}
+                                        onChange={handleInputChangebooknow}
+
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formPhone">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Mobile"
+                                        name="phone"
+                                        value={booknow.phone}
+                                        onChange={handleInputChangebooknow}
+                                    />
+                                </Form.Group>
+
+                                <Form.Group controlId="formComment" className="mt-3 mb-3">
+                                    <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        name="comment"
+                                        placeholder="Comment"
+                                        value={booknow.comment}
+                                        onChange={handleInputChangebooknow}
+                                    />
+                                </Form.Group>
+                                <div className="text-center" style={{ display: "flex", justifyContent: "center" }}>
+                                    <Button
+                                        variant="primary"
+                                        className="mt-3"
+                                        style={{ backgroundColor: "red", color: "white", border: "none" }}
+                                        type="submit"
+                                    >
+                                        Submit
+                                    </Button>
+                                </div>
+                            </Form>
+                            <ToastContainer />
+
+                        </Modal.Body>
+                    </Modal>
+                    <Modal show={showTestDriveModal} onHide={handleCloseTestDriveModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title style={{ width: "100%", textAlign: "center" }}>Book a Test Drive</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form onSubmit={handleSubmit}>
+                                <Form.Group controlId="formName">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Name"
+                                        name="fullname"
+                                        value={formdata.fullname
+                                        }
+                                        onChange={handleInputChange}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formEmail" className="mt-3 mb-3">
+                                    <Form.Control
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        value={formdata.email}
+                                        onChange={handleInputChange}
+
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formPhone">
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Mobile"
+                                        name="phone"
+                                        value={formdata.phone}
+                                        onChange={handleInputChange}
+                                    />
+                                </Form.Group>
+
+                                <Form.Group controlId="formDate" className="mt-3 mb-3">
+                                    <Form.Control
+                                        type="date"
+                                        name="date"
+                                        value={formdata.date}
+                                        onChange={handleInputChange}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formComment" className="mt-3 mb-3">
+                                    <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        name="comment"
+                                        placeholder="Comment"
+                                        value={formdata.comment}
+                                        onChange={handleInputChange}
+                                    />
+                                </Form.Group>
+                                <div className="text-center" style={{ display: "flex", justifyContent: "center" }}>
+                                    <Button
+                                        variant="primary"
+                                        className="mt-3"
+                                        style={{ backgroundColor: "red", color: "white", border: "none" }}
+                                        type="submit"
+                                    >
+                                        Submit
+                                    </Button>
+                                </div>
+                            </Form>
+                            <ToastContainer />
+                        </Modal.Body>
+                    </Modal>
+
+                    <Modal show={showRequestModal} onHide={handleCloseRequestModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title style={{ width: "100%", textAlign: "center" }}>Request a Call Back </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form onSubmit={handleSubmitRequestcallback}>
+                                <Form.Group controlId="formName">
+                                    <Form.Control type="text" placeholder="Name" name='fullname' value={request.fullname} onChange={handleInputChangerequest} />
+                                </Form.Group>
+                                <Form.Group controlId="formEmail" className='mt-3 mb-3'>
+                                    <Form.Control type="email" placeholder="Email" name='email' value={request.email} onChange={handleInputChangerequest} />
+                                </Form.Group>
+                                <Form.Group controlId="formPhone">
+                                    <Form.Control type="text" placeholder="Mobile" name='phone' value={request.phone} onChange={handleInputChangerequest} />
+                                </Form.Group>
+                                <div className='text-center' style={{ display: "flex", justifyContent: "center" }}>
+                                    <Button variant="primary" className='mt-3' style={{ backgroundColor: "black", color: "white", border: "none" }} type="submit" >
+                                        Submit
+                                    </Button>
+
+                                </div>
+
+                            </Form>
+                            <ToastContainer />
+
+                        </Modal.Body>
+                    </Modal>
 
         </>
       }

@@ -160,8 +160,8 @@ const HomePage = ({homepage}) => {
             <div className='form-col-lg-3 '>
               <h6>Quality Cars, Unbeatable Deals</h6>
               <div>
-                <Form onSubmit={handleSubmit}>
-                  <Row style={{ height: '60px', display: "flex", justifyContent: 'center', padding: "0px 27px", alignItems: "center" }}>
+                <Form onSubmit={handleSubmit} className='searchbox1'>
+                  <Row style={{ height: '60px', display: "flex", justifyContent: 'center', padding: "0px 27px", alignItems: "center" }} className='g-2'>
                     <Col lg={2} md={2} sm={2}>
                       <div className='input-values' style={{ position: 'relative' }}>
                         <Form.Control
@@ -296,7 +296,7 @@ const HomePage = ({homepage}) => {
                     </Col>
 
                     <Col lg={2} md={2} sm={2}>
-                      <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center', marginTop: '3%' }}>
+                      <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center', marginTop: '3%', marginBottom: '3%' }} >
                         <div className='mb-2 price-bar'>
                           <span style={{ fontSize: '12px', color: 'white' }}>AED {formatCurrency2(minValue)}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <span style={{ fontSize: '12px', color: 'white' }}>AED {formatCurrency2(maxValue)}</span>

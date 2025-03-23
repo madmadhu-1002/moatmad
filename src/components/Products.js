@@ -357,8 +357,8 @@ const Products = ({ homepage }) => {
                         </div>
                         <Slider {...settings}>
                             {homepage.Testimonials.testimonials.map((item, index) => (
-                                <div key={index} className="item">
-                                    <div className="card testimonial-cards">
+                                <div key={index}  >
+                                    <div className="card testimonial-cards" >
                                         <div className='new-post'>
                                             <span>
                                                 <img src="https://i.imgur.com/i06xx2I.png" className="quote-img" alt="quote" />
