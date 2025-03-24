@@ -149,7 +149,7 @@ const Products = ({ homepage }) => {
       <section className="add-brand-slides mt-3">
         <Slider {...settings}>
           {allVechileThumb.map((image, index) => (
-            <div className='pe-2'>
+            <div className='pe-2' key={index}>
             <Card as={Link} href={`car-info/${image.slug}`} key={index} >
               <Container >
                 <Row className="home-page-add-row">
