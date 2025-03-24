@@ -6,9 +6,11 @@ const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const [searchVeh, setSearchVeh] = useState(null);
+  const [selectedVehicles, setSelectedVehicles] = useState([]);
+  const [bidPrices, setBidPrices] = useState([]);
 
   return (
-    <GlobalContext.Provider value={{ searchVeh, setSearchVeh }}>
+    <GlobalContext.Provider value={{ searchVeh, setSearchVeh, selectedVehicles, setSelectedVehicles, bidPrices, setBidPrices }}>
       {children}
     </GlobalContext.Provider>
   );

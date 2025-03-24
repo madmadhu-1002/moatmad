@@ -213,8 +213,17 @@ body {
 .textimonials .card .post-txt{
 font-size: 12px;
 }
-.searchbox1{
-  height: 320px !important;
+
+
+
+}
+
+@media (max-width: 768px) {
+  .searchbox1{
+    height: 320px !important;
+  }
+  .tabes-container{
+    padding: 0px 20px !important;
 }
 }
 

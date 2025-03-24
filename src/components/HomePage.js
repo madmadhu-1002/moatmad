@@ -156,13 +156,13 @@ const HomePage = ({homepage}) => {
     <Container fluid className='homepage-container'>
 <h1>{loading}</h1>
         <Row >
-          <Col lg={12} style={{ padding: '0px' }}>
+          <Col lg={12} style={{ padding: '0px' }} md={{ order: 1 }} xs={{ order: 2 }}>
             <div className='form-col-lg-3 '>
               <h6>Quality Cars, Unbeatable Deals</h6>
               <div>
                 <Form onSubmit={handleSubmit} className='searchbox1'>
                   <Row style={{ height: '60px', display: "flex", justifyContent: 'center', padding: "0px 27px", alignItems: "center" }} className='g-2'>
-                    <Col lg={2} md={2} sm={2}>
+                    <Col lg={2} md={2}>
                       <div className='input-values' style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
@@ -195,7 +195,7 @@ const HomePage = ({homepage}) => {
                         </span>
                       </div>
                     </Col>
-                    <Col lg={2} md={2} sm={2}>
+                    <Col lg={2} md={2} >
                       <div className='input-values' style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
@@ -229,7 +229,7 @@ const HomePage = ({homepage}) => {
                         </span>
                       </div>
                     </Col>
-                    <Col lg={2} md={2} sm={2}>
+                    <Col lg={2} md={2} >
                       <div className='input-values' style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
@@ -262,7 +262,7 @@ const HomePage = ({homepage}) => {
                         </span>
                       </div>
                     </Col>
-                    <Col lg={2} md={2} sm={2}>
+                    <Col lg={2} md={2} >
                       <div className='input-values' style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
@@ -295,7 +295,7 @@ const HomePage = ({homepage}) => {
                       </div>
                     </Col>
 
-                    <Col lg={2} md={2} sm={2}>
+                    <Col lg={2} md={2} >
                       <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center', marginTop: '3%', marginBottom: '3%' }} >
                         <div className='mb-2 price-bar'>
                           <span style={{ fontSize: '12px', color: 'white' }}>AED {formatCurrency2(minValue)}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -335,7 +335,7 @@ const HomePage = ({homepage}) => {
                         />
                       </div>
                     </Col>
-                    <Col lg={2} md={2} sm={2} className='text-center' style={{ display: "flex", justifyContent: "center" }}>
+                    <Col lg={2}  className='text-center' style={{ display: "flex", justifyContent: "center" }}>
                       <div className='serach-btns-home'>
                         <Button type="submit" >Search&nbsp;Vehicle</Button>
                       </div>
@@ -345,7 +345,10 @@ const HomePage = ({homepage}) => {
               </div>
             </div>
 
-            <Carousel indicators={false}>
+            
+          </Col>
+          <Col lg={12} style={{ padding: '0px' }} md={{ order: 2 }} xs={{ order: 1 }}>
+          <Carousel indicators={false}>
               {homepage && homepage.sliders.map((banners) => {
                 return (
 

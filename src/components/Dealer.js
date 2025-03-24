@@ -5,15 +5,15 @@ import { useRouter } from "next/navigation";
 import { Container, Row, Col, Table, Button, Form, Modal } from 'react-bootstrap';
 import { ThreeDots } from 'react-loader-spinner';
 import styles from '@/styles/Dealer.module.css'
+import { useGlobalContext } from "@/context/GlobalContext";
 
 
 const Dealer = ({dealerdata}) => {
+    const { selectedVehicles, setSelectedVehicles, bidPrices, setBidPrices } = useGlobalContext();
     const [loading, setLoading] = useState();
     const [showModal, setShowModal] = useState(false);
     const [showModalone, setShowModalone] = useState(false);
-    const [selectedVehicles, setSelectedVehicles] = useState([]);
     const [selectedVehicle, setSelectedVehicle] = useState([]);
-    const [bidPrices, setBidPrices] = useState([]);
     const router = useRouter();
 
     const handleSelectVehicle = (id) => {
@@ -53,7 +53,7 @@ const Dealer = ({dealerdata}) => {
         setSelectedVehicle(null);
     };
 
-    const handleSubmit = (e, router) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         router.push("/bid-review");
       };

@@ -4,6 +4,7 @@ import ServerHeader from "@/components/ServerHeader";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ServerFooter from "@/components/ServerFooter";
 import { GlobalProvider } from "@/context/GlobalContext";
+import WhatsappIcon from "@/components/WhatsappIcon";
 
 
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       >
         <GlobalProvider>
         <ServerHeader />
+        <WhatsappIcon />
         {children}
         <ServerFooter />
         </GlobalProvider>

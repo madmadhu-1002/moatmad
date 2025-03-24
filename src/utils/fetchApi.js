@@ -103,6 +103,27 @@ async function fetchHome(){
     return data.data;
 }
 
+async function fetchDealerDetails(){
+  const res = await fetch("https://admin.moatamad.com/api/getDealersPageDataBySlug/dealer", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch Dealer Details.");
+    const data = await res.json();
+    return data.data;
+}
+
+async function fetchPrivacyPolicy(){
+  const res = await fetch("https://admin.moatamad.com/api/getTermsAndConditionDatabySlug/privacy-policy", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch privacy policy.");
+    const data = await res.json();
+    return data.data;
+}
+
+async function fetchTerms(){
+  const res = await fetch("https://admin.moatamad.com/api/getTermsAndConditionDatabySlug/terms-and-conditions", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch terms.");
+    const data = await res.json();
+    return data.data;
+}
+
 async function fetchBlogDetails(lastRouteName) {
   try {
       const res = await fetch(`https://admin.moatamad.com/api/getBlogsPageDetailserBySlug/${lastRouteName}`, { cache: "no-store" });
@@ -150,4 +171,6 @@ async function fetchBrandDetails(lastRouteName) {
 }
 
 
-  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome, fetchBlogDetails, fetchBrandDetails };
+
+
+  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome, fetchBlogDetails, fetchBrandDetails, fetchDealerDetails, fetchPrivacyPolicy, fetchTerms };

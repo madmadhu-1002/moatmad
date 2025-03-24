@@ -11,6 +11,7 @@ import AOS from 'aos';
 import axios from 'axios';
 import { RotatingLines } from 'react-loader-spinner';
 import { FaEye } from "react-icons/fa";
+import styles from '@/styles/Products.module.css';
 
 const Products = ({ homepage }) => {
   const [slug, setSlug] = useState(1);
@@ -349,28 +350,28 @@ const Products = ({ homepage }) => {
             }
             {/* Testimonials */}
             {homepage &&
-                <Container fluid className='mb-5 textimonials'>
+                <Container fluid className={`mb-5 ${styles.textimonials}`}>
                 <Row>
                     <Col lg={12}>
-                        <div className='mt-5 mb-4 products-heading'>
+                        <div className={`mt-5 mb-4 ${styles.productsHeading}`}>
                             <h3>{homepage.Testimonials.category_title_en}</h3>
                         </div>
                         <Slider {...settings}>
                             {homepage.Testimonials.testimonials.map((item, index) => (
                                 <div key={index}  >
-                                    <div className="card testimonial-cards" >
-                                        <div className='new-post'>
+                                    <div className={`card ${styles.testimonialCards}`} >
+                                        <div className={styles.newPost}>
                                             <span>
-                                                <img src="https://i.imgur.com/i06xx2I.png" className="quote-img" alt="quote" />
+                                                <img src="https://i.imgur.com/i06xx2I.png" className={styles.quoteImg} alt="quote" />
                                             </span>
-                                            <div className="post-txt" dangerouslySetInnerHTML={{ __html: item.message_en }} />
+                                            <div className={styles.postTxt} dangerouslySetInnerHTML={{ __html: item.message_en }} />
                                         </div>
                                     </div>
                                     <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <div className="arrow-down"></div>
+                                        <div className={styles.arrowDown}></div>
                                     </div>
                                     <div className="row d-flex justify-content-center">
-                                        <p className="profile-name">{item.name_en}</p>
+                                        <p className={styles.profileName}>{item.name_en}</p>
                                     </div>
                                 </div>
                             ))}

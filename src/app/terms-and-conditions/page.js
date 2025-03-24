@@ -1,10 +1,10 @@
 
-import HomePage from "@/components/HomePage";
-import WhatsappIcon from "@/components/WhatsappIcon";
-import {fetchFooter, fetchHome} from "@/utils/fetchApi.js"
+import PrivacyPolicy from "@/components/PrivacyPolicy";
+import { fetchTerms } from "@/utils/fetchApi";
+
 
 export async function generateMetadata() {
-  const { seo } = await fetchHome();
+  const { seo } = await fetchTerms();
 
   return {
     title: seo?.meta_title || "Default Title",
@@ -31,18 +31,16 @@ export async function generateMetadata() {
 }
 
 const Page = async () => {
-  const homepage = await fetchHome();
-  const footer = await fetchFooter();
+    const {content} = await fetchTerms();
+    
+    
+    return (
+      <>
+      <PrivacyPolicy data={content}/>
+      </>
+    )
+  }
   
   
-  return (
-    <>
-    <WhatsappIcon footer={footer}/>
-    <HomePage homepage={homepage} />
-    </>
-  )
-}
-
-
-
-export default Page
+  
+  export default Page

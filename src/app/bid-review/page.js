@@ -1,10 +1,9 @@
 
-import HomePage from "@/components/HomePage";
-import WhatsappIcon from "@/components/WhatsappIcon";
-import {fetchFooter, fetchHome} from "@/utils/fetchApi.js"
+import DealerDetails from "@/components/DealerDetails";
+import { fetchDealerDetails } from "@/utils/fetchApi";
 
 export async function generateMetadata() {
-  const { seo } = await fetchHome();
+  const { seo } = await fetchDealerDetails();
 
   return {
     title: seo?.meta_title || "Default Title",
@@ -31,18 +30,16 @@ export async function generateMetadata() {
 }
 
 const Page = async () => {
-  const homepage = await fetchHome();
-  const footer = await fetchFooter();
+    const {vehicle_details} = await fetchDealerDetails();
+    
+    
+    return (
+      <>
+      <DealerDetails dealerdata={vehicle_details}/>
+      </>
+    )
+  }
   
   
-  return (
-    <>
-    <WhatsappIcon footer={footer}/>
-    <HomePage homepage={homepage} />
-    </>
-  )
-}
-
-
-
-export default Page
+  
+  export default Page
