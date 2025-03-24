@@ -18,7 +18,7 @@ const Products = ({ homepage }) => {
   const [allVechileThumb, setAllVechileThumb] = useState([]);
   const [loading, setLoading] = useState(false);
   const [carbodytypes, setCarBodyTypes] = useState([]);
-
+  
   useEffect(() => {
     const fetchVehicleData = async () => {
       const cachedData = localStorage.getItem("allVehicleData");
@@ -44,6 +44,7 @@ const Products = ({ homepage }) => {
   useEffect(() => {
     AOS.init();
     setLoading(true); // Set loading to true before making the API call
+    
     axios.get(`https://admin.moatamad.com/api/getCarBodyTypesWithVehiclesData/${slug}`)
         .then(carbodyresponse => {
             setCarBodyTypes(carbodyresponse.data);
@@ -67,7 +68,7 @@ const Products = ({ homepage }) => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 576, // Mobile and smaller screens
+        breakpoint: 768, // Mobile and smaller screens
         settings: {
           slidesToShow: 1, // Show one slide
           slidesToScroll: 1,
@@ -75,13 +76,82 @@ const Products = ({ homepage }) => {
       },
     ],
   };
+
+  const settings1 = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: true,
+    responsive: [
+        {
+          breakpoint: 1016, // Tablets and smaller screens
+          settings: {
+            slidesToShow: 2, // Show two slides
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 576, // Mobile and smaller screens
+          settings: {
+            slidesToShow: 1, // Show one slide
+            slidesToScroll: 1,
+          },
+        },
+      ],
+  };
+
+  const settings2 = {
+    dots: false,
+    infinite: false,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    arrows: true,
+    responsive: [
+        {
+            breakpoint: 1240, // Tablets and smaller screens
+            settings: {
+              slidesToShow: 3, // Show two slides
+              slidesToScroll: 1,
+            },
+          },
+        {
+          breakpoint: 1016, // Tablets and smaller screens
+          settings: {
+            slidesToShow: 2, // Show two slides
+            slidesToScroll: 1,
+          },
+        },
+        {
+            breakpoint: 768, // Tablets and smaller screens
+            settings: {
+              slidesToShow: 1, // Show two slides
+              slidesToScroll: 1,
+            },
+          },
+        {
+          breakpoint: 576, // Mobile and smaller screens
+          settings: {
+            slidesToShow: 1, // Show one slide
+            slidesToScroll: 1,
+          },
+        },
+      ],
+  };
   return (
     <>
       <section className="add-brand-slides mt-3">
         <Slider {...settings}>
           {allVechileThumb.map((image, index) => (
-            <Card as={Link} href={`car-info/${image.slug}`} key={index}>
-              <Container>
+            <div className='pe-2'>
+            <Card as={Link} href={`car-info/${image.slug}`} key={index} >
+              <Container >
                 <Row className="home-page-add-row">
                   <Col lg={3} xs={4} sm={4}>
                     <Image
@@ -120,6 +190,7 @@ const Products = ({ homepage }) => {
                 </Row>
               </Container>
             </Card>
+            </div>
           ))}
         </Slider>
       </section>
@@ -158,9 +229,9 @@ const Products = ({ homepage }) => {
                                         />
                                     </div>
                                 ) : carbodytypes.length > 0 ? (
-                                    <Slider {...{ ...settings, slidesToShow: 4 }}>
+                                    <Slider { ...settings2}>
                                         {carbodytypes.map((item) => (
-                                             <div key={item.id} style={{ width: "316px", margin: "0 auto" }}> 
+                                             <div key={item.id} style={{ width: "316px", margin: "0 auto" }} className='p-1'> 
                                             <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: "0px", }} className='best-vehicles-card item' key={item.id}>
                                                 <Card.Header className='products-card-header' style={{ position: 'relative' }}>
                                                     <img src={item.car_image} style={{ height: "100%" }} alt={item.car_title_en} />
@@ -187,7 +258,7 @@ const Products = ({ homepage }) => {
                                                         <span style={{ fontSize: "10px" }}> per month</span>
                                                     </h6>
                                                 </div>
-                                                <div className='info-with-icon mt-3'>
+                                                <div className='info-with-icon mt-3 p-2'>
                                                     <Row>
                                                         <CarFeature icon="/assets/product-feture-icons/kms.png" value={item.kilometers.toLocaleString()} />
                                                         <CarFeature icon="/assets/product-feture-icons/autogere.png" value={item.transmission_en} />
@@ -220,7 +291,7 @@ const Products = ({ homepage }) => {
 
                 <div
                   className="find-car-heading"
-                  style={{ fontSize: "24px" }}
+                  style={{ fontSize: "16px" }}
                   dangerouslySetInnerHTML={{
                     __html:
                       homepage.WhoAreWe &&
@@ -356,9 +427,9 @@ const Products = ({ homepage }) => {
                         <div className={`mt-5 mb-4 ${styles.productsHeading}`}>
                             <h3>{homepage.Testimonials.category_title_en}</h3>
                         </div>
-                        <Slider {...settings}>
+                        <Slider {...settings1}>
                             {homepage.Testimonials.testimonials.map((item, index) => (
-                                <div key={index}  >
+                                <div key={index}  className=' p-3'>
                                     <div className={`card ${styles.testimonialCards}`} >
                                         <div className={styles.newPost}>
                                             <span>
@@ -388,10 +459,10 @@ const Products = ({ homepage }) => {
 const CarFeature = ({ icon, value }) => (
   <Col lg={2} style={{ padding: '0px' }}>
       <Row>
-          <Col lg={12} className='text-center'>
+          <Col lg={12} className='d-flex justify-content-center'>
               <img src={icon} style={{ width: '30px' }} alt="Feature Icon" />
           </Col>
-          <Col lg={12} className='text-center'>
+          <Col lg={12} className='text-center p-0'>
               <p>{value}</p>
           </Col>
       </Row>

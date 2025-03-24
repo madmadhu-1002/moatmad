@@ -309,6 +309,7 @@ const HomePage = ({homepage}) => {
                           onChange={handleRangeChange}
                           renderTrack={({ props, children }) => (
                             <div
+                            key={props.key}
                               {...props}
                               style={{
                                 ...props.style,
@@ -320,18 +321,18 @@ const HomePage = ({homepage}) => {
                               {children}
                             </div>
                           )}
-                          renderThumb={({ props }) => (
-                            <div
-                              {...props}
-                              style={{
-                                ...props.style,
-                                height: '10px',
-                                width: '10px',
-                                borderRadius: '50%',
-                                backgroundColor: 'white',
-                              }}
-                            />
-                          )}
+                          renderThumb={({ props }) => {
+                            const { key, ...restProps } = props; // Extract key and spread the rest
+                            return (
+                                <div key={key} {...restProps} style={{ 
+                                    ...restProps.style, 
+                                    height: '10px', 
+                                    width: '10px', 
+                                    borderRadius: '50%', 
+                                    backgroundColor: 'white' 
+                                }} />
+                            );
+                        }}
                         />
                       </div>
                     </Col>
