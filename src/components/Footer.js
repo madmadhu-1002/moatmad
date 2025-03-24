@@ -108,9 +108,9 @@ const Footer = ({footer}) => {
                         <div>
                             <h5>Get In Touch</h5>
                             <hr />
-                            <p><FaLocationDot /> {footer && footer.get_in_touch.content && footer.get_in_touch.content.address_en}</p>
-                            <p><FaPhoneAlt size='12px' />&nbsp;{footer && footer.get_in_touch.content.phone}</p>
-                            <p><MdOutlineEmail />&nbsp;{footer && footer.get_in_touch.content.email}</p>
+                            <p className='d-flex align-items-center gap-2'><FaLocationDot /> {footer && footer.get_in_touch.content && footer.get_in_touch.content.address_en}</p>
+                            <p className='d-flex align-items-center gap-2'><FaPhoneAlt size='12px' />&nbsp;{footer && footer.get_in_touch.content.phone}</p>
+                            <p className='d-flex align-items-center gap-2'><MdOutlineEmail />&nbsp;{footer && footer.get_in_touch.content.email}</p>
 
                         </div>
                     </Col>

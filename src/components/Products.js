@@ -203,9 +203,9 @@ const Products = ({ homepage }) => {
             <Tab.Container id="left-tabs-example" defaultActiveKey={homepage?.CarBodyTypes[0]?.id}>
                 <Row>
                     <Col sm={12} className='products-brand-menu'>
-                        <Nav variant="pills" className="flex-row">
+                        <Nav variant="pills" className="flex-row ">
                             {homepage && homepage.CarBodyTypes.map((item) => (
-                                <Nav.Item key={item.id}>
+                                <Nav.Item key={item.id} className='nav-item1 mb-3 col'>
                                     <Nav.Link eventKey={item.id} onClick={() => setSlug(item.id)}>
                                         {item.body_type_en}
                                     </Nav.Link>

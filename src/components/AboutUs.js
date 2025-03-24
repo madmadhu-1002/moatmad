@@ -49,7 +49,7 @@ const AboutUs = ({aboutlinks}) => {
               <Nav variant="pills" className={`flex-row ${styles.aboutNavPills}`}>
 
 
-                <Nav.Item className={styles.aboutLinks}>
+                <Nav.Item className={`{styles.aboutLinks} fs-6`}>
 
                   {aboutlinks && aboutlinks.map((items) => {
                     return (
@@ -102,7 +102,7 @@ const AboutUs = ({aboutlinks}) => {
                                   <Row style={{ display: "grid" }}>
                                     <Col lg={2} style={{ marginRight: "10px" }}>
                                       <div style={{ height: "110px" }}>
-                                        <img src={aboutdata.section_02_image} width={"100px"} />
+                                        <img src={aboutdata.section_02_image} width={"100px"}  style={{maxWidth: "none"}}/>
                                       </div>
                                     </Col>
                                     <Col lg={6}>
@@ -114,7 +114,7 @@ const AboutUs = ({aboutlinks}) => {
                                   <Row style={{ display: "grid" }}>
                                     <Col lg={2} style={{ marginRight: "10px" }}>
                                       <div style={{ height: "110px" }}>
-                                        <img src={aboutdata.section_03_image} width={"100px"} />
+                                        <img src={aboutdata.section_03_image} width={"100px"} style={{maxWidth: "none"}}/>
                                       </div>
                                     </Col>
                                     <Col lg={9}>
@@ -126,7 +126,7 @@ const AboutUs = ({aboutlinks}) => {
                                   <Row style={{ display: "grid" }}>
                                     <Col lg={2} style={{ marginRight: "10px" }}>
                                       <div style={{ height: "110px" }}>
-                                        <img src={aboutdata.section_04_image} width={"100px"} />
+                                        <img src={aboutdata.section_04_image} width={"100px"} style={{maxWidth: "none"}}/>
                                       </div>
                                     </Col>
                                     <Col lg={9} className="about-values">

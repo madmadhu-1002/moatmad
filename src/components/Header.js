@@ -31,7 +31,7 @@ export default function Header({menus}) {
             <Image src='/assets/logo/Moatamad_Logo_W-O_TagLine++.png' alt="Logo" width={120} height={27}/>
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} style={{height: "50px"}}/>
           <Navbar.Collapse id="basic-navbar-nav">
             <div style={{ display: 'grid', width: "100%" }} >
               <Row >

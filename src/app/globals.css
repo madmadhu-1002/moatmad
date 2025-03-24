@@ -206,6 +206,8 @@ body {
   margin-bottom: 0px !important;
 }
 
+
+
 @media (max-width: 576px) {
   .textimonials .card{
     padding: 10px !important;
@@ -219,6 +221,9 @@ font-size: 12px;
 }
 
 @media (max-width: 768px) {
+  .search-field{
+    display: none !important;
+  }
   .searchbox1{
     height: 320px !important;
   }
@@ -333,10 +338,9 @@ h3 {
 .latest-news h6 {
   position: absolute;
   margin-top: 0px;
-  background-color: #f30e0e;
   width: 150px;
   height: 25px;
-  color: white;
+  color: black;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -2576,6 +2580,9 @@ h3 {
   padding-left: 10px; /* Adjust padding to your needs */
 }
 
+.nav-item1{
+  padding: 0px 20px;
+}
 .image-alert {
   font-size: 12px;
   margin-top: 5px;
@@ -2929,3 +2936,6 @@ h3 {
   justify-content: space-around;
 
 }
+
+
+

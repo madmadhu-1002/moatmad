@@ -7,7 +7,7 @@ const WhatsappIcon = ({footer}) => {
     const whatsappLink = `https://wa.me/${fottermobile}?text=${encodeURIComponent(message)}`;
   return (
     <a href={whatsappLink} target="_blank" rel="noopener noreferrer" style={styles.icon}>
-      <img src='/assets/logo/whatsaap-icon-logo_895118-4053__1_-removebg-preview.png' width={'50px'} />
+      <img src='/assets/logo/whatsaap-icon-logo_895118-4053__1_-removebg-preview.png' alt="whatsapp icon" width={'50px'} />
     </a>
     
   )

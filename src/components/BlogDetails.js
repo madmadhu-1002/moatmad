@@ -8,11 +8,11 @@ const BlogDetails = ({remainingBlogContent, blogscontent}) => {
             <Container fluid className="blog-details-container">
                 <Row className="mt-5 mb-5">
                     <Col md={3}>
-                        <div className="latest-news">
+                        <div className="">
                             <h4 className="related-blogs-title">Related Blogs</h4>
                             {remainingBlogContent && remainingBlogContent.map((post, index) => (
                                 <div key={index} className="latest-news-item mb-4">
-                                    <Link href={`/blog/${post.slug}`} className="latest-news-link">
+                                    <Link href={`/blog/${post.slug}`} className="latest-news-link text-decoration-none text-black">
                                         <img src={post.medium_image} alt={post.title} className="latest-news-image" />
                                         <div className="latest-news-info">
                                             <Row style={{ width: "100%" }}>

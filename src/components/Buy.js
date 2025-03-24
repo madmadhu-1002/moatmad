@@ -146,7 +146,7 @@ const Buy = ({buydata}) => {
         <>
 
           <Container fluid>
-            <Row>
+            <Row className='search-field'>
               <Col lg={12} className={`${styles.formColLg-3} mb-5 p-0`}>
                 <div className={`${styles.formColLg} ${styles.searchBox1}`}>
                   <h1>Quality Cars, Unbeatable Deals</h1>
@@ -295,19 +295,18 @@ const Buy = ({buydata}) => {
                                   {children}
                                 </div>
                               )}
-                              renderThumb={({ props, key }) => (
-                                <div
-                                
-                                  {...props}
-                                  style={{
-                                    ...props.style,
-                                    height: '10px',
-                                    width: '10px',
-                                    borderRadius: '50%',
-                                    backgroundColor: 'red',
-                                  }}
-                                />
-                              )}
+                              renderThumb={({ props }) => {
+                                const { key, ...restProps } = props; // Extract key and spread the rest
+                                return (
+                                    <div key={key} {...restProps} style={{ 
+                                        ...restProps.style, 
+                                        height: '10px', 
+                                        width: '10px', 
+                                        borderRadius: '50%', 
+                                        backgroundColor: 'red' 
+                                    }} />
+                                );
+                            }}
                             />
                           </div>
                         </Col>

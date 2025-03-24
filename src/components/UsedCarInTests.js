@@ -27,7 +27,7 @@ const UsedCarInTests = ({data}) => {
                 {data.sections.map((item, index) => {
                   return (
                     item.section_title_en &&
-                    <div key={`desc-${index}`} className="m-5" dangerouslySetInnerHTML={{ __html: item.description_en }} />
+                    <div key={`desc-${index}`} dangerouslySetInnerHTML={{ __html: item.description_en }} />
 
                   )
                 })}

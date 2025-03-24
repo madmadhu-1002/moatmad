@@ -12,9 +12,9 @@ import styles from '@/styles/Buy.module.css';
 import { useGlobalContext } from "@/context/GlobalContext";
 
 const SearchVehicle = () => {
-    const { searchVeh, setSearchVeh } = useGlobalContext();
-    const router = useRouter();
-    const [selectedBodyType, setSelectedBodyType] = useState('');
+  const { searchVeh, setSearchVeh } = useGlobalContext();
+  const router = useRouter();
+  const [selectedBodyType, setSelectedBodyType] = useState('');
   const [selectedMake, setSelectedMake] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
@@ -24,7 +24,7 @@ const SearchVehicle = () => {
   const [modeldata, setModelData] = useState([]);
   const [vechileyear, setVechileYear] = useState([]);
   const [minValue, setMinValue] = useState(15000);
-  const [maxValue, setMaxValue] = useState(200000); 
+  const [maxValue, setMaxValue] = useState(200000);
   const [loading, setLoading] = useState(false)
   const [bodytype, setBodyType] = useState();
   const searchpage = searchVeh?.data || [];
@@ -143,13 +143,13 @@ const SearchVehicle = () => {
 
   return (
     <>
-    {loading ?
+      {loading ?
         <div className='text-center mt-3' style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>  <ThreeDots className='text-center' /> </div> :
         <>
 
           <Container fluid>
-            <Row>
-              <Col lg={12} className={`${styles.formColLg-3} mb-5 p-0`}>
+            <Row className="search-field">
+              <Col lg={12} className={`${styles.formColLg - 3} mb-5 p-0`}>
                 <div className={styles.formColLg}>
                   <h1>Quality Cars, Unbeatable Deals</h1>
 
@@ -297,19 +297,18 @@ const SearchVehicle = () => {
                                   {children}
                                 </div>
                               )}
-                              renderThumb={({ props, key }) => (
-                                <div
-                                
-                                  {...props}
-                                  style={{
-                                    ...props.style,
+                              renderThumb={({ props }) => {
+                                const { key, ...restProps } = props; // Extract key and spread the rest
+                                return (
+                                  <div key={key} {...restProps} style={{
+                                    ...restProps.style,
                                     height: '10px',
                                     width: '10px',
                                     borderRadius: '50%',
-                                    backgroundColor: 'red',
-                                  }}
-                                />
-                              )}
+                                    backgroundColor: 'red'
+                                  }} />
+                                );
+                              }}
                             />
                           </div>
                         </Col>

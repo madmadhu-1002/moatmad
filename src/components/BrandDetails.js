@@ -38,7 +38,7 @@ const BrandDetails = ({ vehicledata }) => {
     email: '',
     phone: '',
 
-})
+  })
   const [formdata, setFormData] = useState({
     fullname: '',
     email: '',
@@ -46,15 +46,15 @@ const BrandDetails = ({ vehicledata }) => {
     date: '',
     comment: ''
 
-});
+  });
 
-const [booknow, setBookNow] = useState({
+  const [booknow, setBookNow] = useState({
     fullname: '',
     email: '',
     phone: '',
     comment: ''
 
-})
+  })
 
   const allVehicleImages = [
     ...vehicledata.vehicleGalleryByCategory[0].vehicle_images,
@@ -108,7 +108,7 @@ const [booknow, setBookNow] = useState({
     };
   }, []);
 
- 
+
   const handleChangeSliderPrincipalAmount = (event) => {
     const value = parseInt(event.target.value);
     setPiepAmount(value);
@@ -149,152 +149,152 @@ const [booknow, setBookNow] = useState({
   const handleInputChangebooknow = (e) => {
     const { name, value } = e.target;
     setBookNow(prevData => ({
-        ...prevData,
-        [name]: value,
+      ...prevData,
+      [name]: value,
     }));
-};
+  };
 
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setFormData(prevData => ({
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
       ...prevData,
       [name]: value,
-  }));
-};
+    }));
+  };
 
-const handleInputChangerequest = (e) => {
-  const { name, value } = e.target;
-  setRequest(prevData => ({
+  const handleInputChangerequest = (e) => {
+    const { name, value } = e.target;
+    setRequest(prevData => ({
       ...prevData,
       [name]: value,
-  }));
-};
+    }));
+  };
 
-const handleSubmitRequestcallback = async (e) => {
-  e.preventDefault();
+  const handleSubmitRequestcallback = async (e) => {
+    e.preventDefault();
 
-  try {
+    try {
       const response = await axios.post('https://admin.moatamad.com/api/storeRequestCallBack', {
-          fullname: request.fullname,
-          email: request.email,
-          phone: request.phone,
-          vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Added optional chaining for safety
+        fullname: request.fullname,
+        email: request.email,
+        phone: request.phone,
+        vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Added optional chaining for safety
       });
 
       if (response) {
-          toast.success(response.data.message, {
-              onClose: () => setShowRequestModal(false),  // Close modal when toast is dismissed
-              autoClose: 5000,  // Optional: Automatically close the toast after 5 seconds
-          });
-          // Reset the form state
-          setRequest({
-              fullname: '',
-              email: '',
-              phone: '',
-              date: '',
-          });
+        toast.success(response.data.message, {
+          onClose: () => setShowRequestModal(false),  // Close modal when toast is dismissed
+          autoClose: 5000,  // Optional: Automatically close the toast after 5 seconds
+        });
+        // Reset the form state
+        setRequest({
+          fullname: '',
+          email: '',
+          phone: '',
+          date: '',
+        });
 
-          // Close the modal
+        // Close the modal
       }
-  } catch (error) {
+    } catch (error) {
       if (error.response && error.response.data && error.response.data.data) {
-          const errorData = error.response.data.data;
+        const errorData = error.response.data.data;
 
-          // Display individual field errors if available
-          if (errorData.fullname) toast.error(errorData.fullname[0]);
-          if (errorData.email) toast.error(errorData.email[0]);
-          if (errorData.phone) toast.error(errorData.phone[0]);
+        // Display individual field errors if available
+        if (errorData.fullname) toast.error(errorData.fullname[0]);
+        if (errorData.email) toast.error(errorData.email[0]);
+        if (errorData.phone) toast.error(errorData.phone[0]);
       } else {
-          // General error handling (fallback in case no specific field errors)
-          toast.error('Something went wrong. Please try again.');
+        // General error handling (fallback in case no specific field errors)
+        toast.error('Something went wrong. Please try again.');
       }
-  }
-};
+    }
+  };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
+    try {
       const response = await axios.post('https://admin.moatamad.com/api/storeBookTestDrive', {
-          fullname: formdata.fullname,
-          email: formdata.email,
-          phone: formdata.phone,
-          test_drive_date: formdata.date,
-          comment: formdata.comment,
-          vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Optional chaining for safety
+        fullname: formdata.fullname,
+        email: formdata.email,
+        phone: formdata.phone,
+        test_drive_date: formdata.date,
+        comment: formdata.comment,
+        vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Optional chaining for safety
       });
 
       if (response) {
-          toast.success(response.data.message, {
-              onClose: () => setShowTestDriveModal(false),  // Close modal when toast is dismissed
-              autoClose: 3000,  // Optional: Automatically close the toast after 5 seconds
-          });
-          // Clear the form
-          setFormData({
-              fullname: '',
-              email: '',
-              phone: '',
-              date: '',
-              comment: '',
-          });
+        toast.success(response.data.message, {
+          onClose: () => setShowTestDriveModal(false),  // Close modal when toast is dismissed
+          autoClose: 3000,  // Optional: Automatically close the toast after 5 seconds
+        });
+        // Clear the form
+        setFormData({
+          fullname: '',
+          email: '',
+          phone: '',
+          date: '',
+          comment: '',
+        });
 
-          // Close the modal after success
-          setShowTestDriveModal(false);
+        // Close the modal after success
+        setShowTestDriveModal(false);
       }
-  } catch (error) {
+    } catch (error) {
       if (error.response && error.response.data && error.response.data.data) {
-          const errorData = error.response.data.data;
+        const errorData = error.response.data.data;
 
-          // Display individual field errors if available
-          if (errorData.fullname) toast.error(errorData.fullname[0]);
-          if (errorData.email) toast.error(errorData.email[0]);
-          if (errorData.phone) toast.error(errorData.phone[0]);
+        // Display individual field errors if available
+        if (errorData.fullname) toast.error(errorData.fullname[0]);
+        if (errorData.email) toast.error(errorData.email[0]);
+        if (errorData.phone) toast.error(errorData.phone[0]);
       } else {
-          // Fallback for general errors
-          toast.error('Something went wrong. Please try again.');
+        // Fallback for general errors
+        toast.error('Something went wrong. Please try again.');
       }
-  }
-};
+    }
+  };
 
   const handleSubmitBooknow = async (e) => {
     e.preventDefault();
 
     try {
-        const response = await axios.post('https://admin.moatamad.com/api/storeBookNow', {
-            fullname: booknow.fullname,
-            email: booknow.email,
-            phone: booknow.phone,
-            comment: booknow.comment,
-            vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Optional chaining for safety
-        });
+      const response = await axios.post('https://admin.moatamad.com/api/storeBookNow', {
+        fullname: booknow.fullname,
+        email: booknow.email,
+        phone: booknow.phone,
+        comment: booknow.comment,
+        vehicle_name: vechiledata.CarOverviewList?.car_title_en, // Optional chaining for safety
+      });
 
-        if (response) {
-            toast.success(response.data.message, {
-                onClose: () => setShowBookNowModal(false),  // Close modal when toast is dismissed
-                autoClose: 3000,  // Optional: Automatically close the toast after 5 seconds
-            });
-            // Reset the form
-            setBookNow({
-                fullname: '',
-                email: '',
-                phone: '',
-                date: '',
-                comment: '',
-            });
-        }
+      if (response) {
+        toast.success(response.data.message, {
+          onClose: () => setShowBookNowModal(false),  // Close modal when toast is dismissed
+          autoClose: 3000,  // Optional: Automatically close the toast after 5 seconds
+        });
+        // Reset the form
+        setBookNow({
+          fullname: '',
+          email: '',
+          phone: '',
+          date: '',
+          comment: '',
+        });
+      }
     } catch (error) {
-        if (error.response && error.response.data && error.response.data.data) {
-            const errorData = error.response.data.data;
-            // Display individual field errors if available
-            if (errorData.fullname) toast.error(errorData.fullname[0]);
-            if (errorData.email) toast.error(errorData.email[0]);
-            if (errorData.phone) toast.error(errorData.phone[0]);
-        } else {
-            // Fallback for general errors
-            toast.error('Something went wrong. Please try again.');
-        }
+      if (error.response && error.response.data && error.response.data.data) {
+        const errorData = error.response.data.data;
+        // Display individual field errors if available
+        if (errorData.fullname) toast.error(errorData.fullname[0]);
+        if (errorData.email) toast.error(errorData.email[0]);
+        if (errorData.phone) toast.error(errorData.phone[0]);
+      } else {
+        // Fallback for general errors
+        toast.error('Something went wrong. Please try again.');
+      }
     }
-};
+  };
 
   const features = [
     { name: "Car Overview", id: '1' },
@@ -346,7 +346,7 @@ const handleSubmit = async (e) => {
                     showFullscreenButton={false}
                     showNav={false}
                     showPlayButton={false}
-                    thumbnailPosition='left'
+                    thumbnailPosition='bottom'
                     showBullets={true}
                     autoPlay={true}
                     infinite={true} // Enable infinite looping of main images
@@ -358,7 +358,7 @@ const handleSubmit = async (e) => {
                     showFullscreenButton={false}
                     showNav={false} // Enable navigation for looping
                     showPlayButton={false}
-                    thumbnailPosition='left'
+                    thumbnailPosition='bottom'
                     showBullets={true}
                     autoPlay={true} // Enable autoplay to keep it looping
                     infinite={false} // Enable infinite looping of images
@@ -383,47 +383,65 @@ const handleSubmit = async (e) => {
                     </h6>
                   </div>
                   <div>
-                    <h6 style={{ fontWeight: "300", fontSize: "14px" }}><MdOutlineDriveEta color='green' /> Test Drive : Available</h6>
+                    <h6 style={{ fontWeight: "300", fontSize: "14px" }} className='d-flex align-items-center gap-2'><MdOutlineDriveEta color='green' /> Test Drive : Available</h6>
                   </div>
                   <div className='bottom-shadow'>
-                    <h6 style={{ fontWeight: "300", fontSize: "14px" }}><IoLocationSharp color='red' /> #166 , Souq Al Haraj , Sharjah, UAE</h6>
+                    <h6 style={{ fontWeight: "300", fontSize: "14px" }} className='d-flex align-items-center gap-2'><IoLocationSharp color='red' /> #166 , Souq Al Haraj , Sharjah, UAE</h6>
                   </div>
                   <div className='aed-dev mt-4'>
-                    <h6 style={{ fontSize: '14px', display: 'flex', alignItems: 'end' }}><span style={{ color: "black", fontSize: "12px" }}>AED</span>&nbsp;<span style={{ color: "red" }}>{vehicledata && formatCurrency(vehicledata.CarOverviewList.price)}</span></h6>
-                    <h6 style={{ fontSize: '22px', display: "flex", alignItems: 'center' }}>
-                      EMI :&nbsp;<span style={{ color: "red" }}>
-                        <span style={{ color: "black", fontSize: "14px" }}>AED</span>   {vehicledata && Number(vehicledata.CarOverviewList.emi_amount) >= 1000 ? Number(vehicledata.CarOverviewList.emi_amount).toLocaleString("en-US") : Number(vehicledata.CarOverviewList.emi_amount).toFixed(0)}
+                    <Row>
+                      <Col sm={12}>
+                        <h6 style={{ fontSize: '14px', display: 'flex', alignItems: 'end' }}><span style={{ color: "black", fontSize: "12px" }}>AED</span>&nbsp;<span style={{ color: "red" }}>{vehicledata && formatCurrency(vehicledata.CarOverviewList.price)}</span></h6>
+                      </Col>
+                      <Col >
+                        <h6 style={{ fontSize: '20px', display: "flex", alignItems: 'center' }}>
+                          EMI :&nbsp;<span style={{ color: "red" }}>
+                            <span style={{ color: "black", fontSize: "14px" }}>AED</span>   {vehicledata && Number(vehicledata.CarOverviewList.emi_amount) >= 1000 ? Number(vehicledata.CarOverviewList.emi_amount).toLocaleString("en-US") : Number(vehicledata.CarOverviewList.emi_amount).toFixed(0)}
 
 
 
-                        <span style={{ color: "black", fontSize: "10px" }}> per month</span>
-                      </span></h6>
+                            <span style={{ color: "black", fontSize: "10px" }}> per month</span>
+                          </span></h6>
+                      </Col>
+                    </Row>
+
 
 
 
                   </div>
-                  <div style={{ marginTop: "8%" }} className='book-a-text-drive mb-2'>
-                    <Button className={`${showBookNowModal ? 'active-book-now' : 'blue-btn'}`} style={{ width: "100%" }} onClick={handleShowBookNowModal}>
-                      BOOK NOW
-                    </Button>
-                  </div>
-                  <div className='book-a-text-drive'>
-                    <Button className={`${showTestDriveModal ? 'book-btn' : 'red-btn'}`} onClick={handleShowTestDriveModal}>
-                      BOOK A TEST DRIVE
-                    </Button>
-                    <Button onClick={() => { setFinance(true) }} className={`${finance ? 'active-finance' : 'red-btn'}`} >
-                      {features.map((item, index) => (
-                        item.id === "3" ?
-                          <a key={item.id || index} style={{ textDecoration: "none", color: "white" }} href={`#${item.id}`} onClick={(e) => handleButtonClick(e, item.id)}>
-                            FINANCE
-                          </a> : null
-                      ))}
-                    </Button>
-                  </div>
-                  <div className='book-a-text-drive mt-2 mb-3'>
-                    <Button className={`${showRequestModal ? 'blue-btn request-btn ' : ' blue-btn request-btn-active'}`} style={{ width: "100%", textTransform: "uppercase" }} onClick={handleShowRequestModal}>
-                      Request a Call Back                </Button>
-                  </div>
+                  <Row className='g-3'>
+                    <Col sm={12}>
+                      <div style={{ marginTop: "8%" }} className='book-a-text-drive mb-2'>
+                        <Button className={`${showBookNowModal ? 'active-book-now' : 'blue-btn'}`} style={{ width: "100%" }} onClick={handleShowBookNowModal}>
+                          BOOK NOW
+                        </Button>
+                      </div>
+                    </Col>
+                    <Col sm={12}>
+                      <div className='book-a-text-drive'>
+                        <Button className={`${showTestDriveModal ? 'book-btn' : 'red-btn'} me-2`} onClick={handleShowTestDriveModal}>
+                          BOOK A TEST DRIVE
+                        </Button>
+                        <Button onClick={() => { setFinance(true) }} className={`${finance ? 'active-finance' : 'red-btn'}`} >
+                          {features.map((item, index) => (
+                            item.id === "3" ?
+                              <a key={item.id || index} style={{ textDecoration: "none", color: "white" }} href={`#${item.id}`} onClick={(e) => handleButtonClick(e, item.id)}>
+                                FINANCE
+                              </a> : null
+                          ))}
+                        </Button>
+                      </div>
+                    </Col>
+                    <Col>
+                      <div className='book-a-text-drive mt-2 mb-3'>
+                        <Button className={`${showRequestModal ? 'blue-btn request-btn ' : ' blue-btn request-btn-active'}`} style={{ width: "100%", textTransform: "uppercase" }} onClick={handleShowRequestModal}>
+                          Request a Call Back                </Button>
+                      </div>
+                    </Col>
+                  </Row>
+
+
+
                 </div>
               </Col>
             </Row>
@@ -707,162 +725,162 @@ const handleSubmit = async (e) => {
             </Container>
           </Container>
           <Modal show={showBookNowModal} onHide={handleCloseBookNowModal}>
-                        <Modal.Header closeButton>
-                            <Modal.Title className='text-center' style={{ width: "100%", textAlign: "center" }}>Book Now</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form onSubmit={handleSubmitBooknow}>
-                                <Form.Group controlId="formName">
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Name"
-                                        name="fullname"
-                                        value={booknow.fullname
-                                        }
-                                        onChange={handleInputChangebooknow}
-                                    />
-                                </Form.Group>
-                                <Form.Group controlId="formEmail" className="mt-3 mb-3">
-                                    <Form.Control
-                                        type="email"
-                                        placeholder="Email"
-                                        name="email"
-                                        value={booknow.email}
-                                        onChange={handleInputChangebooknow}
+            <Modal.Header closeButton>
+              <Modal.Title className='text-center' style={{ width: "100%", textAlign: "center" }}>Book Now</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form onSubmit={handleSubmitBooknow}>
+                <Form.Group controlId="formName">
+                  <Form.Control
+                    type="text"
+                    placeholder="Name"
+                    name="fullname"
+                    value={booknow.fullname
+                    }
+                    onChange={handleInputChangebooknow}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formEmail" className="mt-3 mb-3">
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    value={booknow.email}
+                    onChange={handleInputChangebooknow}
 
-                                    />
-                                </Form.Group>
-                                <Form.Group controlId="formPhone">
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Mobile"
-                                        name="phone"
-                                        value={booknow.phone}
-                                        onChange={handleInputChangebooknow}
-                                    />
-                                </Form.Group>
+                  />
+                </Form.Group>
+                <Form.Group controlId="formPhone">
+                  <Form.Control
+                    type="text"
+                    placeholder="Mobile"
+                    name="phone"
+                    value={booknow.phone}
+                    onChange={handleInputChangebooknow}
+                  />
+                </Form.Group>
 
-                                <Form.Group controlId="formComment" className="mt-3 mb-3">
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="comment"
-                                        placeholder="Comment"
-                                        value={booknow.comment}
-                                        onChange={handleInputChangebooknow}
-                                    />
-                                </Form.Group>
-                                <div className="text-center" style={{ display: "flex", justifyContent: "center" }}>
-                                    <Button
-                                        variant="primary"
-                                        className="mt-3"
-                                        style={{ backgroundColor: "red", color: "white", border: "none" }}
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </Button>
-                                </div>
-                            </Form>
-                            <ToastContainer />
+                <Form.Group controlId="formComment" className="mt-3 mb-3">
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    name="comment"
+                    placeholder="Comment"
+                    value={booknow.comment}
+                    onChange={handleInputChangebooknow}
+                  />
+                </Form.Group>
+                <div className="text-center" style={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    variant="primary"
+                    className="mt-3"
+                    style={{ backgroundColor: "red", color: "white", border: "none" }}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </Form>
+              <ToastContainer />
 
-                        </Modal.Body>
-                    </Modal>
-                    <Modal show={showTestDriveModal} onHide={handleCloseTestDriveModal}>
-                        <Modal.Header closeButton>
-                            <Modal.Title style={{ width: "100%", textAlign: "center" }}>Book a Test Drive</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form onSubmit={handleSubmit}>
-                                <Form.Group controlId="formName">
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Name"
-                                        name="fullname"
-                                        value={formdata.fullname
-                                        }
-                                        onChange={handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group controlId="formEmail" className="mt-3 mb-3">
-                                    <Form.Control
-                                        type="email"
-                                        placeholder="Email"
-                                        name="email"
-                                        value={formdata.email}
-                                        onChange={handleInputChange}
+            </Modal.Body>
+          </Modal>
+          <Modal show={showTestDriveModal} onHide={handleCloseTestDriveModal}>
+            <Modal.Header closeButton>
+              <Modal.Title style={{ width: "100%", textAlign: "center" }}>Book a Test Drive</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formName">
+                  <Form.Control
+                    type="text"
+                    placeholder="Name"
+                    name="fullname"
+                    value={formdata.fullname
+                    }
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formEmail" className="mt-3 mb-3">
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    value={formdata.email}
+                    onChange={handleInputChange}
 
-                                    />
-                                </Form.Group>
-                                <Form.Group controlId="formPhone">
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Mobile"
-                                        name="phone"
-                                        value={formdata.phone}
-                                        onChange={handleInputChange}
-                                    />
-                                </Form.Group>
+                  />
+                </Form.Group>
+                <Form.Group controlId="formPhone">
+                  <Form.Control
+                    type="text"
+                    placeholder="Mobile"
+                    name="phone"
+                    value={formdata.phone}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
 
-                                <Form.Group controlId="formDate" className="mt-3 mb-3">
-                                    <Form.Control
-                                        type="date"
-                                        name="date"
-                                        value={formdata.date}
-                                        onChange={handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group controlId="formComment" className="mt-3 mb-3">
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="comment"
-                                        placeholder="Comment"
-                                        value={formdata.comment}
-                                        onChange={handleInputChange}
-                                    />
-                                </Form.Group>
-                                <div className="text-center" style={{ display: "flex", justifyContent: "center" }}>
-                                    <Button
-                                        variant="primary"
-                                        className="mt-3"
-                                        style={{ backgroundColor: "red", color: "white", border: "none" }}
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </Button>
-                                </div>
-                            </Form>
-                            <ToastContainer />
-                        </Modal.Body>
-                    </Modal>
+                <Form.Group controlId="formDate" className="mt-3 mb-3">
+                  <Form.Control
+                    type="date"
+                    name="date"
+                    value={formdata.date}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formComment" className="mt-3 mb-3">
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    name="comment"
+                    placeholder="Comment"
+                    value={formdata.comment}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
+                <div className="text-center" style={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    variant="primary"
+                    className="mt-3"
+                    style={{ backgroundColor: "red", color: "white", border: "none" }}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </Form>
+              <ToastContainer />
+            </Modal.Body>
+          </Modal>
 
-                    <Modal show={showRequestModal} onHide={handleCloseRequestModal}>
-                        <Modal.Header closeButton>
-                            <Modal.Title style={{ width: "100%", textAlign: "center" }}>Request a Call Back </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form onSubmit={handleSubmitRequestcallback}>
-                                <Form.Group controlId="formName">
-                                    <Form.Control type="text" placeholder="Name" name='fullname' value={request.fullname} onChange={handleInputChangerequest} />
-                                </Form.Group>
-                                <Form.Group controlId="formEmail" className='mt-3 mb-3'>
-                                    <Form.Control type="email" placeholder="Email" name='email' value={request.email} onChange={handleInputChangerequest} />
-                                </Form.Group>
-                                <Form.Group controlId="formPhone">
-                                    <Form.Control type="text" placeholder="Mobile" name='phone' value={request.phone} onChange={handleInputChangerequest} />
-                                </Form.Group>
-                                <div className='text-center' style={{ display: "flex", justifyContent: "center" }}>
-                                    <Button variant="primary" className='mt-3' style={{ backgroundColor: "black", color: "white", border: "none" }} type="submit" >
-                                        Submit
-                                    </Button>
+          <Modal show={showRequestModal} onHide={handleCloseRequestModal}>
+            <Modal.Header closeButton>
+              <Modal.Title style={{ width: "100%", textAlign: "center" }}>Request a Call Back </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form onSubmit={handleSubmitRequestcallback}>
+                <Form.Group controlId="formName">
+                  <Form.Control type="text" placeholder="Name" name='fullname' value={request.fullname} onChange={handleInputChangerequest} />
+                </Form.Group>
+                <Form.Group controlId="formEmail" className='mt-3 mb-3'>
+                  <Form.Control type="email" placeholder="Email" name='email' value={request.email} onChange={handleInputChangerequest} />
+                </Form.Group>
+                <Form.Group controlId="formPhone">
+                  <Form.Control type="text" placeholder="Mobile" name='phone' value={request.phone} onChange={handleInputChangerequest} />
+                </Form.Group>
+                <div className='text-center' style={{ display: "flex", justifyContent: "center" }}>
+                  <Button variant="primary" className='mt-3' style={{ backgroundColor: "black", color: "white", border: "none" }} type="submit" >
+                    Submit
+                  </Button>
 
-                                </div>
+                </div>
 
-                            </Form>
-                            <ToastContainer />
+              </Form>
+              <ToastContainer />
 
-                        </Modal.Body>
-                    </Modal>
+            </Modal.Body>
+          </Modal>
 
         </>
       }
