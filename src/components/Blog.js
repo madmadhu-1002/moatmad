@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import { FaHandPointRight } from "react-icons/fa";
 import Link from 'next/link';

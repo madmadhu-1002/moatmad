@@ -58,7 +58,7 @@ const HomePage = ({homepage}) => {
     };
 
     fetchData();
-  }, [0]); // Empty dependency array means this effect runs only once
+  }, []); // Empty dependency array means this effect runs only once
 
   useEffect(() => {
     const fetchingBodytype = async () => {

@@ -1,6 +1,7 @@
 "use client"
 
-import { Col, Container, Row, Card } from 'react-bootstrap'
+import { Col, Container, Row, Card } from 'react-bootstrap';
+import Image from 'next/image';
 
 const PaperWork = ({data}) => {
   return (
@@ -22,7 +23,7 @@ const PaperWork = ({data}) => {
                 <Card >
                   <Card.Body className=''>
                     <div className='w-100 d-flex justify-content-center'>
-                    <img src={item.icon_file_or_image} />
+                    <Image alt='page cards' width={100} height={100} src={item.icon_file_or_image} />
                     </div>
                     
                     <Card.Title>{item.section_title_en}</Card.Title>

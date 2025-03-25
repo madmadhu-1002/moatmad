@@ -9,6 +9,7 @@ import { ThreeDots } from 'react-loader-spinner';
 import { FaEye } from 'react-icons/fa';
 import Link from "next/link";
 import styles from '@/styles/Buy.module.css'
+import Image from "next/image";
 
 const Buy = ({buydata}) => {
     const router = useRouter();

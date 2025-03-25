@@ -10,6 +10,7 @@ import { FaEye } from 'react-icons/fa';
 import Link from "next/link";
 import styles from '@/styles/Buy.module.css';
 import { useGlobalContext } from "@/context/GlobalContext";
+import Image from "next/image";
 
 const SearchVehicle = () => {
   const { searchVeh, setSearchVeh } = useGlobalContext();
@@ -337,7 +338,7 @@ const SearchVehicle = () => {
                       <Col lg={3} className='mb-5' key={item.id || index}>
                         <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: '0px' }} >
                           <Card.Header style={{ padding: "0px" }} className={styles.productsCardHeader}>
-                            <img src={item.car_image} height={'100%'} width={'100%'} />
+                            <Image height={100} width={100}  alt="car image" src={item.car_image} />
                             <h6 className={styles.availableH6}>available</h6>
                             <div className={styles.faEyeIconDiv}>
                               <FaEye className='fa-eye-icon' />
@@ -366,7 +367,7 @@ const SearchVehicle = () => {
                               <Col lg={2} className={styles.indoKmsCol} style={{ padding: '0px', width: '20%' }}>
                                 <Row>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} className='text-center'>
-                                    <img src={'/assets/product-feture-icons/kms.png'} style={{ width: '30px' }} />
+                                    <Image height={30} width={30}  alt="car image"  src={'/assets/product-feture-icons/kms.png'}  />
                                   </Col>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                     {/* <p>{item.kilometers}</p> */}
@@ -378,7 +379,7 @@ const SearchVehicle = () => {
                               <Col lg={2} style={{ padding: '0px' }} >
                                 <Row>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
-                                    <img src='/assets/product-feture-icons/autogere.png' style={{ width: '30px' }} />
+                                    <Image height={30} width={30}  alt="car image" src='/assets/product-feture-icons/autogere.png'  />
                                   </Col>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                     <p>{item.transmission_en}</p>
@@ -389,7 +390,7 @@ const SearchVehicle = () => {
                               <Col lg={2} style={{ padding: '0px' }}>
                                 <Row>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                    <img src='\assets\product-feture-icons\calender.png' style={{ width: '30px' }} />
+                                    <Image height={30} width={30}  alt="car image" src='\assets\product-feture-icons\calender.png'  />
                                   </Col>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                     <p>{item.year}</p>
@@ -399,7 +400,7 @@ const SearchVehicle = () => {
                               <Col lg={2} style={{ padding: '0px' }}>
                                 <Row>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                    <img src='/assets/product-feture-icons/engine.png' style={{ width: '30px' }} />
+                                    <Image height={30} width={30}  alt="car image" src='/assets/product-feture-icons/engine.png' />
                                   </Col>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                     <p>{item.engine && item.engine.includes(',') ? item.engine.split(',')[1] : item.engine}</p>
@@ -409,7 +410,7 @@ const SearchVehicle = () => {
                               <Col lg={2} style={{ padding: '0px' }}>
                                 <Row>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                    <img src='/assets/product-feture-icons/globe.png' style={{ width: '30px' }} />
+                                    <Image height={30} width={30}  alt="car image" src='/assets/product-feture-icons/globe.png'  />
                                   </Col>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                     <p>{item.regional_specs_en}</p>

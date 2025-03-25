@@ -150,7 +150,7 @@ const AboutUs = ({aboutlinks}) => {
                                       className="mt-3"
                                       style={{ color: "black", display: "flex", alignItems: "center" }}
                                     >
-                                      <img   src="/assets/why-choose/8410178.png" width={'20px'}  />
+                                      <Image height={20} width={20}  alt="car image"   src="/assets/why-choose/8410178.png"  />
                                       &nbsp;CORPORATE&nbsp;VIDEO
                                     </h6>
                                     <video
@@ -171,7 +171,7 @@ const AboutUs = ({aboutlinks}) => {
                                         justifyContent: "end"
                                       }}
                                     >
-                                      <img   src="/assets/why-choose/15505902.png" width={'20px'} />
+                                      <Image height={20} width={20}  alt="car image"  src="/assets/why-choose/15505902.png" />
                                       &nbsp;WATCH&nbsp;VIDEO
                                     </h6>
                                   </div>
@@ -282,7 +282,7 @@ const AboutUs = ({aboutlinks}) => {
                               <Card>
                                 <Image src={"https://www.indiafilings.com/learn/wp-content/uploads/2023/03/Can-a-single-person-own-a-firm-in-India.jpg"} alt='a person ' className="rounded-image" width={100} height={100}/>
                                 <h6 className='text-center mt-4'>{item.name_en}</h6>
-                                <p className="d-flex align-items-center gap-2"><img alt='about data' src='https://cdn-icons-png.freepik.com/256/2857/2857527.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'}  /> {item.designation_en}</p>
+                                <p className="d-flex align-items-center gap-2"><Image height={30} width={30} alt='about data' src='https://cdn-icons-png.freepik.com/256/2857/2857527.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'}  /> {item.designation_en}</p>
                                 <p className="d-flex align-items-center gap-2"><img alt='about data' src='https://cdn-icons-png.freepik.com/256/4866/4866761.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'}  /> {item.phone}</p>
                               </Card>
 

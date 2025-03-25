@@ -1,3 +1,5 @@
+"use client"
+
 import { Accordion, Card, Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import { useState, useEffect } from "react";
 import Slider from "react-slick";

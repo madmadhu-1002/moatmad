@@ -1,4 +1,6 @@
+"use client"
 
+import Image from "next/image";
 
 const WhatsappIcon = ({footer}) => {
   const fottermobile = footer && footer.socail_media_links.content.whats_app_number

@@ -8,6 +8,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { useGlobalContext } from "@/context/GlobalContext";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import Image from 'next/image';
 
 const DealerDetails = ({dealerdata}) => {
     const { selectedVehicles, setSelectedVehicles, bidPrices, setBidPrices } = useGlobalContext();
@@ -108,7 +109,7 @@ const DealerDetails = ({dealerdata}) => {
                                 {filteredVehicleData.map((vehicle, index) => (
                                     <tr key={vehicle.vehicle_id}>
                                         <td>
-                                            <img src={vehicle.car_image} className="media-photo" style={{ objectFit: 'cover' }} width={'170px'} height={'80px'} alt={`${vehicle.make_en} ${vehicle.model_en}`} />
+                                            <Image height={80} width={170} src={vehicle.car_image} className="media-photo" style={{ objectFit: 'cover' }} alt={`${vehicle.make_en} ${vehicle.model_en}`} />
                                         </td>
                                         <td className='text-center delier-deatils-table'>{vehicle.make_en}</td>
                                         <td className='text-center delier-deatils-table'>{vehicle.model_en}</td>

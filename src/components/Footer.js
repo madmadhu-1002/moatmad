@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import HTMLReactParser from 'html-react-parser';
 import Link from 'next/link';
 import styles from '@/styles/Footer.module.css';
+import Image from 'next/image';
 
 
 const Footer = ({footer}) => {
