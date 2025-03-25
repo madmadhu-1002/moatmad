@@ -1,11 +1,12 @@
 
 
 import { Col, Container, Row, Card } from 'react-bootstrap';
+import styles from '@/styles/UsedCarInTests.module.css'
 
 const UsedCarInTests = ({data}) => {
   return (
     <>
-    {data && <Container fluid className='buyer-gaide-page mb-5'>
+    {data && <Container fluid className={`${styles.buyerGaidePage} mb-5`}>
             <Row>
               <div className='mt-5 mb-4 '>
                 <h1 className='text-center mb-4' style={{ fontWeight: "700" ,fontSize:'28px'}}>{data.category_title_en}</h1>

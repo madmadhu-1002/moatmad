@@ -22,8 +22,7 @@ const Finance = ({FinanceData, DescriptionComponent}) => {
           <Col lg={6} className={`mt-5 ${styles.financeContent}`} style={{ paddingLeft: "40px", paddingRight: '0px' }}>
            
            <div>
-            {console.log("hy")}
-            {FinanceData && FinanceData.content && <div className="m-5" dangerouslySetInnerHTML={{ __html: FinanceData.content.description_en }} />}
+            {FinanceData && FinanceData.content && <div dangerouslySetInnerHTML={{ __html: FinanceData.content.description_en }} />}
     
             </div>
           </Col>

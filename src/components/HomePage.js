@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import Products from './Products';
 import { useGlobalContext } from "@/context/GlobalContext";
 import Image from 'next/image';
+import styles from '@/styles/HomePage.module.css'
 
 const HomePage = ({homepage}) => {
   const { searchVeh, setSearchVeh } = useGlobalContext();
@@ -154,17 +155,17 @@ const HomePage = ({homepage}) => {
     }
   };
   return (
-    <Container fluid className='homepage-container'>
+    <Container fluid className={styles.homepageContainer}>
 <h1>{loading}</h1>
         <Row >
           <Col lg={12} style={{ padding: '0px' }} md={{ order: 1 }} xs={{ order: 2 }}>
-            <div className='form-col-lg-3 '>
+            <div className={`${styles.formColLg3} form-col-lg-3 `}>
               <h6>Quality Cars, Unbeatable Deals</h6>
               <div>
-                <Form onSubmit={handleSubmit} className='searchbox1'>
+                <Form onSubmit={handleSubmit} className={styles.searchbox1}>
                   <Row style={{ height: '60px', display: "flex", justifyContent: 'center', padding: "0px 27px", alignItems: "center" }} className='g-2'>
                     <Col lg={2} md={2}>
-                      <div className='input-values' style={{ position: 'relative' }}>
+                      <div className={styles.inputValues} style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
                           placeholder="Select Body Type"
@@ -183,7 +184,7 @@ const HomePage = ({homepage}) => {
 
                         </Form.Control>
                         <span
-                          className="down-arrow"
+                          className={styles.downArrow}
                           style={{
                             position: 'absolute',
                             top: '50%',
@@ -197,7 +198,7 @@ const HomePage = ({homepage}) => {
                       </div>
                     </Col>
                     <Col lg={2} md={2} >
-                      <div className='input-values' style={{ position: 'relative' }}>
+                      <div className={styles.inputValues} style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
                           placeholder="Select Make"
@@ -217,7 +218,7 @@ const HomePage = ({homepage}) => {
 
                         </Form.Control>
                         <span
-                          className="down-arrow"
+                          className={styles.downArrow}
                           style={{
                             position: 'absolute',
                             top: '50%',
@@ -231,7 +232,7 @@ const HomePage = ({homepage}) => {
                       </div>
                     </Col>
                     <Col lg={2} md={2} >
-                      <div className='input-values' style={{ position: 'relative' }}>
+                      <div className={styles.inputValues} style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
                           placeholder="Select Model"
@@ -250,7 +251,7 @@ const HomePage = ({homepage}) => {
                           })}
                         </Form.Control>
                         <span
-                          className="down-arrow"
+                          className={styles.downArrow}
                           style={{
                             position: 'absolute',
                             top: '50%',
@@ -264,7 +265,7 @@ const HomePage = ({homepage}) => {
                       </div>
                     </Col>
                     <Col lg={2} md={2} >
-                      <div className='input-values' style={{ position: 'relative' }}>
+                      <div className={styles.inputValues} style={{ position: 'relative' }}>
                         <Form.Control
                           as="select"
                           placeholder="Select Year"
@@ -282,7 +283,7 @@ const HomePage = ({homepage}) => {
                           })}
                         </Form.Control>
                         <span
-                          className="down-arrow"
+                          className={styles.downArrow}
                           style={{
                             position: 'absolute',
                             top: '50%',
@@ -338,7 +339,7 @@ const HomePage = ({homepage}) => {
                       </div>
                     </Col>
                     <Col lg={2}  className='text-center' style={{ display: "flex", justifyContent: "center" }}>
-                      <div className='serach-btns-home'>
+                      <div className={styles.serachBtnsHome}>
                         <Button type="submit" >Search&nbsp;Vehicle</Button>
                       </div>
                     </Col>

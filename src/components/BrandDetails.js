@@ -11,13 +11,13 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { RotatingLines } from 'react-loader-spinner';
 import { toast, ToastContainer } from 'react-toastify';
+import styles from '@/styles/BrandDetails.module.css'
 
 Chart.register(...registerables);
 Chart.register(ArcElement);
 const currency = "AED";
 
 const BrandDetails = ({ vehicledata }) => {
-  console.log(vehicledata);
   const [iAmount, setIAmount] = useState(0);
   const [iRate, setIRate] = useState(4.09);
   const [finance, setFinance] = useState(false)
@@ -334,7 +334,7 @@ const BrandDetails = ({ vehicledata }) => {
             <Row className='mt-5' style={{ padding: '0px 25px' }}>
               <Col className='exterior-images-gallery' lg={8} md={8} sm={12} xs={12} style={{ padding: "10px", paddingTop: "12px" }}>
                 {/* <Interior /> */}
-                <div className='interior'>
+                <div className={styles.interior}>
                   <div>
                     <p className={`${showModal === false ? 'interior-active' : null}`} onClick={() => setShowModal(false)}>exterior</p>
                     <p className={`${showModal === true ? 'interior-active' : null}`} onClick={() => setShowModal(true)}>interior</p>
@@ -370,8 +370,8 @@ const BrandDetails = ({ vehicledata }) => {
                   />
                 }
               </Col>
-              <Col lg={4} md={4} className='small-box-fixed-postion'>
-                <div className='subcontent-div'>
+              <Col lg={4} md={4} className={styles.smallBoxFixedPostion}>
+                <div className={styles.subcontentDiv}>
                   {/* <div>
                                         <h6 style={{ fontWeight: "300", fontSize: "14px", fontWeight: "700", color: "gray" }}>Ref No : {vehicledata && vehicledata.CarOverviewList.reference_no}</h6>
                                     </div> */}
@@ -386,10 +386,10 @@ const BrandDetails = ({ vehicledata }) => {
                   <div>
                     <h6 style={{ fontWeight: "300", fontSize: "14px" }} className='d-flex align-items-center gap-2'><MdOutlineDriveEta color='green' /> Test Drive : Available</h6>
                   </div>
-                  <div className='bottom-shadow'>
+                  <div className={styles.bottomShadow}>
                     <h6 style={{ fontWeight: "300", fontSize: "14px" }} className='d-flex align-items-center gap-2'><IoLocationSharp color='red' /> #166 , Souq Al Haraj , Sharjah, UAE</h6>
                   </div>
-                  <div className='aed-dev mt-4'>
+                  <div className={`${styles.aedDev} mt-4`}>
                     <Row>
                       <Col sm={12}>
                         <h6 style={{ fontSize: '14px', display: 'flex', alignItems: 'end' }}><span style={{ color: "black", fontSize: "12px" }}>AED</span>&nbsp;<span style={{ color: "red" }}>{vehicledata && formatCurrency(vehicledata.CarOverviewList.price)}</span></h6>
@@ -412,18 +412,18 @@ const BrandDetails = ({ vehicledata }) => {
                   </div>
                   <Row className='g-3'>
                     <Col sm={12}>
-                      <div style={{ marginTop: "8%" }} className='book-a-text-drive mb-2'>
-                        <Button className={`${showBookNowModal ? 'active-book-now' : 'blue-btn'}`} style={{ width: "100%" }} onClick={handleShowBookNowModal}>
+                      <div style={{ marginTop: "8%" }} className={`{styles.bookATextDrive} mb-2`}>
+                        <Button className={`${showBookNowModal ? 'active-book-now' : 'btn-dark'}`} style={{ width: "100%" }} onClick={handleShowBookNowModal}>
                           BOOK NOW
                         </Button>
                       </div>
                     </Col>
                     <Col sm={12}>
-                      <div className='book-a-text-drive'>
-                        <Button className={`${showTestDriveModal ? 'book-btn' : 'red-btn'} me-2`} onClick={handleShowTestDriveModal}>
+                      <div className={styles.bookATestDrive}>
+                        <Button className={`${showTestDriveModal ? 'book-btn' : 'btn-danger'} me-2`} onClick={handleShowTestDriveModal}>
                           BOOK A TEST DRIVE
                         </Button>
-                        <Button onClick={() => { setFinance(true) }} className={`${finance ? 'active-finance' : 'red-btn'}`} >
+                        <Button onClick={() => { setFinance(true) }} className={`${finance ? 'active-finance' : 'btn-danger'}`} >
                           {features.map((item, index) => (
                             item.id === "3" ?
                               <a key={item.id || index} style={{ textDecoration: "none", color: "white" }} href={`#${item.id}`} onClick={(e) => handleButtonClick(e, item.id)}>
@@ -434,8 +434,8 @@ const BrandDetails = ({ vehicledata }) => {
                       </div>
                     </Col>
                     <Col>
-                      <div className='book-a-text-drive mt-2 mb-3'>
-                        <Button className={`${showRequestModal ? 'blue-btn request-btn ' : ' blue-btn request-btn-active'}`} style={{ width: "100%", textTransform: "uppercase" }} onClick={handleShowRequestModal}>
+                      <div className={`${styles.bookATextDrive} mt-2 mb-3`}>
+                        <Button className={`${showRequestModal ? 'blue-btn request-btn ' : ' btn-success request-btn-active'}`} style={{ width: "100%", textTransform: "uppercase" }} onClick={handleShowRequestModal}>
                           Request a Call Back                </Button>
                       </div>
                     </Col>
@@ -451,118 +451,118 @@ const BrandDetails = ({ vehicledata }) => {
               <Row>
                 <Col lg={8} md={8}>
                   <Container fluid className='mt-5'>
-                    <Container fluid id="1" className='car-overview-container' style={{ padding: "0px" }}>
+                    <Container fluid id="1" className={styles.carOverviewContainer} style={{ padding: "0px" }}>
                       {vehicledata ?
                         <Row >
                           <h4 className="mb-2">{vehicledata.CarOverviewTitle.category_title_en}</h4>
-                          <Col lg={12} md={12} className='car-overview-col'>
-                            <div className='car-over-view-div'>
+                          <Col lg={12} md={12} className={styles.carOverviewCol}>
+                            <div className={styles.carOverViewDiv}>
                               <Col lg={12} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                                 <Row style={{ display: "flex", justifyContent: 'center' }}>
-                                  <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div  mobile-border'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src="/assets/car-overview/MicrosoftTeams-image (81).png" width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>DESCRIPTION</h6>
                                         <h6>{vehicledata.CarOverviewList.description_en}</h6>
                                       </div>
                                     </div>
                                   </Col>
-                                  <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src={vehicledata.CarOverviewList.body_condition_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.body_type_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.body_type_en}</h6>
                                       </div>
                                     </div>
                                   </Col>
-                                  <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed}  >
                                     <div className='first-and-main-div mobile-border'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src={vehicledata.CarOverviewList.fuel_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.fuel_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.fuel_en}</h6>
                                       </div>
                                     </div>
                                   </Col>
-                                  <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
 
 
                                     <div className='first-and-main-div'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src={vehicledata.CarOverviewList.regional_specs_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.regional_specs_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.regional_specs_en}</h6>
                                       </div>
                                     </div>
                                   </Col>
-                                  <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div mobile-border'>
-                                      <div className='caroverview-icon-div' style={{ border: "none" }}>
+                                      <div className={styles.carOverviewIconDiv} style={{ border: "none" }}>
                                         <img src={vehicledata.CarOverviewList.body_condition_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.body_condition_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.body_condition_en}</h6>
                                       </div>
                                     </div>
 
-                                  </Col> <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src={vehicledata.CarOverviewList.warranty_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.warranty_name_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.warranty_name_en}</h6>
                                       </div>
                                     </div>
-                                  </Col> <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div mobile-border'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src={vehicledata.CarOverviewList.door_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.door_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.door_count}</h6>
                                       </div>
                                     </div>
-                                  </Col> <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src={vehicledata.CarOverviewList.transmission_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.transmission_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.transmission_en}</h6>
                                       </div>
                                     </div>
-                                  </Col> <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div mobile-border'>
-                                      <div className='caroverview-icon-div'>
+                                      <div className={styles.carOverviewIconDiv}>
                                         <img src={vehicledata.CarOverviewList.cylinder_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.cylinder_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.cylinder}</h6>
                                       </div>
                                     </div>
                                   </Col>
-                                  <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
+                                  <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
-                                      <div className='caroverview-icon-div' style={{ border: "none" }} >
+                                      <div className={styles.carOverviewIconDiv} style={{ border: "none" }} >
                                         <img src={vehicledata.CarOverviewList.engine_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
-                                      <div className='caroverview-feture-div'>
+                                      <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.engine_label_en}</h6>
                                         <h6>{vehicledata.CarOverviewList.engine}</h6>
                                       </div>
@@ -579,13 +579,13 @@ const BrandDetails = ({ vehicledata }) => {
                     <Container fluid id="2" className='mt-5 mb-5' style={{ width: '101.6%' }} >
                       <Row >
                         <h4 style={{ padding: "0px" }}>{vehicledata && vehicledata.ExtraFeaturesTitle.category_title_en}</h4>
-                        <Col lg={12} className='extra-features'>
+                        <Col lg={12} className={styles.extraFeatures}>
                           <Row >
                             {vehicledata && vehicledata.ExtraFeaturesList.map((item, index) => {
                               return (
                                 <Col key={item.id || index} lg={4} className={`${item.newnames}`}
                                 >
-                                  <div className='extra-features-second-div'>
+                                  <div className={styles.extraFeaturesSecondDiv}>
                                     <p>{item.extra_feature_en}</p>
                                     <img src='https://cdn-icons-png.freepik.com/256/5290/5290058.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'14px'} height={'14px'} />
                                   </div>
@@ -599,18 +599,18 @@ const BrandDetails = ({ vehicledata }) => {
                     <Container fluid id='3' className="mb-5 mt-5" style={{ padding: '0px 0px 0px 16px ' }}>
                       <Row className="justify-content-md-start" >
                         <h1 style={{ padding: "0px", fontSize: "24px" }} className="mb-2">EMI Calculator</h1>
-                        <Col lg={12} className="emi-calculator">
+                        <Col lg={12} className={styles.emiCalculator}>
                           <Row className="main-1st-row">
-                            <Col md={6} className="main-1st-col" style={{ display: 'grid' }}>
+                            <Col md={6} className={styles.main1stCol} style={{ display: 'grid' }}>
                               <Row className="">
-                                <Col md={12} className="emi-starting-rate">
+                                <Col md={12} className={styles.emiStartingRate}>
                                   <h5>EMI starting from</h5>
                                   <h6><span> {vehicledata && Number(vehicledata.CarOverviewList.emi_amount) >= 1000 ? Number(vehicledata.CarOverviewList.emi_amount).toLocaleString("en-US") : Number(vehicledata.CarOverviewList.emi_amount).toFixed(0)}
 
 
                                   </span> per month</h6>
                                 </Col>
-                                <Col md={12} className="pie-chart-ciecle">
+                                <Col md={12} className={styles.pieChartCircle}>
                                   <div>
                                     <Pie
                                       data={{
@@ -626,9 +626,9 @@ const BrandDetails = ({ vehicledata }) => {
                                   </div>
                                 </Col>
                                 <Col lg={12} style={{ padding: '20px' }}>
-                                  <div className="small-card-main-div">
-                                    <div className="small-card">
-                                      <div className="div-one"></div>&nbsp;
+                                  <div className={styles.smallCardMainDiv}>
+                                    <div className={styles.smallCard}>
+                                      <div className={styles.divOne}></div>&nbsp;
                                       <p>Principal Loan Amount</p>
                                     </div>
                                     <div>
@@ -636,9 +636,9 @@ const BrandDetails = ({ vehicledata }) => {
                                     </div>
                                   </div>
 
-                                  <div className="small-card-main-div second-div">
-                                    <div className="small-card">
-                                      <div className="div-two"></div>&nbsp;
+                                  <div className={`${styles.smallCardMainDiv} ${styles.secondDiv}`}>
+                                    <div className={styles.smallCard}>
+                                      <div className={styles.divTwo}></div>&nbsp;
                                       <p className="">Total Interest Payable</p>
                                     </div>
                                     <div>
@@ -646,8 +646,8 @@ const BrandDetails = ({ vehicledata }) => {
                                     </div>
                                   </div>
 
-                                  <div className="small-card-main-div">
-                                    <div className="small-card">
+                                  <div className={styles.smallCardMainDiv}>
+                                    <div className={styles.smallCard}>
                                       <div className=""><FaMoneyBill size={'12px'} color="green" /></div>&nbsp;
                                       <p>Total Amount Payable</p>
                                     </div>
@@ -658,9 +658,9 @@ const BrandDetails = ({ vehicledata }) => {
                                 </Col>
                               </Row>
                             </Col>
-                            <Col md={6} className="price-range-main-col">
-                              <div className="main-price-div">
-                                <div className="emi-loanamount-calculator">
+                            <Col md={6} className={styles.priceRangeMainCol}>
+                              <div className={styles.mainPriceDiv}>
+                                <div className={styles.emiLoanAmountCalculator}>
                                   <p>Loan Amount</p>
                                   <p>{formatCurrency(piepAmount)}</p>
                                 </div>
@@ -670,12 +670,12 @@ const BrandDetails = ({ vehicledata }) => {
                                   max={pAmount}
                                   onChange={handleChangeSliderPrincipalAmount}
                                 />
-                                <div className="emi-loanamount-calculator-below">
+                                <div className={styles.emiLoanAmountCalculator}>
                                   <p>{currency} 0</p>
                                   <p> {currency} {pAmount}</p>
                                 </div>
 
-                                <div className="emi-loanamount-calculator">
+                                <div className={styles.emiLoanAmountCalculatorBelow}>
                                   <p>Duration of Loan</p>
                                   <p>{iTime} Year{iTime > 1 && "s"}</p>
                                 </div>
@@ -685,12 +685,12 @@ const BrandDetails = ({ vehicledata }) => {
                                   max={5}
                                   onChange={handleChangeSliderTime}
                                 />
-                                <div className="emi-loanamount-calculator-below">
+                                <div className={styles.emiLoanAmountCalculatorBelow}>
                                   <p>1 Year</p>
                                   <p>5 Years</p>
                                 </div>
 
-                                <div className="emi-loanamount-calculator">
+                                <div className={styles.emiLoanAmountCalculator}>
                                   <p>Down Payment</p>
                                   <p>{formatCurrency(downPayment)}</p>
                                 </div>
@@ -700,14 +700,14 @@ const BrandDetails = ({ vehicledata }) => {
                                   max={pAmount}
                                   onChange={handleChangeSliderDownPayment}
                                 />
-                                <div className="emi-loanamount-calculator-below">
+                                <div className={styles.emiLoanAmountCalculatorBelow}>
                                   <p>{currency} 0</p>
                                   <p>{currency} {formatCurrency(pAmount)}</p>
                                 </div>
                               </div>
 
-                              <div className="div-content-below">
-                                <p className="process-para">Finance with MoatamadCars</p>
+                              <div className={styles.divContentBelow}>
+                                <p className={styles.processPara}>Finance with MoatamadCars</p>
                                 <div className="process-para-ul-tag" style={{ marginBottom: '0px' }}>
                                   <li>Lowest possible interest rate</li>
                                   <li>Lowest possible down payment</li>

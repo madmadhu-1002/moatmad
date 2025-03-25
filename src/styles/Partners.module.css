@@ -1,0 +1,109 @@
+/* Partner CSS start */
+
+.partnerSlider .sliderContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.partnerSlider :global(.slider) {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.partnerSlider .sliderItems {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.partnerSlider .sliderItem {
+    margin: 0;
+}
+
+.partnerSlider :global(.prevBtn),
+.partnerSlider :global(.nextBtn) {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.partnerSlider :global(.prevBtn) {
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.partnerSlider :global(.nextBtn) {
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.partnerSlider :global(.prevBtn) {
+    left: 10px;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.partnerSlider :global(.nextBtn) {
+    right: 10px;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.partnerSlider :global(.prevBtn:hover),
+.partnerSlider :global(.nextBtn:hover) {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.smoothTransition {
+    transition: transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.sliderItems {
+    display: flex;
+    transition: transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+.sliderItem {
+    flex: 0 0 auto;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.sliderItem :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.sliderItem:hover :global(img) {
+    transform: scale(1.05);
+}
+
+.cardImgTop {
+    width: 200px !important;
+    object-fit: cover;
+}

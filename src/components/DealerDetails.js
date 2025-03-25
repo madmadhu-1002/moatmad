@@ -9,6 +9,7 @@ import { useGlobalContext } from "@/context/GlobalContext";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Image from 'next/image';
+import styles from '@/styles/DealerDetails.module.css'
 
 const DealerDetails = ({dealerdata}) => {
     const { selectedVehicles, setSelectedVehicles, bidPrices, setBidPrices } = useGlobalContext();
@@ -88,8 +89,8 @@ const DealerDetails = ({dealerdata}) => {
         <>
             <Container fluid className='mt-5 mb-5' style={{ padding: "0px 45px" }}>
                 <Row>
-                    <Col lg={9} className='deals-tabel'>
-                        <div className='mb-5 products-heading'>
+                    <Col lg={9} className={styles.dealsTabel}>
+                        <div className={`mb-5 ${styles.productsHeading}`}>
                             <h3>Bid Review</h3>
                         </div>
                         <div className="table-responsive">
@@ -111,12 +112,12 @@ const DealerDetails = ({dealerdata}) => {
                                         <td>
                                             <Image height={80} width={170} src={vehicle.car_image} className="media-photo" style={{ objectFit: 'cover' }} alt={`${vehicle.make_en} ${vehicle.model_en}`} />
                                         </td>
-                                        <td className='text-center delier-deatils-table'>{vehicle.make_en}</td>
-                                        <td className='text-center delier-deatils-table'>{vehicle.model_en}</td>
-                                        <td className='text-center delier-deatils-table'>{vehicle.year}</td>
-                                        <td className='text-center delier-deatils-table'>{vehicle.body_type_en}</td>
-                                        <td className='text-center delier-deatils-table'>{vehicle.kilometers}</td>
-                                        <td className='delier-deatils-table'>
+                                        <td className={`text-center ${styles.delierDeatilsTable}`}>{vehicle.make_en}</td>
+                                        <td className={`text-center ${styles.delierDeatilsTable}`}>{vehicle.model_en}</td>
+                                        <td className={`text-center ${styles.delierDeatilsTable}`}>{vehicle.year}</td>
+                                        <td className={`text-center ${styles.delierDeatilsTable}`}>{vehicle.body_type_en}</td>
+                                        <td className={`text-center ${styles.delierDeatilsTable}`}>{vehicle.kilometers}</td>
+                                        <td className={styles.delierDeatilsTable}>
                                             <Form.Control
                                                 type="text"
                                                 value={bidPrices[index] || ''}
@@ -128,7 +129,7 @@ const DealerDetails = ({dealerdata}) => {
                             </tbody>
                         </Table>
                         </div>
-                        <Container fluid style={{ padding: "0px" }} className='mt-5'>
+                        <Container fluid className='mt-5' style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 1px 3px" }}>
                             <Col lg={12} style={{ boxShadow: "0 0 4px color-mix(in srgb, var(--default-color), transparent 85%)", padding: "30px" }}>
                                 <Form onSubmit={handleSubmit}>
                                     <h5 style={{ color: 'red' }}>Confirm Bid</h5>
@@ -182,7 +183,7 @@ const DealerDetails = ({dealerdata}) => {
                                     </Row>
                                     <Row className='text-center' style={{display:"flex",justifyContent:'center'}}>
                                     <Col lg={6} className='mt-3' style={{ display: 'flex', justifyContent: "center", alignItems: 'center' }}>
-                                            <Button className='blue-btn btn btn-primary' style={{ height: 'fit-content', width: '100%' }} type="submit">
+                                            <Button className=' btn btn-dark' style={{ height: 'fit-content', width: '100%' }} type="submit">
                                                 Submit
                                             </Button>
                                         </Col>
@@ -193,12 +194,12 @@ const DealerDetails = ({dealerdata}) => {
                         </Container>
                     </Col>
                     <Col lg={3}>
-                        <div className='mb-5 products-heading'>
+                        <div className={`mb-5 ${styles.productsHeading}`}>
                             <h3>CONTACT US</h3>
                         </div>
                         <Row className="gy-4">
                             <Col lg={12}>
-                                <div className="info-item d-flex flex-column justify-content-center align-items-center">
+                                <div className={`${styles.infoItem} d-flex flex-column justify-content-center align-items-center `} style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 1px 3px" }}>
                                     <i>
                                         <MdLocationPin color='red' size={'20px'} className="bi bi-geo-alt mb-3" />
                                     </i>
@@ -208,7 +209,7 @@ const DealerDetails = ({dealerdata}) => {
                             </Col>
 
                             <Col lg={12}>
-                                <div className="info-item d-flex flex-column justify-content-center align-items-center">
+                                <div className={`${styles.infoItem} d-flex flex-column justify-content-center align-items-center`} style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 1px 3px" }}>
                                     <i>
                                         <FaPhoneAlt color='red' size={'20px'} className="bi bi-phone mb-3" />
                                     </i>
@@ -218,7 +219,7 @@ const DealerDetails = ({dealerdata}) => {
                             </Col>
 
                             <Col lg={12}>
-                                <div className="info-item d-flex flex-column justify-content-center align-items-center">
+                                <div className={`${styles.infoItem} d-flex flex-column justify-content-center align-items-center`} style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 1px 3px" }}>
                                     <i>
                                         <MdOutlineEmail color='red' size={'20px'} className="bi bi-envelope mb-3" />
                                     </i>

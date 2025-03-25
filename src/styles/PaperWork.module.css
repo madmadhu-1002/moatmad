@@ -1,0 +1,35 @@
+/* buyer-gaide-page start */
+.buyerGaidePage {
+    padding: 0px 50px !important;
+  }
+  .buyerGaidePage :global(.col-lg-3 ){
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 10px;
+    padding: 30px 50px !important;
+  }
+  /* buyer-gaide-page end  */
+  .productsHeading {
+    display: grid;
+    justify-content: center;
+  }
+  .productsHeading h6 {
+    text-align: center;
+  }
+  .productsHeading h3 {
+    font-weight: 700;
+    margin-bottom: 0px !important;
+  }
+  .insidePageCardsRow :global(.card) {
+    min-height: 330px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .insidePageCardsRow :global(.card .card-body ){
+    text-align: center;
+  }
+  .insidePageCardsRow :global(.card .card-body img) {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5%;
+  }

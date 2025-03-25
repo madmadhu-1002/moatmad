@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Row } from 'react-bootstrap';
+import styles from '@/styles/Partners.module.css'
 
 const Partners = () => {
     const [partnerLogos, setPartnerLogos] = useState([]);
@@ -49,14 +50,14 @@ const Partners = () => {
     const visibleLogos = partnerLogos.slice(currentIndex, currentIndex + itemsPerSlide);
 
     return (
-        <Row className="partner-slider">
+        <Row className={styles.partnerSlider}>
             <h3 className="text-center mt-5 mb-5">OUR PARTNERS</h3>
-            <div className="slider-container">
+            <div className={styles.sliderContainer}>
                 <button className="prev-btn" onClick={handlePrev}>❮</button>
 
                 <div className="slider">
                     <div
-                        className="slider-items smooth-transition"
+                        className={`${styles.sliderItems} ${styles.smoothTransition}`}
                         style={{
                             transform: `translateX(-${currentIndex * (100 / itemsPerSlide)}%)`,
                             width: `${partnerLogos.length * (100 / itemsPerSlide)}%`,
@@ -65,13 +66,13 @@ const Partners = () => {
                         {partnerLogos.map((logo) => (
                             <div
                                 key={logo.id}
-                                className="slider-item"
+                                className={styles.sliderItem}
                                 style={{ width: `${100 / itemsPerSlide}%` }}
                             >
                                 <a href={logo.link || "#"} className="anchor-tage-box-shadow">
                                     <img
                                         src={logo.image}
-                                        className="card-img-top"
+                                        className={styles.cardImgTop}
                                         alt={logo.title_en || "Partner logo"}
                                         loading="lazy"
                                         style={{ maxHeight: '80px' }}

@@ -7,7 +7,7 @@
     margin-top: 0%;
 }
 
-.interior div {
+.interior :global(div) {
     background-color: black;
     /* Use rgba to set background opacity */
     width: 90%;
@@ -20,7 +20,7 @@
     padding: 20px;
 }
 
-.interior p {
+.interior :global(p) {
     color: white;
     text-align: center;
     margin-bottom: 0px !important;
@@ -31,22 +31,22 @@
     opacity: 0.85;
 }
 
-.interior p:hover {
+.interior :global(p:hover) {
     color: red !important;
     font-weight: 700 !important;
 }
 
-.interior .modalDialog {
+.interior :global(.modal-dialog) {
     max-width: 100% !important;
     margin-right: 20px !important;
     margin-left: 20px !important;
 }
 
-.interior .modalHeader {
+.interior :global(.modal-header) {
     border-bottom: none !important;
 }
 
-.interior .modalFooter {
+.interior :global(.modal-footer) {
     border-top: none !important;
 }
 
@@ -84,7 +84,7 @@
     padding: 0px 5px;
 }
 
-.aedDev h6 {
+.aedDev :global(h6) {
     font-size: 20px;
 }
 
@@ -93,7 +93,7 @@
     justify-content: space-between;
 }
 
-.aedDev1 h6 {
+.aedDev1 :global(h6) {
     font-size: 14px;
 }
 
@@ -103,17 +103,16 @@
     margin: 10px 0px;
 }
 
-.bookATestDrive .btn {
+.bookATestDrive :global(.btn) {
     width: 170px;
     border: none !important;
-    height: 45px !important;
 }
 
 .carOverviewContainer {
     padding: 0px 0px !important;
 }
 
-.carOverviewCol .carOverviewDiv {
+.carOverviewCol  {
     padding: 0px !;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     justify-content: center;
@@ -124,21 +123,21 @@
     padding-right: 0px !important;
 }
 
-.carOverviewDiv .colLg4 div {
+.carOverviewDiv :global(.col-lg-4 div) {
     display: grid;
     width: fit-content;
 }
 
-.carOverviewDiv .colLg4 {
+.carOverviewDiv :global(.col-lg-4) {
     padding: 0px !important;
 }
 
-.carOverviewDiv .row {
+.carOverviewDiv :global(.row) {
     /* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px; */
     width: 100% !important;
 }
 
-.carOverviewDiv .colLg4 h6 {
+.carOverviewDiv :global(.col-lg-4 h6) {
     color: #302736;
     font-weight: 600;
 }
@@ -149,24 +148,24 @@
     width: 18.6% !important;
 }
 
-.smallBoxFixed .firstAndMainDiv {
+.smallBoxFixed :global(.first-and-main-div) {
     padding: 30px 0px 30px 0px !important;
     /* display: grid !important; */
     align-items: center;
     justify-content: center;
 }
 
-.smallBoxFixed .firstAndMainDiv span {
+.smallBoxFixed :global(.first-and-main-div span) {
     font-size: 30px;
     margin-right: 10%;
 }
 
-.smallBoxFixed div h6 {
+.smallBoxFixed :global(div h6) {
     font-size: 14px;
     margin-bottom: 0px !important;
 }
 
-.smallBoxFixed div .featuresMainHeading {
+.smallBoxFixed :global(div .features-main-heading) {
     text-transform: uppercase;
     font-size: 10px;
     margin-bottom: 0px !important;
@@ -179,7 +178,7 @@
     border-right: 1px solid red;
 }
 
-.carOverviewIconDiv img {
+.carOverviewIconDiv :global(img) {
     /* width: 70px; */
     height: auto;
     object-fit: cover;
@@ -192,206 +191,14 @@
 .carOverviewFeatureDiv {
     margin-left: 0%;
 }
-.interior {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 0%;
-}
 
-.interior div {
-  background-color: black;
-  /* Use rgba to set background opacity */
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 38px;
-  opacity: 0.7;
-  position: absolute;
-  padding: 20px;
-}
-
-.interior p {
-  color: white;
-  text-align: center;
-  margin-bottom: 0px !important;
-  cursor: pointer;
-  text-transform: capitalize;
-  border-bottom: 1px solid white;
-  margin-top: -1%;
-  opacity: 0.85;
-}
-
-.interior p:hover {
-  color: red !important;
-  font-weight: 700 !important;
-}
-
-.interior .modalDialog {
-  max-width: 100% !important;
-  margin-right: 20px !important;
-  margin-left: 20px !important;
-}
-
-.interior .modalHeader {
-  border-bottom: none !important;
-}
-
-.interior .modalFooter {
-  border-top: none !important;
-}
-
-.interiorActive {
-  color: white !important;
-  /* background-color: white; */
-  font-weight: 700;
-  /* padding: 0px 10px ; */
-}
-
-.smallBoxFixedPosition {
-  position: fixed;
-  right: 1.5%;
-  padding: 0px 25px !important;
-  margin-top: 1% !important;
-}
-
-.subcontentDiv {
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  border-radius: 15px;
-}
-
-.subcontentDiv {
-  padding: 10px;
-}
-
-.bottomShadow {
-  padding: 0px 0px 10px 0px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-}
-
-.aedDev {
-  justify-content: space-between;
-  display: flex;
-  padding: 0px 5px;
-}
-
-.aedDev h6 {
-  font-size: 20px;
-}
-
-.aedDev1 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.aedDev1 h6 {
-  font-size: 14px;
-}
-
-.bookATestDrive {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0px;
-}
-
-.bookATestDrive .btn {
-  width: 170px;
-  border: none !important;
-  height: 45px !important;
-}
-
-.carOverviewContainer {
-  padding: 0px 0px !important;
-}
-
-.carOverviewCol .carOverviewDiv {
-  padding: 0px !;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  justify-content: center;
-  border-radius: 15px;
-}
-
-.carOverviewCol {
-  padding-right: 0px !important;
-}
-
-.carOverviewDiv .colLg4 div {
-  display: grid;
-  width: fit-content;
-}
-
-.carOverviewDiv .colLg4 {
-  padding: 0px !important;
-}
-
-.carOverviewDiv .row {
-  /* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px; */
-  width: 100% !important;
-}
-
-.carOverviewDiv .colLg4 h6 {
-  color: #302736;
-  font-weight: 600;
-}
-
-.smallBoxFixed {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-  padding: 0px !important;
-  width: 18.6% !important;
-}
-
-.smallBoxFixed .firstAndMainDiv {
-  padding: 30px 0px 30px 0px !important;
-  /* display: grid !important; */
-  align-items: center;
-  justify-content: center;
-}
-
-.smallBoxFixed .firstAndMainDiv span {
-  font-size: 30px;
-  margin-right: 10%;
-}
-
-.smallBoxFixed div h6 {
-  font-size: 14px;
-  margin-bottom: 0px !important;
-}
-
-.smallBoxFixed div .featuresMainHeading {
-  text-transform: uppercase;
-  font-size: 10px;
-  margin-bottom: 0px !important;
-  color: #ca0000;
-}
-
-.carOverviewIconDiv {
-  display: flex;
-  justify-content: center;
-  border-right: 1px solid red;
-}
-
-.carOverviewIconDiv img {
-  /* width: 70px; */
-  height: auto;
-  object-fit: cover;
-}
-
-.carOverviewFeatureDiv {
-  text-align: center;
-}
-
-.carOverviewFeatureDiv {
-  margin-left: 0%;
-}
+/* ending */
 .extraFeatures {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 15px;
   padding-bottom: 10px;
 }
-.extraFeatures .colLg4 {
+.extraFeatures :global(.col-lg-4) {
   padding: 10px 15px 10px 15px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 1px 0px;
 }
@@ -456,6 +263,9 @@
 .smallCardMainDiv p {
   margin-bottom: 0px !important;
   font-size: 12px;
+}
+.secondDiv {
+  border-bottom: 1px dotted black;
 }
 .smallCard .divOne {
   width: 12px;
@@ -528,7 +338,6 @@
   .bookATestDrive .btn {
       width: 120px;
       border: none !important;
-      height: 45px !important;
       font-size: 12px !important;
   }
 

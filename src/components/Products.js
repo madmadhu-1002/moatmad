@@ -156,13 +156,13 @@ const Products = ({ homepage }) => {
   };
   return (
     <>
-      <section className="add-brand-slides mt-3">
+      <section className={`${styles.addBrandSlides} mt-3`}>
         <Slider {...settings}>
           {allVechileThumb.map((image, index) => (
             <div className='pe-2' key={index}>
             <Card as={Link} href={`car-info/${image.slug}`} key={index} >
               <Container >
-                <Row className="home-page-add-row">
+                <Row className={styles.homePageAddRow}>
                   <Col lg={3} xs={4} sm={4}>
                     <Image
                       src={image.car_image}
@@ -173,7 +173,7 @@ const Products = ({ homepage }) => {
                     />
                   </Col>
                   <Col lg={5} xs={4} sm={4}>
-                    <h5 className="home-add-heading">
+                    <h5 className={styles.homeAddHeading}>
                       {image.body_type_en} {image.car_title_en}
                     </h5>
                     <p className="full-price">
@@ -204,18 +204,18 @@ const Products = ({ homepage }) => {
           ))}
         </Slider>
       </section>
-      <div className='mt-5 mb-5 products-heading'>
+      <div className={`mt-5 mb-5 ${styles.productsHeading}`}>
         <h6 >{homepage && homepage.CarsMakesAndModels.category_title_en}</h6>
-        {homepage && homepage.CarsMakesAndModels.highlight_en && <div className='find-car-hedaing' style={{ fontSize: "24px" }} dangerouslySetInnerHTML={{ __html: homepage.CarsMakesAndModels.highlight_en }} />}
+        {homepage && homepage.CarsMakesAndModels.highlight_en && <div className={styles.findCarHedaing} style={{ fontSize: "24px" }} dangerouslySetInnerHTML={{ __html: homepage.CarsMakesAndModels.highlight_en }} />}
       </div>
       {/* find best vehicles */}
-      <Container fluid className='tabes-container'>
+      <Container fluid className={styles.tabesContainer}>
             <Tab.Container id="left-tabs-example" defaultActiveKey={homepage?.CarBodyTypes[0]?.id}>
                 <Row>
-                    <Col sm={12} className='products-brand-menu'>
+                    <Col sm={12} className={styles.productsBrandMenu}>
                         <Nav variant="pills" className="flex-row ">
                             {homepage && homepage.CarBodyTypes.map((item) => (
-                                <Nav.Item key={item.id} className='nav-item1 mb-3 col'>
+                                <Nav.Item key={item.id} className={`{styles.navItem1} mb-3 col`}>
                                     <Nav.Link eventKey={item.id} onClick={() => setSlug(item.id)}>
                                         {item.body_type_en}
                                     </Nav.Link>
@@ -242,15 +242,15 @@ const Products = ({ homepage }) => {
                                     <Slider { ...settings2} data-aos="zoom-in">
                                         {carbodytypes.map((item) => (
                                              <div key={item.id} style={{ width: "316px", margin: "0 auto" }} className='p-1'> 
-                                            <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: "0px", }} className='best-vehicles-card item' key={item.id}>
-                                                <Card.Header className='products-card-header' style={{ position: 'relative' }}>
+                                            <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: "0px", }} className={`best-vehicles-card ${styles.item}`} key={item.id}>
+                                                <Card.Header className={styles.productsCardHeader} style={{ position: 'relative' }}>
                                                     <Image src={item.car_image} style={{ height: "100%" }} alt={item.car_title_en} width={457} height={293}/>
-                                                    <h6 className='available-h6'>available</h6>
-                                                    <div className='fa-eye-icon-div'>
+                                                    <h6 className={styles.availableH6}>available</h6>
+                                                    <div className={styles.faEyeIconDiv}>
                                                         <FaEye className='fa-eye-icon' />
                                                     </div>
                                                 </Card.Header>
-                                                <div className='brand-name-div'>
+                                                <div className={styles.brandNameDiv}>
                                                     <h6>{item.car_title_en}</h6>
                                                 </div>
                                                 <div className='pricing-section' style={{ padding: "0px 20px", textAlign: "center" }}>
@@ -268,13 +268,15 @@ const Products = ({ homepage }) => {
                                                         <span style={{ fontSize: "10px" }}> per month</span>
                                                     </h6>
                                                 </div>
-                                                <div className='info-with-icon mt-3 p-2'>
+                                                <div className={`{styles.infoWithIcon} mt-3 p-2 `} style={{fontSize:"10px"}}>
                                                     <Row>
+                                                      <Col className='d-flex align-items-center justify-content-center w-100 p-0'>
                                                         <CarFeature icon="/assets/product-feture-icons/kms.png" value={item.kilometers.toLocaleString()} />
                                                         <CarFeature icon="/assets/product-feture-icons/autogere.png" value={item.transmission_en} />
                                                         <CarFeature icon="/assets/product-feture-icons/calender.png" value={item.year} />
                                                         <CarFeature icon="/assets/product-feture-icons/engine.png" value={item.engine && item.engine.includes(',') ? item.engine.split(',')[1] : item.engine} />
                                                         <CarFeature icon="/assets/product-feture-icons/globe.png" value={item.regional_specs_en} />
+                                                        </Col>
                                                     </Row>
                                                 </div>
                                             </Card>
@@ -293,7 +295,7 @@ const Products = ({ homepage }) => {
 
       {/* who are we */}
       {homepage &&
-        <Container fluid className='who-are-section mt-5'>
+        <Container fluid className={`${styles.whoAreSection} mt-5`}>
           <Row style={{ width: '100%', margin: '0', padding: "0px 15px 0px 18px" }} className='mt-5 mb-5'>
             <Col lg={6} md={6}>
               <div>
@@ -309,7 +311,7 @@ const Products = ({ homepage }) => {
                       homepage.WhoAreWe.content.section_01_short_description_en,
                   }}
                 />
-                <h6 className='know-more' ><Link href={'/about-us'} style={{ textDecoration: "none ", color: "white" }}>KNOW MORE</Link></h6>
+                <h6 className={styles.knowMore} ><Link href={'/about-us'} style={{ textDecoration: "none ", color: "white" }}>KNOW MORE</Link></h6>
               </div>
 
             </Col>
@@ -325,9 +327,9 @@ const Products = ({ homepage }) => {
 
       {/* faqs */}
       {homepage &&
-                <Container fluid className='homepage-faqs'>
+                <Container fluid className={styles.homepageFaqs}>
                     <Row style={{ display: "flex", justifyContent: 'center' }}>
-                        <div className='mt-5 mb-5 products-heading'>
+                        <div className={`mt-5 mb-5 ${styles.productsHeading}`}>
                             <h6 className='text-uppercase'>{homepage.faqSection.category_title_en}</h6>
                             {homepage.faqSection && <div className='text-center' style={{ fontSize: "24px" }} dangerouslySetInnerHTML={{ __html: homepage.faqSection.highlight_en }} />}
                         </div>
@@ -337,7 +339,7 @@ const Products = ({ homepage }) => {
                                     return (
                                         <Accordion.Item key={item.id} eventKey={item.id}>
                                             <Accordion.Header>Q. {item.question_en}</Accordion.Header>
-                                            <Accordion.Body className='accordion-body-homepage'>
+                                            <Accordion.Body className={styles.accordionBodyHomepage}>
                                                 <div className='right-hand-icon'>
                                                     <FaHandPointRight />
                                                 </div>&nbsp;
@@ -356,8 +358,8 @@ const Products = ({ homepage }) => {
 
             {/* why choose us */}
             {homepage &&
-                <Container fluid className='why-choose-us'>
-                    <div className='mt-5 mb-5 products-heading'>
+                <Container fluid className={styles.whyChooseUs}>
+                    <div className={`mt-5 mb-5 ${styles.productsHeading} `}>
                         <h3>{homepage.WhyChooseUS.category_title_en}</h3>
                     </div>
                     <Row style={{ padding: "0px 18px" }}>
@@ -366,10 +368,10 @@ const Products = ({ homepage }) => {
 
 
                                 <Col key={index} lg={2} md={4} className='why-choose-ua-col-md'>
-                                    <div className="flip-card" >
-                                        <div className="flip-card-inner">
-                                            <div className="flip-card-front">
-                                                <div className='flip-front-img-div'>
+                                    <div className={styles.flipCard} >
+                                        <div className={styles.flipCardInner}>
+                                            <div className={styles.flipCardFront}>
+                                                <div className={styles.flipFrontImgDiv}>
                                                     <Image src={item.icon_file_or_image} alt='flip-card' width={100} height={100}/>
                                                     <h3>{item.sort_order}</h3>
                                                 </div>
@@ -382,7 +384,7 @@ const Products = ({ homepage }) => {
                                                         <h4 className='text-capitalize'>{item.section_sub_title_en}</h4>
                                                     </div>}
                                             </div>
-                                            <div className="flip-card-back">
+                                            <div className={styles.flipCardBack}>
                                                 <Image src={item.second_image} width={100} height={100} alt='flip card back'/>
                                             </div>
                                         </div>
@@ -398,7 +400,7 @@ const Products = ({ homepage }) => {
             {/* Latest News */}
             {homepage &&
                 <Container fluid>
-                    <div className='mt-5 mb-5 products-heading'>
+                    <div className={`mt-5 mb-5 ${styles.productsHeading}`}>
                         <h3>{homepage.LatestNews.category_title_en}</h3>
                     </div>
                     <Row>
@@ -408,7 +410,7 @@ const Products = ({ homepage }) => {
                                     return (
                                         <Col key={item.id} lg={4} md={4} as={Link} href={'news-info/' + item.slug} style={{ textDecoration: "none" }}>
 
-                                            <Card className='latest-news'>
+                                            <Card className={styles.latestNews}>
                                                 <Image src={item.medium_image} alt='blogs' width={100} height={100}/>
                                                 <h6>{item.post_date}</h6>
                                                 <p>< FaHandPointRight /> {item.title_en}</p>

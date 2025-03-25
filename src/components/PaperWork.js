@@ -2,20 +2,21 @@
 
 import { Col, Container, Row, Card } from 'react-bootstrap';
 import Image from 'next/image';
+import styles from '@/styles/PaperWork.module.css'
 
 const PaperWork = ({data}) => {
   return (
-    <Container fluid className='buyer-gaide-page mb-5'>
+    <Container fluid className={`{styles.buyerGaidePage} mb-5`}>
 
 
-        <div className='mt-5 mb-5 products-heading'>
+        <div className={`mt-5 mb-5 ${styles.productsHeading}`}>
           <h1>{data && data.category_title_en}</h1>
         </div>
 
 
 
 
-        <Row className='inside-page-cards-row'>
+        <Row className={styles.insidePageCardsRow}>
 
           {data && data.sections.map((item, index) => {
             return (

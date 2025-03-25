@@ -104,19 +104,19 @@ const Sell = () => {
                 <Row className={`mt-5 ${styles.sellComponentRow} mb-5`}>
                     <Col lg={4}>
                         <div className='d-flex align-items-center gap-2'>
-                            <Image width={100} height={100} src='https://cdn-icons-png.freepik.com/256/7064/7064309.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' alt="Step 1" />
+                            <Image width={40} height={40} src='https://cdn-icons-png.freepik.com/256/7064/7064309.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' alt="Step 1" />
                             <span>Get your Free Car Evaluation</span>
                         </div>
                     </Col>
                     <Col lg={4}>
                         <div className='d-flex align-items-center gap-2'>
-                            <Image width={100} height={100} src='/assets/product-feture-icons/226300.png' alt="Step 2" />
+                            <Image width={40} height={40} src='/assets/product-feture-icons/226300.png' alt="Step 2" />
                             <span>Book Appointment for Car Inspection</span>
                         </div>
                     </Col>
                     <Col lg={4}>
                         <div className='d-flex align-items-center gap-2'>
-                            <Image width={100} height={100} src="/assets/product-feture-icons/3734403.png" alt="Step 3" />
+                            <Image width={40} height={40} src="/assets/product-feture-icons/3734403.png" alt="Step 3" />
                             <span>Complete the Sale & Get Paid!</span>
                         </div>
                     </Col>

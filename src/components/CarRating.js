@@ -1,10 +1,11 @@
 "use client"
 
 import { Col, Container, Row, Card } from 'react-bootstrap';
+import styles from '@/styles/PaperWork.module.css'
 
 const CarRating = ({data}) => {
   return (
-    <Container fluid className='buyer-gaide-page mb-5'>
+    <Container fluid className="mb-5 ps-5">
 
             <div className='mt-5  '>
               <h1 className='text-center mb-4' style={{ fontWeight: '700',fontSize:"28px" }}>{data.category_title_en}</h1>
@@ -16,7 +17,7 @@ const CarRating = ({data}) => {
             </h3>
 
 
-            <Row className='inside-page-cards-row'>
+            <Row className={styles.insidePageCardsRow}>
 
 
               {data && data.sections.map((item, index) => {

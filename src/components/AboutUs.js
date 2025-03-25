@@ -49,13 +49,13 @@ const AboutUs = ({aboutlinks}) => {
               <Nav variant="pills" className={`flex-row ${styles.aboutNavPills}`}>
 
 
-                <Nav.Item className={`{styles.aboutLinks} fs-6`}>
+                <Nav.Item className={`{styles.aboutLinks} row w-100`}>
 
                   {aboutlinks && aboutlinks.map((items) => {
                     return (
 
                       <Nav.Link key={items.id}  eventKey={items.id}
-                        onClick={() => setSelectedEventKey(items.id)}>{items.name_en}</Nav.Link>
+                        onClick={() => setSelectedEventKey(items.id)} className='col-md-2 mb-2'>{items.name_en}</Nav.Link>
                     )
                   })}
 
@@ -282,7 +282,7 @@ const AboutUs = ({aboutlinks}) => {
                               <Card>
                                 <Image src={"https://www.indiafilings.com/learn/wp-content/uploads/2023/03/Can-a-single-person-own-a-firm-in-India.jpg"} alt='a person ' className="rounded-image" width={100} height={100}/>
                                 <h6 className='text-center mt-4'>{item.name_en}</h6>
-                                <p className="d-flex align-items-center gap-2"><Image height={30} width={30} alt='about data' src='https://cdn-icons-png.freepik.com/256/2857/2857527.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'}  /> {item.designation_en}</p>
+                                <p className="d-flex align-items-center gap-2"><Image height={30} width={20} alt='about data' src='https://cdn-icons-png.freepik.com/256/2857/2857527.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid'  /> {item.designation_en}</p>
                                 <p className="d-flex align-items-center gap-2"><img alt='about data' src='https://cdn-icons-png.freepik.com/256/4866/4866761.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'}  /> {item.phone}</p>
                               </Card>
 

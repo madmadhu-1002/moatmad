@@ -125,7 +125,7 @@ const SearchVehicle = () => {
       });
 
       // Store response data in state
-      setSearchPage(response.data.data);
+      setSearchVeh(response.data.data);
       router.push("/buy");
 
     } catch (error) {
@@ -338,7 +338,7 @@ const SearchVehicle = () => {
                       <Col lg={3} className='mb-5' key={item.id || index}>
                         <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: '0px' }} >
                           <Card.Header style={{ padding: "0px" }} className={styles.productsCardHeader}>
-                            <Image height={100} width={100}  alt="car image" src={item.car_image} />
+                            <Image height={174} width={272}  alt="car image" src={item.car_image} />
                             <h6 className={styles.availableH6}>available</h6>
                             <div className={styles.faEyeIconDiv}>
                               <FaEye className='fa-eye-icon' />
@@ -390,7 +390,7 @@ const SearchVehicle = () => {
                               <Col lg={2} style={{ padding: '0px' }}>
                                 <Row>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                    <Image height={30} width={30}  alt="car image" src='\assets\product-feture-icons\calender.png'  />
+                                    <Image height={30} width={30}  alt="car image" src='/assets/product-feture-icons/calender.png'  />
                                   </Col>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                     <p>{item.year}</p>
