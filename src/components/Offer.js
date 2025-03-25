@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const Offer = ({offers}) => {
@@ -9,7 +10,7 @@ const Offer = ({offers}) => {
 
             {offers.map((offer, index) => (
               <Col lg={6} key={offer.id} className='' style={{ boxShadow: "0 1px 3px #0000001f, 0 1px 2px #0000003d", height: "330px", paddingLeft: index % 2 === 0 ? '0px' : '15px', paddingRight: index % 2 !== 0 ? '0px' : '15px' }}>
-                <img src={offer.image} style={{ objectFit: "fill", height:"100%" }}  width={'100%'} alt={offer.image_alt || offer.title_en} className='offer-image'/>
+                <Image src={offer.image}  height={330}  width={671} alt={offer.image_alt || offer.title_en} className='offer-image'/>
                 <div  dangerouslySetInnerHTML={{ __html: offer.summary_en }} />
               </Col>
             ))}

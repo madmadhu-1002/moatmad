@@ -94,7 +94,7 @@ const AboutUs = ({aboutlinks}) => {
                                   </div>
                                 </Col>
                                 <Col lg={6} style={{ display: "flex", justifyContent: "end" }}>
-                                  <img src={aboutdata.section_01_image} width={"560px"} height={"360px"} />
+                                  <Image src={aboutdata.section_01_image} width={560} height={360} alt='about data'/>
                                 </Col>
                               </Row>
                               <Row style={{ padding: "0px 12px" }}>
@@ -102,7 +102,7 @@ const AboutUs = ({aboutlinks}) => {
                                   <Row style={{ display: "grid" }}>
                                     <Col lg={2} style={{ marginRight: "10px" }}>
                                       <div style={{ height: "110px" }}>
-                                        <img src={aboutdata.section_02_image} width={"100px"}  style={{maxWidth: "none"}}/>
+                                        <Image alt='about data' src={aboutdata.section_02_image} width={100} height={100}  style={{maxWidth: "none"}}/>
                                       </div>
                                     </Col>
                                     <Col lg={6}>
@@ -114,7 +114,7 @@ const AboutUs = ({aboutlinks}) => {
                                   <Row style={{ display: "grid" }}>
                                     <Col lg={2} style={{ marginRight: "10px" }}>
                                       <div style={{ height: "110px" }}>
-                                        <img src={aboutdata.section_03_image} width={"100px"} style={{maxWidth: "none"}}/>
+                                        <Image alt='about data'  src={aboutdata.section_03_image} width={100} height={100} style={{maxWidth: "none"}}/>
                                       </div>
                                     </Col>
                                     <Col lg={9}>
@@ -126,7 +126,7 @@ const AboutUs = ({aboutlinks}) => {
                                   <Row style={{ display: "grid" }}>
                                     <Col lg={2} style={{ marginRight: "10px" }}>
                                       <div style={{ height: "110px" }}>
-                                        <img src={aboutdata.section_04_image} width={"100px"} style={{maxWidth: "none"}}/>
+                                        <Image alt='about data'  src={aboutdata.section_04_image} width={100} height={100} style={{maxWidth: "none"}}/>
                                       </div>
                                     </Col>
                                     <Col lg={9} className="about-values">
@@ -150,12 +150,12 @@ const AboutUs = ({aboutlinks}) => {
                                       className="mt-3"
                                       style={{ color: "black", display: "flex", alignItems: "center" }}
                                     >
-                                      <img src="/assets/why-choose/8410178.png" width="20px" />
+                                      <img   src="/assets/why-choose/8410178.png" width={'20px'}  />
                                       &nbsp;CORPORATE&nbsp;VIDEO
                                     </h6>
                                     <video
                                       width="100%"
-                                      height="auto"
+                                      height="100"
                                       controls=""
                                       poster="https://www.moatamadcars.com/uploads/pages/image@4x-100.jpg"
                                     >
@@ -171,7 +171,7 @@ const AboutUs = ({aboutlinks}) => {
                                         justifyContent: "end"
                                       }}
                                     >
-                                      <img src="/assets/why-choose/15505902.png" width="20px" />
+                                      <img   src="/assets/why-choose/15505902.png" width={'20px'} />
                                       &nbsp;WATCH&nbsp;VIDEO
                                     </h6>
                                   </div>
@@ -245,7 +245,7 @@ const AboutUs = ({aboutlinks}) => {
                           {aboutdata.category_id === 3 &&
                             <Row style={{ width: '100%', margin: '0' }} className='mt-5 mb-5'>
                               <Col lg={6} style={{ display: 'flex', justifyContent: 'end', paddingRight: '10px' }}>
-                                <img src={"/assets/Banners/Banner1.png"} width={'100%'} style={{ objectFit: 'cover' }} />
+                                <Image alt='banners' src={"/assets/Banners/Banner1.png"} width={678} height={352} style={{ objectFit: 'cover' }} />
                               </Col>
                               <Col lg={6} style={{ paddingRight: '0px' }}>
                                   {console.log(aboutdata.description_en)}
@@ -282,8 +282,8 @@ const AboutUs = ({aboutlinks}) => {
                               <Card>
                                 <Image src={"https://www.indiafilings.com/learn/wp-content/uploads/2023/03/Can-a-single-person-own-a-firm-in-India.jpg"} alt='a person ' className="rounded-image" width={100} height={100}/>
                                 <h6 className='text-center mt-4'>{item.name_en}</h6>
-                                <p className="d-flex align-items-center gap-2"><img src='https://cdn-icons-png.freepik.com/256/2857/2857527.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'} /> {item.designation_en}</p>
-                                <p className="d-flex align-items-center gap-2"><img src='https://cdn-icons-png.freepik.com/256/4866/4866761.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'} /> {item.phone}</p>
+                                <p className="d-flex align-items-center gap-2"><img alt='about data' src='https://cdn-icons-png.freepik.com/256/2857/2857527.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'}  /> {item.designation_en}</p>
+                                <p className="d-flex align-items-center gap-2"><img alt='about data' src='https://cdn-icons-png.freepik.com/256/4866/4866761.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'20px'}  /> {item.phone}</p>
                               </Card>
 
                             </Col>

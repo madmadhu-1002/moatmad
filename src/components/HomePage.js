@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useRouter } from "next/navigation";
 import Products from './Products';
 import { useGlobalContext } from "@/context/GlobalContext";
+import Image from 'next/image';
 
 const HomePage = ({homepage}) => {
   const { searchVeh, setSearchVeh } = useGlobalContext();
@@ -355,7 +356,7 @@ const HomePage = ({homepage}) => {
 
 
                   <Carousel.Item key={banners.id}>
-                    <img src={banners.image} width={'100%'} />
+                    <Image src={banners.image} width={1240} height={485} alt='banners'/>
                   </Carousel.Item>
                 )
 

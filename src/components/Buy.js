@@ -335,7 +335,7 @@ const Buy = ({buydata}) => {
                       <Col lg={3} className='mb-5' key={item.id || index}>
                         <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: '0px' }} >
                           <Card.Header style={{ padding: "0px" }} className={styles.productsCardHeader}>
-                            <img src={item.car_image} height={'100%'} width={'100%'} />
+                            <Image alt='car image' src={item.car_image} height={444} width={333} />
                             <h6 className={styles.availableH6}>available</h6>
                             <div className={styles.faEyeIconDiv}>
                               <FaEye className='fa-eye-icon' />

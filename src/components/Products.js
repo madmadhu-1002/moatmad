@@ -7,17 +7,25 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image';
 import { FaHandPointRight } from "react-icons/fa";
 import Partners from './Partners';
-import AOS from 'aos';
 import axios from 'axios';
 import { RotatingLines } from 'react-loader-spinner';
 import { FaEye } from "react-icons/fa";
 import styles from '@/styles/Products.module.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Products = ({ homepage }) => {
   const [slug, setSlug] = useState(1);
   const [allVechileThumb, setAllVechileThumb] = useState([]);
   const [loading, setLoading] = useState(false);
   const [carbodytypes, setCarBodyTypes] = useState([]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      once: true, // Ensures animation happens only once
+    });
+  }, []);
   
   useEffect(() => {
     const fetchVehicleData = async () => {
@@ -85,7 +93,7 @@ const Products = ({ homepage }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    arrows: true,
+    arrows: false,
     responsive: [
         {
           breakpoint: 1016, // Tablets and smaller screens
@@ -108,9 +116,9 @@ const Products = ({ homepage }) => {
     dots: false,
     infinite: false,
     speed: 1000,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     arrows: true,
     responsive: [
@@ -229,12 +237,12 @@ const Products = ({ homepage }) => {
                                         />
                                     </div>
                                 ) : carbodytypes.length > 0 ? (
-                                    <Slider { ...settings2}>
+                                    <Slider { ...settings2} data-aos="zoom-in">
                                         {carbodytypes.map((item) => (
                                              <div key={item.id} style={{ width: "316px", margin: "0 auto" }} className='p-1'> 
                                             <Card as={Link} href={`/car-info/${item.slug}`} style={{ textDecoration: 'none', padding: "0px", }} className='best-vehicles-card item' key={item.id}>
                                                 <Card.Header className='products-card-header' style={{ position: 'relative' }}>
-                                                    <img src={item.car_image} style={{ height: "100%" }} alt={item.car_title_en} />
+                                                    <Image src={item.car_image} style={{ height: "100%" }} alt={item.car_title_en} width={457} height={293}/>
                                                     <h6 className='available-h6'>available</h6>
                                                     <div className='fa-eye-icon-div'>
                                                         <FaEye className='fa-eye-icon' />
@@ -304,7 +312,7 @@ const Products = ({ homepage }) => {
 
             </Col>
             <Col lg={6} md={6} style={{ display: 'flex', justifyContent: 'end' }}>
-              <img src={homepage.WhoAreWe && homepage.WhoAreWe.image.section_01_image} className='who-we-are-image' width={'560px'} height={'360px'} />
+              <Image src={homepage.WhoAreWe && homepage.WhoAreWe.image.section_01_image} className='who-we-are-image' width={458} height={293} alt='who are we image'/>
             </Col>
           </Row>
 
@@ -360,7 +368,7 @@ const Products = ({ homepage }) => {
                                         <div className="flip-card-inner">
                                             <div className="flip-card-front">
                                                 <div className='flip-front-img-div'>
-                                                    <img src={item.icon_file_or_image} />
+                                                    <Image src={item.icon_file_or_image} alt='flip-card' width={100} height={100}/>
                                                     <h3>{item.sort_order}</h3>
                                                 </div>
                                                 {index % 2 === 0 ?
@@ -373,7 +381,7 @@ const Products = ({ homepage }) => {
                                                     </div>}
                                             </div>
                                             <div className="flip-card-back">
-                                                <img src={item.second_image} />
+                                                <Image src={item.second_image} width={100} height={100} alt='flip card back'/>
                                             </div>
                                         </div>
                                     </div>
@@ -399,7 +407,7 @@ const Products = ({ homepage }) => {
                                         <Col key={item.id} lg={4} md={4} as={Link} href={'news-info/' + item.slug} style={{ textDecoration: "none" }}>
 
                                             <Card className='latest-news'>
-                                                <img src={item.medium_image} />
+                                                <Image src={item.medium_image} alt='blogs' width={100} height={100}/>
                                                 <h6>{item.post_date}</h6>
                                                 <p>< FaHandPointRight /> {item.title_en}</p>
                                             </Card>

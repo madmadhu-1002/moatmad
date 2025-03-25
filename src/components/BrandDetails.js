@@ -17,6 +17,7 @@ Chart.register(ArcElement);
 const currency = "AED";
 
 const BrandDetails = ({ vehicledata }) => {
+  console.log(vehicledata);
   const [iAmount, setIAmount] = useState(0);
   const [iRate, setIRate] = useState(4.09);
   const [finance, setFinance] = useState(false)
@@ -461,7 +462,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   <Col lg={2} sm={3} xs={3} className='small-box-fixed ' >
                                     <div className='first-and-main-div  mobile-border'>
                                       <div className='caroverview-icon-div'>
-                                        <img src={'https://www.moatamadcars.com/assets/car-overview/MicrosoftTeams-image%20(81).png'} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <img src="/assets/car-overview/MicrosoftTeams-image (81).png" width={'40px'} height={'40px'} style={{ padding: '5px' }} />
                                       </div>
                                       <div className='caroverview-feture-div'>
                                         <h6 className='featers-main-haeding'>DESCRIPTION</h6>
