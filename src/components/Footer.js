@@ -138,7 +138,7 @@ const Footer = ({footer}) => {
 
                             <div style={{ marginBottom: "0px", display: "grid" }}>
                                 {footer && footer.leagal && footer.leagal.map((item) => (
-                                    <a key={item.id} href={item.slug} style={{ color: "black", textDecoration: "none", paddingRight: '20px', fontSize: "12px", color: "white" }} >
+                                    <a key={item.id} href={`/${item.slug}`} style={{ color: "black", textDecoration: "none", paddingRight: '20px', fontSize: "12px", color: "white" }} >
                                         {item.menu_name_en}
                                     </a>
                                 ))}

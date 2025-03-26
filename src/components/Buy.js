@@ -388,7 +388,7 @@ const Buy = ({buydata}) => {
                               <Col lg={2} style={{ padding: '0px' }}>
                                 <Row>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                    <img src='\assets\product-feture-icons\calender.png' style={{ width: '30px' }} />
+                                    <img src='/assets/product-feture-icons/calender.png' style={{ width: '30px' }} />
                                   </Col>
                                   <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                     <p>{item.year}</p>
@@ -491,7 +491,7 @@ const Buy = ({buydata}) => {
                                 <Col lg={2} style={{ padding: '0px' }}>
                                   <Row>
                                     <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }} >
-                                      <img src='\assets\product-feture-icons\calender.png' style={{ width: '30px' }} />
+                                      <img src='/assets/product-feture-icons/calender.png' style={{ width: '30px' }} />
                                     </Col>
                                     <Col lg={12} style={{ padding: "0px", display: "flex", justifyContent: 'center' }}>
                                       <p>{item.year}</p>

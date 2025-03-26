@@ -156,7 +156,7 @@ const Products = ({ homepage }) => {
   };
   return (
     <>
-      <section className={`${styles.addBrandSlides} mt-3`}>
+      <section className={`${styles.addBrandSlides} mt-3`} style={{height:"70px"}}>
         <Slider {...settings}>
           {allVechileThumb.map((image, index) => (
             <div className='pe-2' key={index}>
@@ -437,7 +437,7 @@ const Products = ({ homepage }) => {
                 <Row>
                     <Col lg={12}>
                         <div className={`mt-5 mb-4 ${styles.productsHeading}`}>
-                            <h3>{homepage.Testimonials.category_title_en}</h3>
+                            <h1>{homepage.Testimonials.category_title_en}</h1>
                         </div>
                         <Slider {...settings1}>
                             {homepage.Testimonials.testimonials.map((item, index) => (

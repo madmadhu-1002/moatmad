@@ -7,7 +7,7 @@ const PrivacyPolicy = ({data}) => {
         <Row>
 
           <div className='mt-5 mb-5 products-heading'>
-            <h3>{data && data.category_title_en}</h3>
+            <h1>{data && data.category_title_en}</h1>
           </div>
 
           <Col lg={12} style={{ padding: '0px 40px' }}>

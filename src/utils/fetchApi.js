@@ -124,6 +124,13 @@ async function fetchTerms(){
     return data.data;
 }
 
+async function fetchContact(){
+  const res = await fetch("https://admin.moatamad.com/api/getContactUsPageDataBySlug/contact-us", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch Contact.");
+    const data = await res.json();
+    return data.data;
+}
+
 async function fetchBlogDetails(lastRouteName) {
   try {
       const res = await fetch(`https://admin.moatamad.com/api/getBlogsPageDetailserBySlug/${lastRouteName}`, { cache: "no-store" });
@@ -173,4 +180,4 @@ async function fetchBrandDetails(lastRouteName) {
 
 
 
-  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome, fetchBlogDetails, fetchBrandDetails, fetchDealerDetails, fetchPrivacyPolicy, fetchTerms };
+  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome, fetchBlogDetails, fetchBrandDetails, fetchDealerDetails, fetchPrivacyPolicy, fetchTerms, fetchContact };

@@ -210,7 +210,7 @@ const Compare = () => {
     <>
     <Container className={`mb-5 ${styles.compareTable}`}>
         <div className={`mt-5 ${styles.productsHeading}`}>
-          <h3>Compare Cars</h3>
+          <h1>Compare Cars</h1>
         </div>
         <Row className={styles.compareRow}>
           <Col lg={3} className={`${styles.compareClearCol} mb-3`} style={{ display: "flex", alignItems: "start" }}>

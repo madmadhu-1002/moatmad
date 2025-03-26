@@ -1,0 +1,53 @@
+.contact .info-item {
+    padding: 20px 0 30px 0;
+    box-shadow: 0 0 4px color-mix(in srgb, var(--default-color), transparent 85%);
+  }
+
+  .contact .info-item i {
+    color: var(--accent-color);
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+    box-shadow: 0 2px 3px
+      color-mix(in srgb, var(--default-color), transparent 85%);
+  }
+  
+  .contact .info-item h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+  
+  .contact .info-item p {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+  
+  
+
+  .productsHeading {
+    display: grid;
+    justify-content: center;
+  }
+  .productsHeading h6 {
+    text-align: center;
+  }
+  .productsHeading h3 {
+    font-weight: 700;
+    margin-bottom: 0px !important;
+  }
+
+  .contactFormBg .form-col {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px !important;
+    padding: 20px !important;
+  }
+  .contactFormBg .form-control {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px !important;
+    border-radius: 5px !important;
+  }
