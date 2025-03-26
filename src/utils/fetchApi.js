@@ -131,6 +131,13 @@ async function fetchContact(){
     return data.data;
 }
 
+async function fetchTestimonials(){
+  const res = await fetch("https://admin.moatamad.com/api/getBuyersGuidePageDataBySlug/testimonials", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to fetch testimonials.");
+    const data = await res.json();
+    return data.data;
+}
+
 async function fetchBlogDetails(lastRouteName) {
   try {
       const res = await fetch(`https://admin.moatamad.com/api/getBlogsPageDetailserBySlug/${lastRouteName}`, { cache: "no-store" });
@@ -180,4 +187,4 @@ async function fetchBrandDetails(lastRouteName) {
 
 
 
-  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome, fetchBlogDetails, fetchBrandDetails, fetchDealerDetails, fetchPrivacyPolicy, fetchTerms, fetchContact };
+  export { fetchMenus, fetchFooter, fetchAbout, fetchBlog, fetchCareer, fetchFinance, fetchDealer, fetchCompareSeo, fetchOffers, fetchSellSeo, fetchUsedCar, fetchPaperWork,fetchCarRating, fetchBuy, fetchHome, fetchBlogDetails, fetchBrandDetails, fetchDealerDetails, fetchPrivacyPolicy, fetchTerms, fetchContact, fetchTestimonials };
