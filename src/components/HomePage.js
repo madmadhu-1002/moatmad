@@ -357,7 +357,7 @@ const HomePage = ({homepage}) => {
 
 
                   <Carousel.Item key={banners.id}>
-                    <Image src={banners.image} width={1240} height={485} alt='banners'/>
+                    <Image src={banners.image} width={1240} height={485} alt='banners' layout="responsive"/>
                   </Carousel.Item>
                 )
 
