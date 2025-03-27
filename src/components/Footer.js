@@ -14,7 +14,7 @@ import styles from '@/styles/Footer.module.css';
 import Image from 'next/image';
 
 
-const Footer = ({footer}) => {
+const Footer = ({ footer }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const handleSubmit = async (e) => {
@@ -37,8 +37,8 @@ const Footer = ({footer}) => {
 
         }
     }
-  return (
-    <>
+    return (
+        <>
             <Container className={styles.footerContainer} fluid >
                 <Row className={styles.footerFirstContainer}>
                     <Col lg={9} md={9}>
@@ -119,14 +119,67 @@ const Footer = ({footer}) => {
                         <div>
                             <h5>Follow Us</h5>
                             <hr />
-                            <div className={styles.footerIcons} style={{ display: "flex", width: '120px', justifyContent: 'space-between', marginTop: '5%', marginLeft: '-1%' }}>
-                                <a target='_blank' href={footer && footer.socail_media_links.content.facebook_url}><FaFacebookF /></a>
-                                <a target='_blank' href={footer && footer.socail_media_links.content.instagram_url}><FaInstagram /></a>
-                                <a target='_blank' href={footer && footer.socail_media_links.content.youtube_url} ><FaYoutube /></a>
-                                <a target='_blank' href={footer && footer.socail_media_links.content.linked_in_link} ><FaLinkedinIn /></a>
-                                <a target='_blank' href={footer && footer.socail_media_links.content.twitter_url}><FaXTwitter /></a>
+                            <div
+                                className={styles.footerIcons}
+                                style={{
+                                    display: "flex",
+                                    width: "120px",
+                                    justifyContent: "space-between",
+                                    marginTop: "5%",
+                                    marginLeft: "-1%"
+                                }}
+                            >
+                                {footer?.socail_media_links?.content?.facebook_url && (
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={footer.socail_media_links.content.facebook_url}
+                                    >
+                                        <FaFacebookF />
+                                    </a>
+                                )}
 
+                                {footer?.socail_media_links?.content?.instagram_url && (
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={footer.socail_media_links.content.instagram_url}
+                                    >
+                                        <FaInstagram />
+                                    </a>
+                                )}
+
+                                {footer?.socail_media_links?.content?.youtube_url && (
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={footer.socail_media_links.content.youtube_url}
+                                    >
+                                        <FaYoutube />
+                                    </a>
+                                )}
+
+                                {footer?.socail_media_links?.content?.linked_in_link && (
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={footer.socail_media_links.content.linked_in_link}
+                                    >
+                                        <FaLinkedinIn />
+                                    </a>
+                                )}
+
+                                {footer?.socail_media_links?.content?.twitter_url && (
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={footer.socail_media_links.content.twitter_url}
+                                    >
+                                        <FaXTwitter />
+                                    </a>
+                                )}
                             </div>
+
 
                         </div>
                     </Col>
@@ -153,7 +206,7 @@ const Footer = ({footer}) => {
             </Container>
             <ToastContainer />
         </>
-  )
+    )
 }
 
 export default Footer

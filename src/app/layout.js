@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ServerFooter from "@/components/ServerFooter";
 import { GlobalProvider } from "@/context/GlobalContext";
 import WhatsappIcon from "@/components/WhatsappIcon";
-import Head from "next/head";
+import Script from "next/script";
 
 export const metadata = {
   title: "MoatMad",
@@ -12,124 +12,125 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // Define the JSON-LD data as a JavaScript object
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Does Moatamadcars own the cars I see online, or are they owned by other individuals and dealers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Moatamadcars owns every car we sell and all the cars on our website are physically located at one of our Moatamadcars stores"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Where does Moatamadcars get its stock from?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The cars we sell come from our current customers in the UAE region. This includes people who trade-in their car when buying another high-quality used car from us. Others come from businesses, government institutions, and business fleet owners that want to sell and upgrade their cars."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do you choose the used cars that you sell?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "All Cars in our inventory must pass a 101-point inspection and undergo a detailed reconditioning to be sold at Moatamadcars. Choosing a used car from our extensive stock offers you greater peace of mind."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does it mean that all cars at Moatamadcars are quality certified?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every car we sell is Moatamadcars Certified, which means that the car has passed our 101-point inspection and undergone a detailed reconditioning process. Our 101-point inspection includes checking on various parameters which includes engine components and associated systems for proper operation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do a used car with Moatamadcars come with a warranty?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Cars we sell comes with a 12-month / 20,000-kilometer comprehensive warranty* (whichever comes first) from the date of delivery. *Terms and conditions apply."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "If a car has been repainted, does this mean it was involved in an accident?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Moatamadcars does not buy a car which has structural damages that effect the performance of a car. However Small scratches and dents are unavoidable, and sometimes a respray is the only way to return a car to showroom condition before we put it on sale."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "If I find a car I like online, can I see it in person before I make decision?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You deserve to have total confidence in your decision before you purchase a car. Unless otherwise noted, every car you see online is located at a Moatamadcars store and can be seen in person and test driven prior to buying."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "If I pay a deposit on a car, can it be refunded?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We don’t offer refunds on vehicle deposits, but you can transfer the payment to another one of our cars within six months of the deposit being paid. This charge is to compensate for the overhead cost of the entire transaction and any monetary loss that occurred during the booking. However, if in case the finance company rejects your loan proposal sourced through us the entire booking amount will be refunded."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are the prices of cars displayed on the website subject to change?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Prices of all cars displayed on the website are valid through the listed date. However, prices are subject to change, based upon current market conditions. These changes will not affect you if you have reserved a car."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I Talk to someone?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Behind our website is a team of real people. Give them a call on +971 600-562621 during our opening hours. Sunday to Saturday 9 am to 6:30 pm (Friday National Holiday)"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I pay for my car?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Your used car can be reserved with a small deposit that's displayed in the description of every car. The easiest way to pay is on the website by credit or debit card."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What documents are required to buy a car?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To buy a car from us, you will need a copy of your valid UAE driving license; Valid 3 months bank statement, Valid salary certificate, Valid Passport copy & visa copy and Valid emirates id copy. Additional documentation may also be required. Please contact Moatamadcars sales consultant for a full list of documents"
-        }
-      }
-    ]
-  };
-
+  const faqSchema = {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Does Moatamadcars own the cars I see online, or are they owned by other individuals and dealers?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Moatamadcars owns every car we sell and all the cars on our website are physically located at one of our Moatamadcars stores."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Where does Moatamadcars get its stock from?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The cars we sell come from our current customers in the UAE region. This includes people who trade in their car when buying another high-quality used car from us. Others come from businesses, government institutions, and business fleet owners that want to sell and upgrade their cars."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do you choose the used cars that you sell?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All cars in our inventory must pass a 101-point inspection and undergo a detailed reconditioning to be sold at Moatamadcars. Choosing a used car from our extensive stock offers you greater peace of mind."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What does it mean that all cars at Moatamadcars are quality certified?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every car we sell is Moatamadcars Certified, which means that the car has passed our 101-point inspection and undergone a detailed reconditioning process. Our 101-point inspection includes checking various parameters, including engine components and associated systems for proper operation."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do used cars with Moatamadcars come with a warranty?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Cars we sell come with a 12-month / 20,000-kilometer comprehensive warranty* (whichever comes first) from the date of delivery. *Terms and conditions apply."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "If a car has been repainted, does this mean it was involved in an accident?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Moatamadcars does not buy a car that has structural damages affecting its performance. However, small scratches and dents are unavoidable, and sometimes a respray is the only way to return a car to showroom condition before we put it on sale."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "If I find a car I like online, can I see it in person before I make a decision?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. You deserve to have total confidence in your decision before you purchase a car. Unless otherwise noted, every car you see online is located at a Moatamadcars store and can be seen in person and test-driven prior to buying."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "If I pay a deposit on a car, can it be refunded?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We don’t offer refunds on vehicle deposits, but you can transfer the payment to another one of our cars within six months of the deposit being paid. This charge is to compensate for the overhead cost of the entire transaction and any monetary loss that occurred during the booking. However, if the finance company rejects your loan proposal sourced through us, the entire booking amount will be refunded."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Are the prices of cars displayed on the website subject to change?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prices of all cars displayed on the website are valid through the listed date. However, prices are subject to change based on current market conditions. These changes will not affect you if you have reserved a car."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I talk to someone?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Behind our website is a team of real people. Give them a call on +971 600-562621 during our opening hours: Sunday to Saturday 9 am to 6:30 pm (Friday National Holiday)."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do I pay for my car?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your used car can be reserved with a small deposit that's displayed in the description of every car. The easiest way to pay is on the website by credit or debit card."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What documents are required to buy a car?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To buy a car from us, you will need a copy of your valid UAE driving license; valid 3-month bank statement, valid salary certificate, valid passport copy & visa copy, and valid Emirates ID copy. Additional documentation may also be required. Please contact a Moatamadcars sales consultant for a full list of documents."
+                  }
+                }
+              ]
+            }
   return (
     <html lang="en">
-      <Head>
-        {/* Inject the JSON-LD script into the head */}
-        <script
+      <head>
+      <Script
+      id="my-inline-script"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema)
+          }}
         />
-      </Head>
+      </head>
       <body>
         <GlobalProvider>
           <ServerHeader />
-          <WhatsappIcon />
           {children}
+          <WhatsappIcon />
           <ServerFooter />
         </GlobalProvider>
       </body>

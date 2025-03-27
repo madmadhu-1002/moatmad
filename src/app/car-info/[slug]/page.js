@@ -4,7 +4,7 @@ import { fetchBrandDetails } from "@/utils/fetchApi";
 
 export async function generateMetadata({ params: { slug } }) {
     const { seo } = await fetchBrandDetails(slug);
-  
+  console.log(seo.canonical_url);
     return {
       title: seo?.meta_title || "Default Title",
       description: seo?.meta_description || "Default description",
