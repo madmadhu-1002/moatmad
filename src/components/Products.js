@@ -76,6 +76,7 @@ const Products = ({ homepage }) => {
     autoplay: true,
     autoplaySpeed: 2000,
     arrows: false,
+  accessibility: true,
     responsive: [
       {
         breakpoint: 768, // Mobile and smaller screens

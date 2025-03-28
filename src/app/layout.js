@@ -117,6 +117,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+      <title>MoatMad - Buy Certified Used Cars in UAE</title>
+    <meta name="description" content="MoatMad offers quality-certified used cars with warranty. Explore our inventory and find your dream car today!" />
+
       <Script
       id="my-inline-script"
           type="application/ld+json"
