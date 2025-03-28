@@ -11,7 +11,7 @@ import { useGlobalContext } from "@/context/GlobalContext";
 import Image from 'next/image';
 import styles from '@/styles/HomePage.module.css'
 
-const HomePage = ({homepage}) => {
+const HomePage = ({homepage, vehicles}) => {
   const { searchVeh, setSearchVeh } = useGlobalContext();
     const router = useRouter();
     const [selectedBodyType, setSelectedBodyType] = useState('');
@@ -369,7 +369,7 @@ const HomePage = ({homepage}) => {
         </Row>
 
         {/* <Brandscarousel /> */}
-        <Products homepage={homepage}/>
+        <Products homepage={homepage} vehicles={vehicles}/>
         
         
 

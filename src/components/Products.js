@@ -16,9 +16,8 @@ import styles from '@/styles/Products.module.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Products = ({ homepage }) => {
+const Products = ({ homepage, vehicles }) => {
   const [slug, setSlug] = useState(1);
-  const [allVechileThumb, setAllVechileThumb] = useState([]);
   const [loading, setLoading] = useState(false);
   const [carbodytypes, setCarBodyTypes] = useState([]);
 
@@ -28,29 +27,7 @@ const Products = ({ homepage }) => {
       once: true, // Ensures animation happens only once
     });
   }, []);
-  
-  useEffect(() => {
-    const fetchVehicleData = async () => {
-      const cachedData = localStorage.getItem("allVehicleData");
 
-      if (cachedData) {
-        setAllVechileThumb(JSON.parse(cachedData));
-      } else {
-        try {
-          const response = await axios.get(
-            "https://admin.moatamad.com/api/getBuyPageDataBySlug/buy"
-          );
-          const vehicles = response.data.data.vehicles;
-          setAllVechileThumb(vehicles);
-          localStorage.setItem("allVehicleData", JSON.stringify(vehicles));
-        } catch (error) {
-          console.error("API Error:", error);
-        }
-      }
-    };
-
-    fetchVehicleData();
-  }, []);
   useEffect(() => {
     AOS.init();
     setLoading(true); // Set loading to true before making the API call
@@ -76,7 +53,7 @@ const Products = ({ homepage }) => {
     autoplay: true,
     autoplaySpeed: 2000,
     arrows: false,
-  accessibility: true,
+    accessibility: true,
     responsive: [
       {
         breakpoint: 768, // Mobile and smaller screens
@@ -155,11 +132,12 @@ const Products = ({ homepage }) => {
         },
       ],
   };
+  console.log(vehicles);
   return (
     <>
       <section className={`${styles.addBrandSlides} mt-3`} style={{height:"70px"}}>
         <Slider {...settings}>
-          {allVechileThumb.map((image, index) => (
+          {vehicles.map((image, index) => (
             <div className='pe-2' key={index}>
             <Card as={Link} href={`car-info/${image.slug}`} key={index} >
               <Container >

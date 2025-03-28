@@ -1,7 +1,7 @@
 
 import HomePage from "@/components/HomePage";
 import WhatsappIcon from "@/components/WhatsappIcon";
-import {fetchFooter, fetchHome} from "@/utils/fetchApi.js"
+import {fetchBuy, fetchFooter, fetchHome} from "@/utils/fetchApi.js"
 
 
 
@@ -35,13 +35,14 @@ export async function generateMetadata() {
 const Page = async () => {
   const homepage = await fetchHome();
   const footer = await fetchFooter();
+  const {vehicles} = await fetchBuy();
   
   
   
   return (
     <>
     <WhatsappIcon footer={footer}/>
-    <HomePage homepage={homepage} />
+    <HomePage homepage={homepage} vehicles={vehicles}/>
     </>
   )
 }
