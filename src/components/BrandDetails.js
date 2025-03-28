@@ -12,6 +12,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { RotatingLines } from 'react-loader-spinner';
 import { toast, ToastContainer } from 'react-toastify';
 import styles from '@/styles/BrandDetails.module.css'
+import Image from 'next/image';
 
 Chart.register(...registerables);
 Chart.register(ArcElement);
@@ -462,7 +463,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div  mobile-border'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src="/assets/car-overview/MicrosoftTeams-image (81).png" width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='microsoft image' src="/assets/car-overview/MicrosoftTeams-image (81).png" width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>DESCRIPTION</h6>
@@ -473,7 +474,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src={vehicledata.CarOverviewList.body_condition_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='body condition icon' src={vehicledata.CarOverviewList.body_condition_icon1_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.body_type_label_en}</h6>
@@ -484,7 +485,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed}  >
                                     <div className='first-and-main-div mobile-border'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src={vehicledata.CarOverviewList.fuel_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='fuel icon' src={vehicledata.CarOverviewList.fuel_icon_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.fuel_label_en}</h6>
@@ -497,7 +498,7 @@ const BrandDetails = ({ vehicledata }) => {
 
                                     <div className='first-and-main-div'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src={vehicledata.CarOverviewList.regional_specs_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='regional specs' src={vehicledata.CarOverviewList.regional_specs_icon1_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.regional_specs_label_en}</h6>
@@ -508,7 +509,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div mobile-border'>
                                       <div className={styles.carOverviewIconDiv} style={{ border: "none" }}>
-                                        <img src={vehicledata.CarOverviewList.body_condition_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='body condition icon' src={vehicledata.CarOverviewList.body_condition_icon_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.body_condition_label_en}</h6>
@@ -519,7 +520,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src={vehicledata.CarOverviewList.warranty_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='warranty icon' src={vehicledata.CarOverviewList.warranty_icon_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.warranty_name_label_en}</h6>
@@ -529,7 +530,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div mobile-border'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src={vehicledata.CarOverviewList.door_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='door icon' src={vehicledata.CarOverviewList.door_icon_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.door_label_en}</h6>
@@ -539,7 +540,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src={vehicledata.CarOverviewList.transmission_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='transmission icon' src={vehicledata.CarOverviewList.transmission_icon1_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.transmission_label_en}</h6>
@@ -549,7 +550,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   </Col> <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div mobile-border'>
                                       <div className={styles.carOverviewIconDiv}>
-                                        <img src={vehicledata.CarOverviewList.cylinder_icon_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='cylinder icon' src={vehicledata.CarOverviewList.cylinder_icon_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.cylinder_label_en}</h6>
@@ -560,7 +561,7 @@ const BrandDetails = ({ vehicledata }) => {
                                   <Col lg={2} sm={3} xs={3} className={styles.smallBoxFixed} >
                                     <div className='first-and-main-div'>
                                       <div className={styles.carOverviewIconDiv} style={{ border: "none" }} >
-                                        <img src={vehicledata.CarOverviewList.engine_icon1_file} width={'40px'} height={'40px'} style={{ padding: '5px' }} />
+                                        <Image alt='engine icon' src={vehicledata.CarOverviewList.engine_icon1_file} width={40} height={40} style={{ padding: '5px' }} />
                                       </div>
                                       <div className={styles.carOverviewFeatureDiv}>
                                         <h6 className='featers-main-haeding'>{vehicledata.CarOverviewList.engine_label_en}</h6>
@@ -587,7 +588,7 @@ const BrandDetails = ({ vehicledata }) => {
                                 >
                                   <div className={styles.extraFeaturesSecondDiv}>
                                     <p>{item.extra_feature_en}</p>
-                                    <img src='https://cdn-icons-png.freepik.com/256/5290/5290058.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={'14px'} height={'14px'} />
+                                    <Image alt='cdn icon' src='https://cdn-icons-png.freepik.com/256/5290/5290058.png?ga=GA1.1.769605160.1678772043&semt=ais_hybrid' width={14} height={14} />
                                   </div>
                                 </Col>
                               )

@@ -8,7 +8,7 @@ const Testimonials = ({data}) => {
         <Container fluid className={`mb-5 ${styles.testimonials}`} >
           <Row>
             <div className={`mt-5 mb-4 ${styles.productsHeading}`}>
-              <h3>Testimonials</h3>
+              <h1>Testimonials</h1>
             </div>
             <Container fluid>
               <Row className={styles.testMon} style={{ marginRight: "0%" }}>

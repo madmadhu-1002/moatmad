@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import {fetchFooter, fetchAbout} from "@/utils/fetchApi.js"
+import {fetchFooter} from "@/utils/fetchApi.js"
 
 
 export default async function ServerFooter() {

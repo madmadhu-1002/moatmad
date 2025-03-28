@@ -165,7 +165,7 @@ async function fetchBrandDetails(lastRouteName) {
   try {
       const res = await fetch(`https://admin.moatamad.com/api/getVehicleDetailsByVehicleSlug/${lastRouteName}`, { cache: "no-store" });
       if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        throw new Error(`HTTP server error! Status: ${res.status}`);
     }
 
     const text = await res.text(); // Read response as text first

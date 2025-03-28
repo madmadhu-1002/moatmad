@@ -10,7 +10,7 @@ const Blog = ({carblogs}) => {
   return (
     <Container fluid className='mb-5' style={{padding:"0px 40px "}}>
                 <div className={`mt-5 mb-5 ${styles.productsHeading}`}>
-                    <h3>Latest Blogs</h3>
+                    <h1>Latest Blogs</h1>
                 </div>
                 <Row>
                     <Col lg={12}>

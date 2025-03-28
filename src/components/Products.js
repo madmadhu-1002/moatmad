@@ -408,7 +408,7 @@ const Products = ({ homepage }) => {
                             <Row>
                                 {homepage.LatestNews.blogs.map((item) => {
                                     return (
-                                        <Col key={item.id} lg={4} md={4} as={Link} href={'news-info/' + item.slug} style={{ textDecoration: "none" }}>
+                                        <Col key={item.id} lg={4} md={4} as={Link} href={'blog/' + item.slug} style={{ textDecoration: "none" }}>
 
                                             <Card className={styles.latestNews}>
                                                 <Image src={item.medium_image} alt='blogs' width={100} height={100}/>
